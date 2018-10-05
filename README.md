@@ -16,7 +16,7 @@ You might want to create a Zowe CLI plug-in to accomplish the following:
 We also provide the following tutorials, guidelines, and documentation to assist you during development:
 
 ### Tutorials
-To learn about how to work with this sample plug-in, build new commands, or build a new Zowe CLI plug-in, see [Develop for Zowe CLI](https://zowe.github.io/docs-site/guides/cli-developPlugins.html).
+To learn about how to work with this sample plug-in, build new commands, or build a new Zowe CLI plug-in, see [Develop for Zowe CLI](https://zowe.github.io/docs-site/guides/cli-devTutorials.html).
 
 ### Contribution Guidelines 
 The Zowe CLI [contribution guidelines](CONTRIBUTING.md) contain standards and conventions for developing Zowe CLI plug-ins. 
@@ -24,7 +24,7 @@ The Zowe CLI [contribution guidelines](CONTRIBUTING.md) contain standards and co
 The guidelines contain critical information about working with the code, running/writing/maintaining automated tests, developing consistent syntax in your plug-in, and ensuring that your plug-in integrates with Zowe CLI properly.
 
 ### Imperative CLI Framework Documentation
-[Imperative CLI Framework](https://github.com/gizafoundation/imperative/wiki) documentation is a key source of information to learn about the features of Imperative CLI Framework (the code framework that you use to build plug-ins for Zowe CLI). Refer to these documents during development. 
+[Imperative CLI Framework](https://github.com/zowe/imperative/wiki) documentation is a key source of information to learn about the features of Imperative CLI Framework (the code framework that you use to build plug-ins for Zowe CLI). Refer to these documents during development. 
 
 ### Jenkinsfile Guidelines 
 Reference the [Jenkinsfile Guidelines](CICD-TEMPLATE.md) for information about setting up and maintaining automated testing/deployment for your plug-in with Jenkins automation server. 
