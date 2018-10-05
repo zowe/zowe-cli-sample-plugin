@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Files should read the example directory 1`] = `"ExampleFile.txt"`;
+
+exports[`Files should read the example directory 2`] = `"ExampleFolder"`;

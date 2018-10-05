@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`zowe-cli-sample issue command-with-positionals should issue a response with the number and string inputted 1`] = `
+"\\"zowe zcsp issue command-with-positionals\\" command issued!
+The first positional parameter: one
+The second positional parameter: 2
+"
+`;

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`zowe-cli-sample issue command-with-options should issue a response with the number and string inputted 1`] = `
+"\\"zowe zcsp issue command-with-options\\" command issued!
+The string specified:
+\\"teststring!\\"
+The number specified was \\"1\\".
+"
+`;

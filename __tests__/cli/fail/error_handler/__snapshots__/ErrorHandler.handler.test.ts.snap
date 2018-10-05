@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`error-handler Handler throw an error 1`] = `"\\"zowe zowe-cli-sample fake\\" command failed!"`;
