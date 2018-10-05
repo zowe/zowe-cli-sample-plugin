@@ -54,7 +54,7 @@ Use the following information as guidance when you configure Jenkins settings in
 <b>ca-jenkins-agent</b>: 
 The ca-jenkins-agent is a Jenkins label which is predefined to represent a Jenkins agent. A Jenkins agent is a Linux machine that is intergrated with Jenkins server.  This agent is where all of the pipeline operations run. The agent must be set up with the following configuration:
 
-* Must be configured so that the [keytar Node module](https://github.com/atom/node-keytar) can be used. See [Jenkins Machine Information](https://github.com/gizafoundation/imperative/tree/master/jenkins) for information about how to configure the build agent for keytar.
+* Must be configured so that the [keytar Node module](https://github.com/atom/node-keytar) can be used. See [Jenkins Machine Information](https://github.com/zowe/imperative/tree/master/jenkins) for information about how to configure the build agent for keytar.
 * A Jenkins user must be defined.
 * The agent is connected to a Jenkins server.
 * Allow jenkins users to operate with the "sudo" privilege.
