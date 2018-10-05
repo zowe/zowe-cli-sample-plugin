@@ -12,7 +12,20 @@
 const fs = require("fs");
 
 // process all typescript files
-require("glob")("{__mocks__,src,gulp,__tests__,jenkins,scripts}{" +
+require("glob")("{__mocks__,src,gulp,__tests__,jenkins,scripts}{/**/*.js,/**/*.ts}", (globErr, filePaths) => {
+        if (globErr) {
+            throw globErr;
+        }
+        // turn the license file into a multi line comment
+        const desiredLineLength = 80;
+        let alreadyContainedCopyright = 0;
+        const header = "/*\n" + fs.readFileSync("LICENSE_HEADER").toString()
+                .split(/\r?\n/g).map((line) => {
+                    const lenAdjust = desiredLineLength - line.length;
+                    const pad = Array((lenAdjust < 0) ? 0 : lenAdjust).join(" ");
+                    return "* " + line + pad + " *";
+                })
+                .join(require("os").EOL) + require("os").EOL + "*/" +
             require("os").EOL + require("os").EOL;
         for (const filePath of filePaths) {
             const file = fs.readFileSync(filePath);
