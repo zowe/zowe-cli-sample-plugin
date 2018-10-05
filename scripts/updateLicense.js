@@ -1,12 +1,12 @@
 /*
-* This program and the accompanying materials are made available under the terms of the *
-* Eclipse Public License v2.0 which accompanies this distribution, and is available at *
-* https://www.eclipse.org/legal/epl-v20.html                                      *
-*                                                                                 *
-* SPDX-License-Identifier: EPL-2.0                                                *
-*                                                                                 *
-* Copyright Contributors to the Zowe Project.                                     *
-*                                                                                 *
+* This program and the accompanying materials are made available under the terms of the
+* Eclipse Public License v2.0 which accompanies this distribution, and is available at
+* https://www.eclipse.org/legal/epl-v20.html
+*
+* SPDX-License-Identifier: EPL-2.0
+*
+* Copyright Contributors to the Zowe Project.
+*
 */
 
 const fs = require("fs");
@@ -21,9 +21,7 @@ require("glob")("{__mocks__,src,gulp,__tests__,jenkins,scripts}{/**/*.js,/**/*.t
         let alreadyContainedCopyright = 0;
         const header = "/*\n" + fs.readFileSync("LICENSE_HEADER").toString()
                 .split(/\r?\n/g).map((line) => {
-                    const lenAdjust = desiredLineLength - line.length;
-                    const pad = Array((lenAdjust < 0) ? 0 : lenAdjust).join(" ");
-                    return "* " + line + pad + " *";
+                    return `* ${line}`.trim();
                 })
                 .join(require("os").EOL) + require("os").EOL + "*/" +
             require("os").EOL + require("os").EOL;
