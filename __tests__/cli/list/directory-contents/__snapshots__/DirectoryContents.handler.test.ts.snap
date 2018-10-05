@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`directory-contents Handler should read a mocked directory 1`] = `
+"We just got a valid z/OSMF status response from system = dummy
+"
+`;
+
+exports[`directory-contents Handler should read a mocked directory 2`] = `"Listing contents of \\"fake/directory\\""`;
+
+exports[`directory-contents Handler should read a mocked directory 3`] = `
+Array [
+  Object {
+    "fake": "file",
+    "moreFake": "directory",
+  },
+]
+`;
+
+exports[`directory-contents Handler should read a mocked directory 4`] = `
+"fake moreFake 
+file directory"
+`;

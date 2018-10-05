@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`zowe-cli-sample issue command should display the help 1`] = `
+"
+ DESCRIPTION
+ -----------
+
+   [actions] in Zowe are groups of commands. [actions] are always verbs. For
+   example, for command \\"zowe zos-files delete data-set\\", the [action] is \\"delete\\".
+
+   For this action (\\"issue\\") we will issue commands with
+   required/optional/positional options.
+
+ USAGE
+ -----
+
+   zowe zowe-cli-sample issue [command]
+
+ COMMANDS
+ --------
+
+   command-with-options | cwo     [object] command-with-options requires options
+   command-with-positionals | cwp [object] command-with-positionals prints      
+                                  console msgs                                  
+
+ GLOBAL OPTIONS
+ --------------
+
+   --response-format-json  | --rfj (boolean)
+
+      Produce the command response as a JSON document
+
+   --help  | -h (boolean)
+
+      Display help text
+
+"
+`;

@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`command-with-positionals Handler throw an error 1`] = `"\\"zowe fake\\" command issued!"`;
+
+exports[`command-with-positionals Handler throw an error 2`] = `" \\"zowe fake\\" command issued! The first positional parameter: mocked first positional string The second positional parameter: mocked second positional string"`;
