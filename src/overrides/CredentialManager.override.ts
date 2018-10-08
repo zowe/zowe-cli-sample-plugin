@@ -36,8 +36,8 @@ export = class CredentialManagerOverrides extends AbstractCredentialManager {
 
     private consoleLog = Logger.getConsoleLogger();
 
-    constructor(service: string) {
-        super(service);
+    constructor(service: string, displayName: string) {
+        super(service, displayName);
     }
 
     public async deleteCredentials(account: string) {
