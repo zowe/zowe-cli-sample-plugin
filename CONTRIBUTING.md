@@ -4,7 +4,7 @@ The contribution guidelines in this document pertain to contributing to this zow
 
 We provide guidelines for developing Zowe CLI plug-ins in the [Zowe CLI GitHub repository](https://github.com/zowe/zowe-cli). The following information is critical to working with the code, running/writing/maintaining automated tests, developing consistent syntax in your plug-in, and ensuring that your plug-in integrates with Zowe CLI properly:
 
-| For more information about ... | See ... |
+| For more information about ... | See: |
 | ------------------------------ | ----- |
 | General guidelines that apply to contributing to Zowe CLI and Plug-ins | [Contribution Guidelines](https://github.com/zowe/zowe-cli/blob/master/CONTRIBUTING.md) |
 | Conventions and best practices for creating packages and plug-ins for Zowe CLI | [Package and Plug-in Guidelines](https://github.com/zowe/zowe-cli/blob/master/docs/PackagesAndPluginGuidelines.md)|
