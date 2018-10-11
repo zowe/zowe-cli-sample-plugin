@@ -19,3 +19,5 @@
  * a Job viewer/tree extension.
  */
 export * from "./api/Files";
+export * from "./api/doc/ITodo";
+export * from "./api/Typicode";

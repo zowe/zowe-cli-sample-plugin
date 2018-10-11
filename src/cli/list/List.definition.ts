@@ -11,6 +11,7 @@
 
 import { ICommandDefinition } from "@brightside/imperative";
 import { DirectoryContentsDefinition } from "./directory-contents/DirectoryContents.definition";
+import { TypicodeTodosDefinition } from "./typicode-todos/TypicodeTodos.definition";
 /**
  * [action] command definition for the [action] two group. The [action] is of imperative command definition type
  * "group", which means it must have children.
@@ -31,7 +32,7 @@ const ListDefinition: ICommandDefinition = {
         "For example, for command \"zowe zos-files delete data-set\", the [action] is \"delete\".\n\n" +
         "For this action (\"list\") we will list files, etc.",
     type: "group",
-    children: [DirectoryContentsDefinition]
+    children: [DirectoryContentsDefinition, TypicodeTodosDefinition]
 };
 
 export = ListDefinition;
