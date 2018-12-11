@@ -30,7 +30,7 @@ The guidelines contain critical information about working with the code, running
 Reference the [Jenkinsfile Guidelines](CICD-TEMPLATE.md) for information about setting up and maintaining automated testing/deployment for your plug-in with Jenkins automation server. 
 
 ## Prerequisites
-Before you work with the Zowe CLI sample plug-in, [install Zowe CLI globally.]https://zowe.github.io/docs-site/latest/user-guide/cli-installcli.html)
+Before you work with the Zowe CLI sample plug-in, [install Zowe CLI globally.](https://zowe.github.io/docs-site/latest/user-guide/cli-installcli.html)
 
 ## Create a Local Development Space
 To create your development space, clone and build the Zowe CLI sample plug-in from source.
