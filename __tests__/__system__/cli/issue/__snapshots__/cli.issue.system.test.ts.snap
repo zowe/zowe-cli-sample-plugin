@@ -14,7 +14,9 @@ exports[`zowe-cli-sample issue command should display the help 1`] = `
  USAGE
  -----
 
-   zowe zowe-cli-sample issue [command]
+   bright zowe-cli-sample issue <command>
+
+   Where <command> is one of the following:
 
  COMMANDS
  --------
@@ -28,7 +30,7 @@ exports[`zowe-cli-sample issue command should display the help 1`] = `
 
    --response-format-json  | --rfj (boolean)
 
-      Produce the command response as a JSON document
+      Produce JSON formatted data from a command
 
    --help  | -h (boolean)
 
