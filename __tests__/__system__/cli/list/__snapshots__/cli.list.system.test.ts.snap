@@ -13,7 +13,7 @@ exports[`zowe-cli-sample list should display the help 1`] = `
  USAGE
  -----
 
-   bright zowe-cli-sample list <command>
+   zowe zowe-cli-sample list <command>
 
    Where <command> is one of the following:
 
