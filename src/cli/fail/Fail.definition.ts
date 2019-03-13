@@ -9,7 +9,7 @@
 *
 */
 
-import { ICommandDefinition } from "@brightside/imperative";
+import { ICommandDefinition } from "@zowe/imperative";
 import { ErrorHandlerDefinition } from "./error_handler/ErrorHandler.definition";
 /**
  * [action] command defintion for the [action] two group. The [action] is of imperative command definition type

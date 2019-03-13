@@ -100,7 +100,7 @@ def PRODUCT_NAME = "zowe-cli-sample-plugin"
 /**
  * This is where the Zowe project needs to be installed
  */
-def ZOWE_CLI_INSTALL_DIR = "/.npm-global/lib/node_modules/@brightside/core"
+def ZOWE_CLI_INSTALL_DIR = "/.npm-global/lib/node_modules/@zowe/cli"
 
 // Setup conditional build options. Would have done this in the options of the declarative pipeline, but it is pretty
 // much impossible to have conditional options based on the branch :/
@@ -214,8 +214,8 @@ pipeline {
             steps('Install Zowe CLI') {
                 timeout(time: 10, unit: 'MINUTES') {
                     echo "Install Zowe CLI globaly"
-                    sh("npm set @brightside:registry https://api.bintray.com/npm/ca/brightside/")
-                    sh("npm install -g @brightside/core@latest")
+                    sh("npm set @zowe:registry https://api.bintray.com/npm/ca/brightside/")
+                    sh("npm install -g @zowe/cli@latest")
                     sh("zowe --version")
                 }
             }

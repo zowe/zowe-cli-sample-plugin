@@ -9,7 +9,7 @@
 *
 */
 
-import { Imperative } from "@brightside/imperative";
+import { Imperative } from "@zowe/imperative";
 // The main tests exist in seperate files because of module resolution in Jest,
 // we want to require the main module a few times to perform different tests
 describe("main success", () => {

@@ -9,7 +9,7 @@
 *
 */
 
-import {IImperativeConfig} from "@brightside/imperative";
+import {IImperativeConfig} from "@zowe/imperative";
 
 const config: IImperativeConfig = {
     commandModuleGlobs: ["**/cli/*/*.definition!(.d).*s"],

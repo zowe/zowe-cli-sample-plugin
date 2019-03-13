@@ -10,7 +10,7 @@
 */
 
 import * as fs from "fs";
-import { Imperative } from "@brightside/imperative";
+import { Imperative } from "@zowe/imperative";
 
 describe("directory-contents definition", () => {
     it("should match the snapshot", () => {
