@@ -11,7 +11,7 @@
 
 import { ICommandHandler, IHandlerParameters, TextUtils } from "@zowe/imperative";
 import { Files } from "../../../api/Files";
-import { CheckStatus, ZosmfSession } from "@zowe/core";
+import { CheckStatus, ZosmfSession } from "@zowe/cli";
 
 /**
  * Command handler for listing directory contents

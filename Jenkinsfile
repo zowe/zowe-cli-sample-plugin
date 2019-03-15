@@ -97,11 +97,6 @@ def ARTIFACTORY_EMAIL = 'giza.jenkins@gmail.com'
  */
 def PRODUCT_NAME = "zowe-cli-sample-plugin"
 
-/**
- * This is where the Zowe project needs to be installed
- */
-def ZOWE_CLI_INSTALL_DIR = "/.npm-global/lib/node_modules/@zowe/cli"
-
 // Setup conditional build options. Would have done this in the options of the declarative pipeline, but it is pretty
 // much impossible to have conditional options based on the branch :/
 def opts = []
@@ -304,7 +299,7 @@ pipeline {
             steps {
                 timeout(time: 10, unit: 'MINUTES') {
                     echo 'Build'
-                    sh "echo '${ZOWE_CLI_INSTALL_DIR}' | npm run build"
+                    sh "npm run build"
 
                     sh 'tar -czvf BuildArchive.tar.gz ./lib/'
                     archiveArtifacts 'BuildArchive.tar.gz'

@@ -9,7 +9,7 @@
 *
 */
 
-import {CheckStatus, ZosmfSession} from "@zowe/core";
+import {CheckStatus, ZosmfSession} from "@zowe/cli";
 import {Files} from "../../../../src/api/Files";
 import {IHandlerParameters} from "@zowe/imperative";
 import * as DirectoryDefinition from "../../../../src/cli/list/directory-contents/DirectoryContents.definition";
