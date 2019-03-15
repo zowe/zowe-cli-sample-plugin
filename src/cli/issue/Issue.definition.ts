@@ -9,7 +9,7 @@
 *
 */
 
-import { ICommandDefinition } from "@brightside/imperative";
+import { ICommandDefinition } from "@zowe/imperative";
 import { CommandWithOptionsDefinition } from "./command_with_options/CommandWithOptions.definition";
 import { CommandWithPositionalsDefinition } from "./command_with_positionals/CommandWithPositionals.definition";
 /**

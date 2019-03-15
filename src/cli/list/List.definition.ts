@@ -9,7 +9,7 @@
 *
 */
 
-import { ICommandDefinition } from "@brightside/imperative";
+import { ICommandDefinition } from "@zowe/imperative";
 import { DirectoryContentsDefinition } from "./directory-contents/DirectoryContents.definition";
 import { TypicodeTodosDefinition } from "./typicode-todos/TypicodeTodos.definition";
 /**

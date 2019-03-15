@@ -9,7 +9,7 @@
 *
 */
 
-import {ICommandHandler, IHandlerParameters} from "@brightside/imperative";
+import {ICommandHandler, IHandlerParameters} from "@zowe/imperative";
 
 export default class CommandWithOptionsHandler implements ICommandHandler {
     public async process(params: IHandlerParameters): Promise<void> {
