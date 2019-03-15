@@ -9,7 +9,7 @@
 *
 */
 
-import { ICommandDefinition } from "@brightside/imperative";
+import { ICommandDefinition } from "@zowe/imperative";
 export const TypicodeTodosDefinition: ICommandDefinition = {
     name: "typicode-todos",
     aliases: ["td"],

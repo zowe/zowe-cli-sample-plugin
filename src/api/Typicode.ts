@@ -10,7 +10,7 @@
 */
 
 import { ITodo } from "./doc/ITodo";
-import { RestClient, AbstractSession, ImperativeExpect, Logger } from "@brightside/imperative";
+import { RestClient, AbstractSession, ImperativeExpect, Logger } from "@zowe/imperative";
 
 export class Typicode {
 

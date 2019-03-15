@@ -9,7 +9,7 @@
 *
 */
 
-import { ICommandHandler, IHandlerParameters, TextUtils, Session } from "@brightside/imperative";
+import { ICommandHandler, IHandlerParameters, TextUtils, Session } from "@zowe/imperative";
 import { Typicode } from "../../../api/Typicode";
 export default class TypicodeTodosHandler implements ICommandHandler {
 
