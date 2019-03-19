@@ -9,7 +9,7 @@
 *
 */
 
-import {AbstractCredentialManager, IProfileLoaded, Logger, SecureCredential} from "@brightside/imperative";
+import {AbstractCredentialManager, IProfileLoaded, Logger, SecureCredential} from "@zowe/imperative";
 
 /*
  * This is an example of overriding the CredentialManager component of the
@@ -20,7 +20,7 @@ import {AbstractCredentialManager, IProfileLoaded, Logger, SecureCredential} fro
  * to contain:
  *    {
  *         "overrides": {
- *         "CredentialManager": "@brightside/zowe-cli-sample-plugin"
+ *         "CredentialManager": "@zowe/zowe-cli-sample-plugin"
  *    }
  *
  * You can then try this CredentialManager override with commands like the following:

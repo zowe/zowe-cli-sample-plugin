@@ -10,7 +10,7 @@
 */
 
 import {ISetupEnvironmentParms} from "./doc/parms/ISetupEnvironmentParms";
-import {ImperativeError, ImperativeExpect, IO, Logger, TextUtils} from "@brightside/imperative";
+import {ImperativeError, ImperativeExpect, IO, Logger, TextUtils} from "@zowe/imperative";
 import * as nodePath from "path";
 import {mkdirpSync} from "fs-extra";
 import {ITestEnvironment} from "./doc/response/ITestEnvironment";
@@ -158,7 +158,7 @@ export class TestEnvironment {
         // TODO: update references to your plugin name
         let installScript: string = TemporaryScripts.SHEBANG;
         installScript += TemporaryScripts.ZOWE_BIN + " plugins install ../../../../\n"; // install plugin from root of project
-        installScript += TemporaryScripts.ZOWE_BIN + " plugins validate @brightside/zowe-cli-sample-plugin\n";
+        installScript += TemporaryScripts.ZOWE_BIN + " plugins validate @zowe/zowe-cli-sample-plugin\n";
         installScript += TemporaryScripts.ZOWE_BIN + " zcsp --help\n"; // check that the plugin help is available
         const scriptPath = testEnvironment.workingDir + "/install_plugin.sh";
         IO.writeFile(scriptPath, Buffer.from(installScript));
@@ -166,7 +166,7 @@ export class TestEnvironment {
         const output = runCliScript(scriptPath, testEnvironment, []);
         if (output.status !== 0) {
             throw new ImperativeError({
-                msg: "Install of '@brightside/zowe-cli-sample-plugin' plugin failed! You should delete the script: \n'" + scriptPath + "' " +
+                msg: "Install of '@zowe/zowe-cli-sample-plugin' plugin failed! You should delete the script: \n'" + scriptPath + "' " +
                     "after reviewing it to check for possible errors.\n Output of the plugin install command:\n" + output.stderr.toString() +
                     output.stdout.toString() +
                     TempTestProfiles.GLOBAL_INSTALL_NOTE

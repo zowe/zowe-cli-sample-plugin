@@ -11,7 +11,7 @@
 */
 
 
-import { Imperative } from "@brightside/imperative";
+import { Imperative } from "@zowe/imperative";
 // init imperative & parse the CLI input.
 Imperative.init().then(() => {
     Imperative.api.imperativeLogger.info("Imperative Initialized the sample plugin CLI!");
