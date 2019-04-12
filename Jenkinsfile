@@ -23,19 +23,19 @@ node('ca-jenkins-agent') {
     // Initialize the pipeline
     def pipeline = new NodeJSPipeline(this)
 
-    // Build admins, users that can approve the build and receive emails for
+    // Build admins, users that can approve the build and receieve emails for
     // all protected branch builds.
     pipeline.admins.add("zfernand0", "william.swauger")
 
     // Protected branch property definitions
     pipeline.protectedBranches.addMap([
-        [name: "master", tag: "daily", prerelease: "alpha", dependencies: ["@zowe/imperative": "daily"]],
+        [name: "master", tag: "daily", prerelease: "alpha", dependencies: ["@zowe/imperative": "daily"]]
     ])
 
     // Git configuration information
     pipeline.gitConfig = [
-        email: 'zowe.robot@gmail.com',
-        credentialsId: 'zowe-robot-github'
+        email: 'pete.swauger@broadcom.com',
+        credentialsId: '40ec0f98-38e4-43dd-bb04-4410ea6abf6a'
     ]
 
     // npm publish configuration
@@ -112,7 +112,7 @@ node('ca-jenkins-agent') {
             zoomCoverageChart: false
         ]
     )
- /*
+
      def INTEGRATION_TEST_ROOT= "__tests__/__results__/integration"
      def INTEGRATION_JUNIT_OUTPUT = "$INTEGRATION_TEST_ROOT/junit.xml"
      // Perform a unit test and capture the results
@@ -127,14 +127,13 @@ node('ca-jenkins-agent') {
             testResults: [dir: "${INTEGRATION_TEST_ROOT}/jest-stare", files: "index.html", name: "${PRODUCT_NAME} - Integration Test Report"],
             junitOutput: INTEGRATION_JUNIT_OUTPUT,
         )
- */
- /*
+/*
     // Deploys the application if on a protected branch. Give the version input
     // 30 minutes before an auto timeout approve.
     pipeline.deploy(
         versionArguments: [timeout: [time: 30, unit: 'MINUTES']]
     )
- */
+*/
     // Once called, no stages can be added and all added stages will be executed. On completion
     // appropriate emails will be sent out by the shared library.
     pipeline.end()
