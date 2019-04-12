@@ -134,7 +134,7 @@ node('ca-jenkins-agent') {
     pipeline.deploy(
         versionArguments: [timeout: [time: 30, unit: 'MINUTES']]
     )
- */npm
+ */
     // Once called, no stages can be added and all added stages will be executed. On completion
     // appropriate emails will be sent out by the shared library.
     pipeline.end()
