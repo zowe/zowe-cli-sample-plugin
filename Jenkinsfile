@@ -34,8 +34,8 @@ node('ca-jenkins-agent') {
 
     // Git configuration information
     pipeline.gitConfig = [
-        email: 'pete.swauger@broadcom.com',
-        credentialsId: '40ec0f98-38e4-43dd-bb04-4410ea6abf6a'
+        email: 'zowe.robot@gmail.com',
+        credentialsId: 'zowe-robot-github'
     ]
 
     // npm publish configuration
