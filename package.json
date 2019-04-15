@@ -56,7 +56,7 @@
     ],
     "testResultsProcessor": "jest-stare",
     "transform": {
-      ".(ts)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+      ".(ts)": "ts-jest"
     },
     "testRegex": "(test|spec)\\.ts$",
     "moduleFileExtensions": [
