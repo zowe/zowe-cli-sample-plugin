@@ -61,7 +61,7 @@ node('ca-jenkins-agent') {
     pipeline.createStage(
         name: "Curl",
         stage: {
-        withCredentials([usernameColonPassword(credentialsId: zowe-robot-github, usernameVariable: 'USERPASS'')]) {
+        withCredentials([usernameColonPassword(credentialsId: zowe-robot-github, usernameVariable: 'USERPASS')]) {
             sh "curl -X GET -u"$USERPASS" -H "Accept: application/json" -H "Content-Type: application/x-www-form-urlencoded" https://api.github.com/repos/zowe/zowe-cli-sample-plugin/labels"
             }
         },
