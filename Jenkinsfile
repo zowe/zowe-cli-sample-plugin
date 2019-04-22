@@ -62,24 +62,13 @@ node('ca-jenkins-agent') {
         name: "Curl",
         stage: {
         withCredentials([usernameColonPassword(credentialsId: zowe-robot-github, usernameVariable: 'USERPASS')]) {
-            sh "curl -X GET -u"$USERPASS" -H "Accept: application/json" -H "Content-Type: application/x-www-form-urlencoded" https://api.github.com/repos/zowe/zowe-cli-sample-plugin/labels"
+            sh "curl -X GET -u "$USERPASS" -H "Accept: application/json" -H "Content-Type: application/x-www-form-urlencoded" https://api.github.com/repos/zowe/zowe-cli-sample-plugin/labels"
             }
         },
         timeout: [
             time: 2,
             unit: 'MINUTES'
         ]
-
-         timeout(time: 10, unit: 'MINUTES') {
-                            echo 'Installing Dependencies'
-
-                            withCredentials([usernamePassword(credentialsId: ARTIFACTORY_CREDENTIALS_ID, usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                                sh "expect -f ./jenkins/npm_login.expect $USERNAME $PASSWORD \"$ARTIFACTORY_EMAIL\""
-                            }
-
-                            sh 'npm install'
-                            sh 'npm logout'
-                        }
     )
 
     // Create a custom lint stage that runs immediately after the setup.
