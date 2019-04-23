@@ -64,7 +64,7 @@ node('ca-jenkins-agent') {
         withCredentials([usernameColonPassword(credentialsId: zowe-robot-github, usernameVariable: 'USERPASS')]) {
             // sh "curl -X GET -u "$USERPASS" -H "Accept: application/json" -H "Content-Type: application/x-www-form-urlencoded" https://api.github.com/repos/zowe/zowe-cli-sample-plugin/labels"
             sh '''
-                set +x
+                set -x
                 curl -u "$USERPASS" https://api.github.com/repos/zowe/zowe-cli-sample-plugin/labels > output
                 '''
             }
