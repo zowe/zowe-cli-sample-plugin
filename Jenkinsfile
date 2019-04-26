@@ -57,6 +57,23 @@ node('ca-jenkins-agent') {
     // Initialize the pipeline library, should create 5 steps
     pipeline.setup()
 
+        // Experimenting with curl execution
+     //   pipeline.createStage(
+     //       name: "Curl",
+     //       stage: {
+     //       // You could use the harcoded string (commented out) or the variable for the credentials
+     //       // withCredentials([usernameColonPassword(credentialsId: 'zowe-robot-github', usernameVariable: 'USERPASS')]) {
+     //       withCredentials([usernameColonPassword(credentialsId: pipeline.gitConfig.credentialsId, usernameVariable: 'USERPASS')]) {
+     //           // sh "curl -X GET -u "$USERPASS" -H "Accept: application/json" -H "Content-Type: application/x-www-form-urlencoded" https://api.github.com/repos/zowe/zowe-cli-sample-plugin/labels"
+     //           sh '''
+     //               set -x
+     //               curl -u "$USERPASS" https://api.github.com/repos/zowe/zowe-cli-sample-plugin/labels > output
+     //               '''
+     //           }
+     //      },
+     //       timeout: [time: 2, unit: 'MINUTES']
+     //   )
+
     // Create a custom lint stage that runs immediately after the setup.
     pipeline.createStage(
         name: "Lint",
