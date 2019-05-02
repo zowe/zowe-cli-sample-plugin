@@ -9,7 +9,7 @@
 *                                                                                 *
 */
 
-@Library('shared-pipelines@v1.2.2') import org.zowe.pipelines.nodejs.NodeJSPipeline
+@Library('shared-pipelines@145-bump-versions') import org.zowe.pipelines.nodejs.NodeJSPipeline
 
 import org.zowe.pipelines.nodejs.models.SemverLevel
 
@@ -34,8 +34,9 @@ node('ca-jenkins-agent') {
 
     // Git configuration information
     pipeline.gitConfig = [
-        email: 'zowe.robot@gmail.com',
-        credentialsId: 'zowe-robot-github'
+        email: 'mbauto@broadcom.com',
+        credentialsId: 'mbauto-domain',
+        githubAPIEndpoint: 'https://github.gwd.broadcom.net/api/v3/'
     ]
 
     // npm publish configuration
@@ -57,23 +58,6 @@ node('ca-jenkins-agent') {
     // Initialize the pipeline library, should create 5 steps
     pipeline.setup()
 
-        // Experimenting with curl execution
-     //   pipeline.createStage(
-     //       name: "Curl",
-     //       stage: {
-     //       // You could use the harcoded string (commented out) or the variable for the credentials
-     //       // withCredentials([usernameColonPassword(credentialsId: 'zowe-robot-github', usernameVariable: 'USERPASS')]) {
-     //       withCredentials([usernameColonPassword(credentialsId: pipeline.gitConfig.credentialsId, usernameVariable: 'USERPASS')]) {
-     //           // sh "curl -X GET -u "$USERPASS" -H "Accept: application/json" -H "Content-Type: application/x-www-form-urlencoded" https://api.github.com/repos/zowe/zowe-cli-sample-plugin/labels"
-     //           sh '''
-     //               set -x
-     //               curl -u "$USERPASS" https://api.github.com/repos/zowe/zowe-cli-sample-plugin/labels > output
-     //               '''
-     //           }
-     //      },
-     //       timeout: [time: 2, unit: 'MINUTES']
-     //   )
-
     // Create a custom lint stage that runs immediately after the setup.
     pipeline.createStage(
         name: "Lint",
@@ -91,7 +75,7 @@ node('ca-jenkins-agent') {
         time: 5,
         unit: 'MINUTES'
     ])
-
+/*
     pipeline.createStage(
         name: "Check for vulnerabilities",
         stage: {
@@ -144,13 +128,13 @@ node('ca-jenkins-agent') {
             testResults: [dir: "${INTEGRATION_TEST_ROOT}/jest-stare", files: "index.html", name: "${PRODUCT_NAME} - Integration Test Report"],
             junitOutput: INTEGRATION_JUNIT_OUTPUT,
         )
-/*
+*/
     // Deploys the application if on a protected branch. Give the version input
     // 30 minutes before an auto timeout approve.
     pipeline.deploy(
         versionArguments: [timeout: [time: 30, unit: 'MINUTES']]
     )
-*/
+
     // Once called, no stages can be added and all added stages will be executed. On completion
     // appropriate emails will be sent out by the shared library.
     pipeline.end()
