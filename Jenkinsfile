@@ -9,7 +9,7 @@
 *                                                                                 *
 */
 
-@Library('shared-pipelines@145-bump-versions') import org.zowe.pipelines.nodejs.NodeJSPipeline
+@Library('shared-pipelines@v1.2.2') import org.zowe.pipelines.nodejs.NodeJSPipeline
 
 import org.zowe.pipelines.nodejs.models.SemverLevel
 
@@ -35,8 +35,7 @@ node('ca-jenkins-agent') {
     // Git configuration information
     pipeline.gitConfig = [
         email: 'zowe.robot@gmail.com',
-        credentialsId: 'zowe-robot-github',
-        githubAPIEndpoint: 'https://api.github.com'
+        credentialsId: 'zowe-robot-github'
     ]
 
     // npm publish configuration
@@ -75,7 +74,7 @@ node('ca-jenkins-agent') {
         time: 5,
         unit: 'MINUTES'
     ])
-/*
+
     pipeline.createStage(
         name: "Check for vulnerabilities",
         stage: {
@@ -128,7 +127,6 @@ node('ca-jenkins-agent') {
             testResults: [dir: "${INTEGRATION_TEST_ROOT}/jest-stare", files: "index.html", name: "${PRODUCT_NAME} - Integration Test Report"],
             junitOutput: INTEGRATION_JUNIT_OUTPUT,
         )
-*/
 /*
     // Deploys the application if on a protected branch. Give the version input
     // 30 minutes before an auto timeout approve.
