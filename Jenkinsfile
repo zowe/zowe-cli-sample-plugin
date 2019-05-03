@@ -36,7 +36,7 @@ node('ca-jenkins-agent') {
     pipeline.gitConfig = [
         email: 'mbauto@broadcom.com',
         credentialsId: 'mbauto-domain',
-        githubAPIEndpoint: 'https://github.gwd.broadcom.net/api/v3/'
+        githubAPIEndpoint: 'https://api.github.com'
     ]
 
     // npm publish configuration
