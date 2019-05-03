@@ -34,8 +34,8 @@ node('ca-jenkins-agent') {
 
     // Git configuration information
     pipeline.gitConfig = [
-        email: 'mbauto@broadcom.com',
-        credentialsId: 'mbauto-domain',
+        email: 'zowe.robot@gmail.com',
+        credentialsId: 'zowe-robot-github',
         githubAPIEndpoint: 'https://api.github.com'
     ]
 
@@ -129,12 +129,13 @@ node('ca-jenkins-agent') {
             junitOutput: INTEGRATION_JUNIT_OUTPUT,
         )
 */
+/*
     // Deploys the application if on a protected branch. Give the version input
     // 30 minutes before an auto timeout approve.
     pipeline.deploy(
         versionArguments: [timeout: [time: 30, unit: 'MINUTES']]
     )
-
+*/
     // Once called, no stages can be added and all added stages will be executed. On completion
     // appropriate emails will be sent out by the shared library.
     pipeline.end()
