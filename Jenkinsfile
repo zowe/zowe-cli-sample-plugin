@@ -35,7 +35,7 @@ node('ca-jenkins-agent') {
     // Git configuration information
     pipeline.gitConfig = [
         email: 'zowe.robot@gmail.com',
-        credentialsId: 'zowe-robot-github',
+        credentialsId: 'PeteSwauger',
         githubAPIEndpoint: 'https://api.github.com/'
     ]
 
