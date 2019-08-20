@@ -9,7 +9,7 @@
 *                                                                                 *
 */
 
-@Library('shared-pipelines@v1.2.2') import org.zowe.pipelines.nodejs.NodeJSPipeline
+@Library('shared-pipelines') import org.zowe.pipelines.nodejs.NodeJSPipeline
 
 import org.zowe.pipelines.nodejs.models.SemverLevel
 
@@ -29,7 +29,7 @@ node('ca-jenkins-agent') {
 
     // Protected branch property definitions
     pipeline.protectedBranches.addMap([
-        [name: "master", tag: "daily", prerelease: "alpha", dependencies: ["@zowe/imperative": "daily"]]
+        [name: "master", tag: "latest", dependencies: ["@zowe/imperative": "latest"]]
     ])
 
     // Git configuration information
@@ -75,14 +75,6 @@ node('ca-jenkins-agent') {
         unit: 'MINUTES'
     ])
 
-    pipeline.createStage(
-        name: "Check for vulnerabilities",
-        stage: {
-            sh "npm audit"
-        },
-        timeout: [time: 5, unit: 'MINUTES']
-    )
-
     def TEST_ROOT = "__tests__/__results__"
     def UNIT_TEST_ROOT = "$TEST_ROOT/unit"
     def UNIT_JUNIT_OUTPUT = "$UNIT_TEST_ROOT/junit.xml"
@@ -116,17 +108,21 @@ node('ca-jenkins-agent') {
      def INTEGRATION_TEST_ROOT= "__tests__/__results__/integration"
      def INTEGRATION_JUNIT_OUTPUT = "$INTEGRATION_TEST_ROOT/junit.xml"
      // Perform a unit test and capture the results
-        pipeline.test(
-            name: "Integration",
-            operation: {
-                sh "npm i -g @zowe/cli@daily --zowe:registry=${pipeline.registryConfig[0].url}"
-                // create the custom properties file. contents don't matter for integration tests
-                sh "cp __tests__/__resources__/properties/example_properties.yaml __tests__/__resources__/properties/custom_properties.yaml"
-                sh "npm run test:integration"
-            },
-            testResults: [dir: "${INTEGRATION_TEST_ROOT}/jest-stare", files: "index.html", name: "${PRODUCT_NAME} - Integration Test Report"],
-            junitOutput: INTEGRATION_JUNIT_OUTPUT,
-        )
+    pipeline.test(
+        name: "Integration",
+        operation: {
+            sh "npm i -g @zowe/cli@daily --zowe:registry=${pipeline.registryConfig[0].url}"
+            // create the custom properties file. contents don't matter for integration tests
+            sh "cp __tests__/__resources__/properties/example_properties.yaml __tests__/__resources__/properties/custom_properties.yaml"
+            sh "npm run test:integration"
+        },
+        testResults: [dir: "${INTEGRATION_TEST_ROOT}/jest-stare", files: "index.html", name: "${PRODUCT_NAME} - Integration Test Report"],
+        junitOutput: INTEGRATION_JUNIT_OUTPUT,
+    )
+    
+    // Check for vulnerabilities
+    pipeline.checkVulnerabilities()
+    
 /*
     // Deploys the application if on a protected branch. Give the version input
     // 30 minutes before an auto timeout approve.
