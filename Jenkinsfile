@@ -93,10 +93,11 @@ node('ca-jenkins-agent') {
             autoUpdateHealth: false,
             autoUpdateStability: false,
             coberturaReportFile: '__tests__/__results__/unit/coverage/cobertura-coverage.xml',
-            classCoverageTargets: '85, 80, 75',
-            conditionalCoverageTargets: '70, 65, 60',
+            classCoverageTargets: '85, 80, 45',
+            conditionalCoverageTargets: '70, 65, 50',
             failUnhealthy: false,
             failUnstable: false,
+            fileCoverageTargets: '85, 80, 45',
             lineCoverageTargets: '80, 70, 50',
             maxNumberOfBuilds: 20,
             methodCoverageTargets: '80, 70, 50',
@@ -112,7 +113,7 @@ node('ca-jenkins-agent') {
     pipeline.test(
         name: "Integration",
         operation: {
-            sh "npm i -g @zowe/cli@latest --@zowe:registry=${pipeline.registryConfig[0].url}"
+            sh "npm i -g @zowe/cli@latest"
             sh "npm run test:integration"
         },
         testResults: [dir: "${INTEGRATION_TEST_ROOT}/jest-stare", files: "index.html", name: "${PRODUCT_NAME} - Integration Test Report"],
