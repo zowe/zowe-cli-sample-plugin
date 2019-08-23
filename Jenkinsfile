@@ -113,8 +113,6 @@ node('ca-jenkins-agent') {
         name: "Integration",
         operation: {
             sh "npm i -g @brightside/core@lts-incremental --@brightside:registry=${pipeline.registryConfig[0].url}"
-            // create the custom properties file. contents don't matter for integration tests
-            sh "cp __tests__/__resources__/properties/example_properties.yaml __tests__/__resources__/properties/custom_properties.yaml"
             sh "npm run test:integration"
         },
         testResults: [dir: "${INTEGRATION_TEST_ROOT}/jest-stare", files: "index.html", name: "${PRODUCT_NAME} - Integration Test Report"],
