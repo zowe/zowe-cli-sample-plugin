@@ -36,10 +36,18 @@ export interface ISetupEnvironmentParms {
     tempProfileTypes?: string[];
 
     /**
-     * Should the CICS plugin be installed to your home directory
+     * Should the plugin be installed to your home directory
      * before the tests? The is no need  to specify this unless
-     * you are trying to execute CICS commands installed into
+     * you are trying to execute commands installed into
      * Zowe CLI.
      */
     installPlugin?: boolean;
+
+    /**
+     * Skip trying to load custom_properties.yaml
+     * Useful for integration tests that don't need the properties
+     * but want a working directory and other test environment features
+     * Default: false
+     */
+    skipProperties?: boolean;
 }

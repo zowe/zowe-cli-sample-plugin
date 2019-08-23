@@ -11,12 +11,12 @@ myPropertiesCategory:
       user: my-user-name
       password: my-password
       host: my-cics-host
-      port: my-cics-port
+      port: 1234
 
 # This can be used to create zosmf profiles if you need them for testing your plug-in
 zosmf:
     user: my-zosmf-user
     password: my-zosmf-password
     host: my-zosmf-host
-    port: my-zosmf-port
+    port: 1234
     rejectUnauthorized: true # set to false to allow self-signed certificates

@@ -28,21 +28,28 @@
     "watch": "tsc --pretty --watch",
     "prepublishOnly": "npm run build",
     "lint": "tslint \"src/**/*.ts\"",
-    "test": "npm run test:unit && npm run test:system",
+    "test": "npm run test:unit && npm run test:integration && npm run test:system",
     "test:system": "env-cmd __tests__/__resources__/env/system.env jest .*/__system__/.* --coverage false",
-    "test:unit": "env-cmd __tests__/__resources__/env/unit.env jest --coverage --testPathIgnorePatterns \".*/__system__/.*\"",
+    "test:integration": "env-cmd __tests__/__resources__/env/integration.env jest .*/__integration__/.* --coverage false",
+    "test:unit": "env-cmd __tests__/__resources__/env/unit.env jest --coverage --testPathIgnorePatterns \".*/__system__|__integration__/.*\"",
     "installPlugin": "npm install && npm run clean && npm run build && zowe plugins install ."
   },
   "imperative": {
     "configurationModule": "lib/imperative.js"
   },
-  "dependencies": {},
+  "peerDependencies": {
+    "@zowe/cli": "^5.14.2",
+    "@zowe/imperative": "^4.2.1"
+  },
+  "dependencies": {
+    "@zowe/cli": "^5.14.2",
+    "@zowe/imperative": "^4.2.1"
+  },
   "devDependencies": {
+    "@types/fs-extra": "^8.0.0",
     "@types/jest": "^20.0.5",
     "@types/node": "^8.0.0",
     "@types/yargs": "8.0.2",
-    "@zowe/cli": "^4.0.0",
-    "@zowe/imperative": "^4.0.0",
     "env-cmd": "^8.0.2",
     "fs-extra": "^5.0.0",
     "jest": "^24.3.1",
@@ -52,11 +59,11 @@
     "jest-html-reporter": "^2.2.0",
     "jest-junit": "^3.6.0",
     "jest-stare": "^1.0.5",
-    "rimraf": "^2.6.2",
+    "rimraf": "^2.7.1",
     "ts-jest": "^24.0.0",
     "ts-node": "^3.2.0",
     "tslint": "^5.0.0",
-    "typedoc": "^0.14.2",
+    "typedoc": "^0.15.0",
     "typescript": "3.2.2",
     "uuid": "^3.2.1"
   },

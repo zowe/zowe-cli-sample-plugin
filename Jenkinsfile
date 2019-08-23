@@ -30,7 +30,7 @@ node('ca-jenkins-agent') {
     // Protected branch property definitions
     pipeline.protectedBranches.addMap([
         [name: "master", tag: "latest", dependencies: ["@zowe/imperative": "latest"]],
-        [name: "lts-incremental", tag: "lts-incremental", dependencies: ["@zowe/imperative": "lts-incremental"]]
+        [name: "lts-incremental", tag: "lts-incremental", dependencies: ["@brightside/imperative": "lts-incremental"]]
     ])
 
     // Git configuration information
@@ -112,9 +112,7 @@ node('ca-jenkins-agent') {
     pipeline.test(
         name: "Integration",
         operation: {
-            sh "npm i -g @zowe/cli@latest --zowe:registry=${pipeline.registryConfig[0].url}"
-            // create the custom properties file. contents don't matter for integration tests
-            sh "cp __tests__/__resources__/properties/example_properties.yaml __tests__/__resources__/properties/custom_properties.yaml"
+            sh "npm i -g @zowe/cli@latest --@zowe:registry=${pipeline.registryConfig[0].url}"
             sh "npm run test:integration"
         },
         testResults: [dir: "${INTEGRATION_TEST_ROOT}/jest-stare", files: "index.html", name: "${PRODUCT_NAME} - Integration Test Report"],

@@ -33,5 +33,9 @@ exports[`zowe-cli-sample list should display the help 1`] = `
 
       Display help text
 
+   --help-web  | --hw (boolean)
+
+      Display HTML help in browser
+
 "
 `;
