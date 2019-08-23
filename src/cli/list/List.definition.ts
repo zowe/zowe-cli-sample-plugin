@@ -9,7 +9,7 @@
 *
 */
 
-import { ICommandDefinition } from "@zowe/imperative";
+import { ICommandDefinition } from "@brightside/imperative";
 import { DirectoryContentsDefinition } from "./directory-contents/DirectoryContents.definition";
 /**
  * [action] command definition for the [action] two group. The [action] is of imperative command definition type

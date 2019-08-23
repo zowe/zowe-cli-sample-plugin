@@ -10,7 +10,7 @@
 */
 
 import * as fs from "fs";
-import { Imperative, ImperativeError, Logger } from "@zowe/imperative";
+import { Imperative, ImperativeError, Logger } from "@brightside/imperative";
 
 import { join } from "path";
 /**

@@ -9,9 +9,9 @@
 *
 */
 
-import {CheckStatus, ZosmfSession} from "@zowe/cli";
+import {CheckStatus, ZosmfSession} from "@brightside/core";
 import {Files} from "../../../../src/api/Files";
-import {IHandlerParameters} from "@zowe/imperative";
+import {IHandlerParameters} from "@brightside/imperative";
 import * as DirectoryDefinition from "../../../../src/cli/list/directory-contents/DirectoryContents.definition";
 import * as DirectoryHandler from "../../../../src/cli/list/directory-contents/DirectoryContents.handler";
 

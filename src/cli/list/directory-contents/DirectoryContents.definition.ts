@@ -9,7 +9,7 @@
 *
 */
 
-import { ICommandDefinition } from "@zowe/imperative";
+import { ICommandDefinition } from "@brightside/imperative";
 /**
  * Command one [object] defintion. This definition is of imperative type "command" and therefore must have a
  * command handler (which performs the "work" for this command).

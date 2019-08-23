@@ -9,7 +9,7 @@
 *
 */
 
-import { ICommandHandler, IHandlerParameters, Imperative, ImperativeError } from "@zowe/imperative";
+import { ICommandHandler, IHandlerParameters, Imperative, ImperativeError } from "@brightside/imperative";
 
 export default class ErrorHandlerHandler implements ICommandHandler {
     public async process(params: IHandlerParameters): Promise<void> {

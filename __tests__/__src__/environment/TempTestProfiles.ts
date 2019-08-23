@@ -13,7 +13,7 @@
  * Test utility for creating and deleting
  */
 import * as fs from "fs";
-import {ImperativeError, IO} from "@zowe/imperative";
+import {ImperativeError, IO} from "@brightside/imperative";
 
 
 import {TemporaryScripts} from "./TemporaryScripts";

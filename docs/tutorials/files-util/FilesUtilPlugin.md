@@ -33,7 +33,7 @@ Use a unique `npm` name for your plugin. Change `package.json` name field as fol
 ### Adjusting Imperative CLI Framework configuration
 Change `imperative.ts` to contain the following:
 ```typescript
-import { IImperativeConfig } from "@zowe/imperative";
+import { IImperativeConfig } from "@brightside/imperative";
 
 const config: IImperativeConfig = {
     commandModuleGlobs: ["**/cli/*/*.definition!(.d).*s"],
@@ -57,8 +57,8 @@ We'll use these packages to create a programmatic API.
 ### Creating a Node.js programmatic API
 In `files-util/src/api` create a file `DataSetDiff.ts`. The content of `DataSetDiff.ts` should be the following:
 ```typescript
-import { AbstractSession } from "@zowe/imperative";
-import { Download, IDownloadOptions, IZosFilesResponse } from "@zowe/core";
+import { AbstractSession } from "@brightside/imperative";
+import { Download, IDownloadOptions, IZosFilesResponse } from "@brightside/core";
 import * as diff from "diff";
 import { readFileSync } from "fs";
 
@@ -119,7 +119,7 @@ At this point, you should be able to rebuild the plug-in without errors via `npm
 ### Defining commands
 In `files-util/src/cli` create a folder named `diff`. Within the `diff` folder, create a file `Diff.definition.ts`. Its content should be as follows:
 ```typescript
-import { ICommandDefinition } from "@zowe/imperative";
+import { ICommandDefinition } from "@brightside/imperative";
 import { DataSetsDefinition } from "./data-sets/DataSets.definition";
 const IssueDefinition: ICommandDefinition = {
     name: "diff",
@@ -136,7 +136,7 @@ Also within the `diff` folder create a folder named `data-sets`. Within the `dat
 
 `DataSets.definition.ts` should contain:
 ```typescript
-import { ICommandDefinition } from "@zowe/imperative";
+import { ICommandDefinition } from "@brightside/imperative";
 
 export const DataSetsDefinition: ICommandDefinition = {
     name: "data-sets",
@@ -165,7 +165,7 @@ export const DataSetsDefinition: ICommandDefinition = {
 
 `DataSets.handler.ts` should contain the following:
 ```typescript
-import { ICommandHandler, IHandlerParameters, TextUtils, Session } from "@zowe/imperative";
+import { ICommandHandler, IHandlerParameters, TextUtils, Session } from "@brightside/imperative";
 import { DataSetDiff } from "../../../api/DataSetDiff";
 
 export default class DataSetsDiffHandler implements ICommandHandler {

@@ -9,9 +9,9 @@
 *
 */
 
-import { ICommandHandler, IHandlerParameters, TextUtils } from "@zowe/imperative";
+import { ICommandHandler, IHandlerParameters, TextUtils } from "@brightside/imperative";
 import { Files } from "../../../api/Files";
-import { CheckStatus, ZosmfSession } from "@zowe/cli";
+import { CheckStatus, ZosmfSession } from "@brightside/core";
 
 /**
  * Command handler for listing directory contents

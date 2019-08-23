@@ -10,7 +10,7 @@
 */
 
 import * as fs from "fs";
-import { Imperative } from "@zowe/imperative";
+import { Imperative } from "@brightside/imperative";
 
 describe("command-with-options definition", () => {
     it("should match the snapshot", () => {

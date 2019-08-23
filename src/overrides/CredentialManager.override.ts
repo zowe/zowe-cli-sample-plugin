@@ -9,7 +9,7 @@
 *
 */
 
-import {AbstractCredentialManager, IProfileLoaded, Logger, SecureCredential} from "@zowe/imperative";
+import {AbstractCredentialManager, IProfileLoaded, Logger, SecureCredential} from "@brightside/imperative";
 
 /*
  * This is an example of overriding the CredentialManager component of the
