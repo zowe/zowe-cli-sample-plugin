@@ -46,15 +46,6 @@ node('ca-jenkins-agent') {
         scope: '@zowe'
     ]
 
-    pipeline.registryConfig = [
-        [
-            email: pipeline.publishConfig.email,
-            credentialsId: pipeline.publishConfig.credentialsId,
-            url: 'https://gizaartifactory.jfrog.io/gizaartifactory/api/npm/npm-release/',
-            scope: pipeline.publishConfig.scope
-        ]
-    ]
-
     // Initialize the pipeline library, should create 5 steps
     pipeline.setup()
 
