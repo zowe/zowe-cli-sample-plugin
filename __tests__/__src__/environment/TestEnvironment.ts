@@ -53,9 +53,8 @@ export class TestEnvironment {
         const testDirectory: string = TestEnvironment.createUniqueTestDataDir(params.testName);
 
         let systemProps;
-        
         if (!params.skipProperties) {
-            TestEnvironment.loadSystemTestProperties(undefined, testDirectory);
+            systemProps = TestEnvironment.loadSystemTestProperties(undefined, testDirectory);
         }
 
         // set the env variables to be used for executing
