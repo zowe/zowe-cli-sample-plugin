@@ -54,7 +54,7 @@ export class TestEnvironment {
 
         let systemProps;
         if (!params.skipProperties) {
-            TestEnvironment.loadSystemTestProperties(undefined, testDirectory);
+            systemProps = TestEnvironment.loadSystemTestProperties(undefined, testDirectory);
         }
 
         // set the env variables to be used for executing
