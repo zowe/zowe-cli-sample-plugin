@@ -17,7 +17,7 @@ You might want to create a Zowe CLI plug-in to accomplish the following:
 We also provide the following tutorials, guidelines, and documentation to assist you during development:
 
 ### Tutorials
-To learn about how to work with this sample plug-in, build new commands, or build a new Zowe CLI plug-in, see [Develop for Zowe CLI](https://zowe.github.io/docs-site/stable/extend/extend-cli/cli-devTutorials.html).
+To learn about how to work with this sample plug-in, build new commands, or build a new Zowe CLI plug-in, see [Develop for Zowe CLI](https://zowe.github.io/docs-site/active-development/extend/extend-cli/cli-devTutorials.html).
 
 ### Contribution Guidelines 
 The Zowe CLI [contribution guidelines](CONTRIBUTING.md) contain standards and conventions for developing Zowe CLI plug-ins. 
@@ -31,7 +31,7 @@ The guidelines contain critical information about working with the code, running
 Reference the [Jenkinsfile Guidelines](CICD-TEMPLATE.md) for information about setting up and maintaining automated testing/deployment for your plug-in with Jenkins automation server. 
 
 ## Prerequisites
-Before you work with the Zowe CLI sample plug-in, [install Zowe CLI globally.](https://docs.zowe.org/stable/user-guide/cli-installcli.html)
+Before you work with the Zowe CLI sample plug-in, [install Zowe CLI globally.](https://docs.zowe.org/active-development/user-guide/cli-installcli.html)
 
 ## Create a Local Development Space
 To create your development space, clone and build the Zowe CLI sample plug-in from source.
