@@ -16,12 +16,12 @@ export class Typicode {
 
     public static readonly TODO_URI = "/todos";
 
-    public static getTodos(session: AbstractSession): Promise<ITodo[]> {
+    public static getAllTodos(session: AbstractSession): Promise<ITodo[]> {
         Logger.getAppLogger().trace("Typicode.getTodos() called");
         return RestClient.getExpectJSON<ITodo[]>(session, Typicode.TODO_URI);
     }
 
-    public static getTodo(session: AbstractSession, id: number): Promise<ITodo> {
+    public static getSingleTodo(session: AbstractSession, id: number): Promise<ITodo> {
         Logger.getAppLogger().trace("Typicode.getTodos() called with id " + id);
         ImperativeExpect.toNotBeNullOrUndefined(id, "id must be provided");
         const resource = Typicode.TODO_URI + "/" + id;
