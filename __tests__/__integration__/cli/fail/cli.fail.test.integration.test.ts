@@ -22,7 +22,8 @@ describe("zowe-cli-sample fail command", () => {
     beforeAll(async () => {
         TEST_ENVIRONMENT = await TestEnvironment.setUp({
             installPlugin: true,
-            testName: "fail_command"
+            testName: "fail_command",
+            skipProperties: true
         });
     });
     afterAll(async () => {

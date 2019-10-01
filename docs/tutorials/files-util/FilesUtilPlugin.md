@@ -58,7 +58,7 @@ We'll use these packages to create a programmatic API.
 In `files-util/src/api` create a file `DataSetDiff.ts`. The content of `DataSetDiff.ts` should be the following:
 ```typescript
 import { AbstractSession } from "@zowe/imperative";
-import { Download, IDownloadOptions, IZosFilesResponse } from "@zowe/core";
+import { Download, IDownloadOptions, IZosFilesResponse } from "@zowe/cli";
 import * as diff from "diff";
 import { readFileSync } from "fs";
 
