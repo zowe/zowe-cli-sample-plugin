@@ -18,11 +18,11 @@ export default class TypicodeTodosHandler implements ICommandHandler {
 
         const session = new Session({ hostname: TypicodeTodosHandler.TYPICODE_HOST});
         if (params.arguments.id) {
-            const todo = await Typicode.getTodo(session, params.arguments.id);
+            const todo = await Typicode.getSingleTodo(session, params.arguments.id);
             params.response.data.setObj(todo);
             params.response.console.log(TextUtils.prettyJson(todo));
         } else {
-            const todos = await Typicode.getTodos(session);
+            const todos = await Typicode.getAllTodos(session);
             params.response.data.setObj(todos);
             params.response.console.log(TextUtils.prettyJson(todos));
         }
