@@ -1,5 +1,5 @@
 {
-  "name": "@zowe/zowe-cli-sample-plugin",
+  "name": "@zowe/sample-plugin-for-zowe-cli",
   "version": "2.0.1",
   "description": "A sample plugin for Zowe CLI :)",
   "homepage": "https://github.com/zowe/zowe-cli-sample-plugin#readme",
@@ -46,6 +46,7 @@
     "@types/jest": "^20.0.5",
     "@types/node": "^8.0.0",
     "@types/yargs": "8.0.2",
+    "@zowe/cli": "^6.1.0",
     "env-cmd": "^8.0.2",
     "fs-extra": "^5.0.0",
     "jest": "^24.3.1",
@@ -61,9 +62,7 @@
     "tslint": "^5.0.0",
     "typedoc": "^0.15.0",
     "typescript": "3.2.2",
-    "uuid": "^3.2.1",
-    "@zowe/cli": "^5.14.2",
-    "@zowe/imperative": "^4.2.1"
+    "uuid": "^3.2.1"
   },
   "jest": {
     "modulePathIgnorePatterns": [

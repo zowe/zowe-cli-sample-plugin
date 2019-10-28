@@ -117,13 +117,12 @@ node('ca-jenkins-agent') {
     // Check for vulnerabilities
     pipeline.checkVulnerabilities()
     
-/*
     // Deploys the application if on a protected branch. Give the version input
     // 30 minutes before an auto timeout approve.
     pipeline.deploy(
         versionArguments: [timeout: [time: 30, unit: 'MINUTES']]
     )
-*/
+
     // Once called, no stages can be added and all added stages will be executed. On completion
     // appropriate emails will be sent out by the shared library.
     pipeline.end()
