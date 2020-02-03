@@ -114,5 +114,8 @@
     "includeFailureMsg": true
   },
   "author": "Darkside",
-  "license": "EPL-2.0"
+  "license": "EPL-2.0",
+  "dependencies": {
+    "@zowe/imperative": "4.5.0"
+  }
 }
