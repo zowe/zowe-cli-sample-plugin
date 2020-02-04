@@ -19,9 +19,9 @@ export default class CommandWithOptionsHandler implements ICommandHandler {
         params.response.data.setMessage(msg);
         params.response.console.log(msg);
 
-        // If "use-the-string" (notice that hypenated words are converted to camel case) is specified, print the string
+        // If "use-the-string" (notice that hyphenated words are converted to camel case) is specified, print the string
         if (params.arguments.useTheString) {
-            params.response.console.log("The string specified:\n" + params.arguments.theString);
+            params.response.console.log(`The string specified:\n"${params.arguments.theString}"`);
         }
 
         // Print the number specified

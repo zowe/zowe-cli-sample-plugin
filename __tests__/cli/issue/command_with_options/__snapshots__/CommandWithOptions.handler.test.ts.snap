@@ -4,5 +4,5 @@ exports[`command-with-options handler should accept options and print messages 1
 
 exports[`command-with-options handler should accept options and print messages 2`] = `
 " \\"zowe fake\\" command issued! The string specified:
-mocked string The number specified was \\"0\\"."
+\\"mocked string\\" The number specified was \\"0\\"."
 `;
