@@ -32,8 +32,8 @@ node('ca-jenkins-agent') {
 
     // Protected branch property definitions
     pipeline.protectedBranches.addMap([
-        [name: "master", tag: "latest", dependencies: ["@zowe/imperative": "latest"]],
-        [name: "lts-incremental", tag: "lts-incremental", dependencies: ["@brightside/imperative": "lts-incremental"]]
+        [name: "master", tag: "latest", devDependencies: ["@zowe/cli": "latest", "@zowe/imperative": "latest"]],
+        [name: "lts-incremental", tag: "lts-incremental", level: SemverLevel.PATCH, devDependencies: ["@brightside/core": "lts-incremental", "@brightside/imperative": "lts-incremental"]]
     ])
 
     // Git configuration information
@@ -122,10 +122,10 @@ node('ca-jenkins-agent') {
         testResults: [dir: "${INTEGRATION_TEST_ROOT}/jest-stare", files: "index.html", name: "${PRODUCT_NAME} - Integration Test Report"],
         junitOutput: INTEGRATION_JUNIT_OUTPUT,
     )
-    
+
     // Check for vulnerabilities
     pipeline.checkVulnerabilities()
-    
+
 /*
     // Deploys the application if on a protected branch. Give the version input
     // 30 minutes before an auto timeout approve.
