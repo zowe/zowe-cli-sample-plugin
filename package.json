@@ -20,6 +20,9 @@
   "files": [
     "lib"
   ],
+  "publishConfig": {
+    "registry": "https://zowe.jfrog.io/zowe/api/npm/npm-local-release/"
+  },
   "scripts": {
     "build": "node scripts/updateLicense.js && tsc --pretty && npm run checkTestsCompile && madge -c lib",
     "checkTestsCompile": "echo \"Checking that test source compiles...\" && tsc --project __tests__/test-tsconfig.json --noEmit ",
@@ -46,7 +49,8 @@
     "@types/jest": "^20.0.5",
     "@types/node": "^8.0.0",
     "@types/yargs": "^13.0.2",
-    "@zowe/cli": "^6.5.0",
+    "@zowe/cli": "6.7.2",
+    "@zowe/imperative": "4.5.0",
     "env-cmd": "^8.0.2",
     "fs-extra": "^8.1.0",
     "jest": "^24.3.1",
@@ -114,8 +118,5 @@
     "includeFailureMsg": true
   },
   "author": "Darkside",
-  "license": "EPL-2.0",
-  "dependencies": {
-    "@zowe/imperative": "4.5.0"
-  }
+  "license": "EPL-2.0"
 }
