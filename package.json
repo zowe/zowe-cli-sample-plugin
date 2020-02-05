@@ -37,15 +37,13 @@
   "imperative": {
     "configurationModule": "lib/imperative.js"
   },
-  "peerFependencies": {
+  "peerDependencies": {
     "@brightside/core": "^2.0.0",
     "@brightside/imperative": "^2.0.0"
   },
-  "dependencies": {
-    "@brightside/core": "^2.31.1",
-    "@brightside/imperative": "^2.5.1"
-  },
   "devDependencies": {
+    "@brightside/core": "2.36.3",
+    "@brightside/imperative": "2.7.5",
     "@types/fs-extra": "^8.0.0",
     "@types/jest": "^20.0.5",
     "@types/node": "^8.10.52",
