@@ -15,13 +15,13 @@ export default class CommandWithOptionsHandler implements ICommandHandler {
     public async process(params: IHandlerParameters): Promise<void> {
 
         // Log the command issued and set the API message (for JSON response)
-        const msg: string = `\"zowe ${params.arguments._.join(" ")}\" command issued!`;
+        const msg: string = `"zowe ${params.arguments._.join(" ")}" command issued!`;
         params.response.data.setMessage(msg);
         params.response.console.log(msg);
 
-        // If "use-the-string" (notice that hypenated words are converted to camel case) is specified, print the string
+        // If "use-the-string" (notice that hyphenated words are converted to camel case) is specified, print the string
         if (params.arguments.useTheString) {
-            params.response.console.log("The string specified:\n" + params.arguments.theString);
+            params.response.console.log(`The string specified:\n"${params.arguments.theString}"`);
         }
 
         // Print the number specified
