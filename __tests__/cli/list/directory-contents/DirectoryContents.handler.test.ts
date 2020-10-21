@@ -29,6 +29,7 @@ const DEFAULT_PARAMTERS: IHandlerParameters = {
             return {};
         }
     } as any,
+    positionals: [],
     response: {
         data: {
             setMessage: jest.fn((setMsgArgs) => {
