@@ -13,9 +13,6 @@ import {IImperativeConfig} from "@zowe/imperative";
 
 const config: IImperativeConfig = {
     commandModuleGlobs: ["**/cli/*/*.definition!(.d).*s"],
-    overrides: {
-        CredentialManager: "./overrides/CredentialManager.override"
-    },
     pluginHealthCheck: __dirname + "/healthCheck.Handler",
     pluginSummary: "Zowe CLI sample plug-in",
     pluginAliases: ["zcsp"],
