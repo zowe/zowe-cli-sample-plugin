@@ -9,9 +9,10 @@
 *
 */
 
-import { ConnectionPropsForSessCfg, ICommandHandler, IHandlerParameters, ISession, Session, TextUtils } from "@zowe/imperative";
+import { IHandlerParameters, Session, TextUtils } from "@zowe/imperative";
 import { Files } from "../../../api/Files";
-import { CheckStatus, ZosmfSession } from "@zowe/zosmf-for-zowe-sdk";
+import { CheckStatus } from "@zowe/zosmf-for-zowe-sdk";
+import { ListBaseHandler } from "../ListBaseHandler";
 
 /**
  * Command handler for listing directory contents
@@ -19,7 +20,7 @@ import { CheckStatus, ZosmfSession } from "@zowe/zosmf-for-zowe-sdk";
  * @class DirectoryContentsHandler
  * @implements {ICommandHandler}
  */
-export default class DirectoryContentsHandler implements ICommandHandler {
+export default class DirectoryContentsHandler extends ListBaseHandler {
     /**
      * Max table width
      * @static
@@ -33,16 +34,12 @@ export default class DirectoryContentsHandler implements ICommandHandler {
      * @returns {Promise<void>}
      * @memberof DirectoryContentsHandler
      */
-    public async process(params: IHandlerParameters): Promise<void> {
+    public async processWithSession(params: IHandlerParameters, session: Session): Promise<void> {
 
         /* We call a Zowe CLI API, just to show that it can be done.
          * We chose zosmf check status, since it is the simplest.
          */
         try {
-            // use the user's zosmf profile to create a session to the desired zosmf subsystem
-            const sessCfg = ZosmfSession.createSessCfgFromArgs(params.arguments);
-            const sessCfgWithCreds = await ConnectionPropsForSessCfg.addPropsOrPrompt<ISession>(sessCfg, params.arguments, { parms: params });
-            const session = new Session(sessCfgWithCreds);
             const zosResponse = await CheckStatus.getZosmfInfo(session);
             params.response.console.log("We just got a valid z/OSMF status response from system = " +
                 zosResponse.zosmf_hostname + "\n"
