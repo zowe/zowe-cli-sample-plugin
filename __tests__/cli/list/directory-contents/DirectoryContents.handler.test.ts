@@ -9,7 +9,7 @@
 *
 */
 
-import {CheckStatus, ZosmfSession} from "@zowe/zosmf-for-zowe-sdk";
+import {CheckStatus} from "@zowe/zosmf-for-zowe-sdk";
 import {Files} from "../../../../src/api/Files";
 import {IHandlerParameters} from "@zowe/imperative";
 import * as DirectoryDefinition from "../../../../src/cli/list/directory-contents/DirectoryContents.definition";
@@ -74,10 +74,16 @@ describe("directory-contents Handler", () => {
         CheckStatus.getZosmfInfo = jest.fn(() => {
             return {zosmf_hostname: "dummy"};
         });
-        ZosmfSession.createBasicZosmfSession = jest.fn();
         const handler = new DirectoryHandler.default();
         const params = Object.assign({}, ...[DEFAULT_PARAMETERS]);
-        params.arguments.directory = fakeDir;
+        params.arguments = {
+            ...params.arguments,
+            directory: fakeDir,
+            host: "fake",
+            port: 443,
+            user: "admin",
+            password: "123456"
+        };
 
         // The handler should succeed
         await handler.process(params);
