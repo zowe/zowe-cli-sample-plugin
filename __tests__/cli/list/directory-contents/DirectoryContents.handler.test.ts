@@ -9,7 +9,7 @@
 *
 */
 
-import {CheckStatus, ZosmfSession} from "@zowe/cli";
+import {CheckStatus, ZosmfSession} from "@zowe/zosmf-for-zowe-sdk";
 import {Files} from "../../../../src/api/Files";
 import {IHandlerParameters} from "@zowe/imperative";
 import * as DirectoryDefinition from "../../../../src/cli/list/directory-contents/DirectoryContents.definition";
@@ -19,11 +19,12 @@ jest.mock("../../../../src/api/Files");
 
 process.env.FORCE_COLOR = "0";
 
-const DEFAULT_PARAMTERS: IHandlerParameters = {
+const DEFAULT_PARAMETERS: IHandlerParameters = {
     arguments: {
         $0: "bright",
         _: ["brightside-sample-plugin", "list", "directory-contents"],
     },
+    positionals: [],
     profiles: {
         get: (type: string) => {
             return {};
@@ -45,7 +46,8 @@ const DEFAULT_PARAMTERS: IHandlerParameters = {
             error: jest.fn((errors) => {
                 expect("" + errors).toMatchSnapshot();
             }),
-            errorHeader: jest.fn(() => undefined)
+            errorHeader: jest.fn(() => undefined),
+            prompt: jest.fn(() => undefined)
         },
         progress: {
             startBar: jest.fn((parms) => undefined),
@@ -74,7 +76,7 @@ describe("directory-contents Handler", () => {
         });
         ZosmfSession.createBasicZosmfSession = jest.fn();
         const handler = new DirectoryHandler.default();
-        const params = Object.assign({}, ...[DEFAULT_PARAMTERS]);
+        const params = Object.assign({}, ...[DEFAULT_PARAMETERS]);
         params.arguments.directory = fakeDir;
 
         // The handler should succeed

@@ -9,12 +9,11 @@
 *
 */
 
-import {runCliScript} from "../../../__src__/TestUtils";
-import {ITestEnvironment} from "../../../__src__/environment/doc/response/ITestEnvironment";
-import {TestEnvironment} from "../../../__src__/environment/TestEnvironment";
+import { ITestEnvironment, TestEnvironment, runCliScript } from "@zowe/cli-test-utils";
+import { ITestPropertiesSchema } from "../../../__src__/environment/doc/ITestPropertiesSchema";
 
 // Test environment will be populated in the "beforeAll"
-let TEST_ENVIRONMENT: ITestEnvironment;
+let TEST_ENVIRONMENT: ITestEnvironment<ITestPropertiesSchema>;
 
 describe("zowe-cli-sample fail error-handler command", () => {
 

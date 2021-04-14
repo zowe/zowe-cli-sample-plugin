@@ -35,7 +35,8 @@
     "test:system": "env-cmd __tests__/__resources__/env/system.env jest .*/__system__/.* --coverage false",
     "test:integration": "env-cmd __tests__/__resources__/env/integration.env jest .*/__integration__/.* --coverage false",
     "test:unit": "env-cmd __tests__/__resources__/env/unit.env jest --coverage --testPathIgnorePatterns \".*/__system__|__integration__/.*\"",
-    "installPlugin": "npm install && npm run clean && npm run build && zowe plugins install ."
+    "installPlugin": "npm install && npm run clean && npm run build && zowe plugins install .",
+    "server:start": "cd server && json-server db.json --routes routes.json --ro"
   },
   "imperative": {
     "configurationModule": "lib/imperative.js"
@@ -49,8 +50,10 @@
     "@types/jest": "^20.0.5",
     "@types/node": "^8.0.0",
     "@types/yargs": "^13.0.2",
-    "@zowe/cli": "6.7.2",
-    "@zowe/imperative": "4.5.0",
+    "@zowe/cli-test-utils": "^7.0.0-next.202104132114",
+    "@zowe/core-for-zowe-sdk": "^7.0.0-next.202103152050",
+    "@zowe/imperative": "^5.0.0-next.202103111923",
+    "@zowe/zosmf-for-zowe-sdk": "^7.0.0-next.202103152050",
     "env-cmd": "^8.0.2",
     "fs-extra": "^8.1.0",
     "jest": "^24.9.0",
@@ -60,13 +63,14 @@
     "jest-html-reporter": "^3.3.0",
     "jest-junit": "^6.3.0",
     "jest-stare": "^2.2.0",
-    "madge": "^3.7.0",
+    "json-server": "^0.16.3",
+    "madge": "^4.0.0",
     "rimraf": "^2.7.1",
     "ts-jest": "^24.2.0",
     "ts-node": "^7.0.1",
     "tslint": "^5.20.1",
     "typedoc": "^0.15.0",
-    "typescript": "^3.7.4",
+    "typescript": "^3.8.0",
     "uuid": "^3.2.1"
   },
   "jest": {

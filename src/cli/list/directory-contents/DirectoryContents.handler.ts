@@ -9,9 +9,9 @@
 *
 */
 
-import { ICommandHandler, IHandlerParameters, TextUtils } from "@zowe/imperative";
+import { ConnectionPropsForSessCfg, ICommandHandler, IHandlerParameters, ISession, Session, TextUtils } from "@zowe/imperative";
 import { Files } from "../../../api/Files";
-import { CheckStatus, ZosmfSession } from "@zowe/cli";
+import { CheckStatus, ZosmfSession } from "@zowe/zosmf-for-zowe-sdk";
 
 /**
  * Command handler for listing directory contents
@@ -40,8 +40,9 @@ export default class DirectoryContentsHandler implements ICommandHandler {
          */
         try {
             // use the user's zosmf profile to create a session to the desired zosmf subsystem
-            const profile = params.profiles.get("zosmf");
-            const session = ZosmfSession.createBasicZosmfSession(profile);
+            const sessCfg = ZosmfSession.createSessCfgFromArgs(params.arguments);
+            const sessCfgWithCreds = await ConnectionPropsForSessCfg.addPropsOrPrompt<ISession>(sessCfg, params.arguments, { parms: params });
+            const session = new Session(sessCfgWithCreds);
             const zosResponse = await CheckStatus.getZosmfInfo(session);
             params.response.console.log("We just got a valid z/OSMF status response from system = " +
                 zosResponse.zosmf_hostname + "\n"

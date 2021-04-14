@@ -10,6 +10,7 @@
 */
 
 import { ICommandDefinition } from "@zowe/imperative";
+import { ZosmfSession } from "@zowe/zosmf-for-zowe-sdk";
 /**
  * Command one [object] defintion. This definition is of imperative type "command" and therefore must have a
  * command handler (which performs the "work" for this command).
@@ -42,6 +43,7 @@ export const DirectoryContentsDefinition: ICommandDefinition = {
         }
     ],
     profile: {
-        required: ["zosmf"],
-    }
+        optional: ["zosmf"],
+    },
+    options: [...ZosmfSession.ZOSMF_CONNECTION_OPTIONS]
 };
