@@ -40,6 +40,7 @@ const config: IImperativeConfig = {
                     },
                     port: {
                         type: "number",
+                        includeInTemplate: true,
                         optionDefinition: ProfileConstants.SAMPLE_OPTION_PORT
                     },
                     user: {
@@ -58,7 +59,6 @@ const config: IImperativeConfig = {
                     },
                     tshirtSize: {
                         type: "string",
-                        includeInTemplate: true,
                         optionDefinition: ProfileConstants.SAMPLE_OPTION_TSHIRT_SIZE
                     }
                 }

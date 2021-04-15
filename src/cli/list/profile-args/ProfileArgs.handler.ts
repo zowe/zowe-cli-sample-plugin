@@ -26,45 +26,34 @@ export default class ProfileArgsHandler extends ListBaseHandler {
      * @memberof ProfileArgsHandler
      */
     public async processWithSession(params: IHandlerParameters, session: Session): Promise<void> {
-        const profileArgs = {
-            host: session.ISession.hostname,
-            port: session.ISession.port,
-            user: session.ISession.user,
-            password: session.ISession.password,
-            rejectUnauthorized: session.ISession.rejectUnauthorized,
-            tshirtSize: params.arguments.tshirtSize
+        const usingTeamConfig = ImperativeConfig.instance.config.exists;
+        const output: any = {
+            arguments: {
+                // Load connection info from session object
+                host: session.ISession.hostname,
+                port: session.ISession.port,
+                user: session.ISession.user,
+                password: session.ISession.password,
+                rejectUnauthorized: session.ISession.rejectUnauthorized,
+                // Example of how to load other profile properties
+                tshirtSize: params.arguments.tshirtSize
+            },
+            environment: {
+                usingTeamConfig
+            }
         };
 
-        const usingTeamConfig = ImperativeConfig.instance.config.exists;
-        params.response.console.log(`Using team config: ${usingTeamConfig}`);
-
-        let sampleProfileName: string;
         if (usingTeamConfig) {
-            sampleProfileName = ImperativeConfig.instance.config.properties.defaults.sample;
+            output.environment.sampleProfileName = ImperativeConfig.instance.config.properties.defaults.sample;
+            output.environment.baseProfileName = ImperativeConfig.instance.config.properties.defaults.base;
         } else {
-            sampleProfileName = params.profiles.get("sample", false)?.name;
-        }
-        if (sampleProfileName != null) {
-            params.response.console.log(`Found sample profile: ${sampleProfileName}`);
-        } else {
-            params.response.console.log("No sample profile found");
+            output.environment.sampleProfileName = params.profiles.get("sample", false)?.name;
+            output.environment.baseProfileName = params.profiles.get("base", false)?.name;
         }
 
-        let baseProfileName: string;
-        if (usingTeamConfig) {
-            baseProfileName = ImperativeConfig.instance.config.properties.defaults.base;
-        } else {
-            baseProfileName = params.profiles.get("base", false)?.name;
-        }
-        if (baseProfileName != null) {
-            params.response.console.log(`Found base profile: ${baseProfileName}`);
-        } else {
-            params.response.console.log("No base profile found");
-        }
-
-        params.response.data.setObj(profileArgs);
+        params.response.data.setObj(output);
         params.response.format.output({
-            output: profileArgs,
+            output,
             format: "object"
         });
     }

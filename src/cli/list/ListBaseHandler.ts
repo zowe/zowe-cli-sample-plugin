@@ -40,17 +40,16 @@ export abstract class ListBaseHandler implements ICommandHandler {
      * @returns {Session} - A session for usage with the sample API
      */
     private async createSessCfgFromArgs(args: ICommandArguments, doPrompting = true): Promise<Session> {
+        // Create session config with connection info to access service
         const sessCfg: ISession = {
-            type: "basic",
             hostname: args.host,
             port: args.port,
-            user: args.user,
-            password: args.password,
             basePath: args.basePath,
             rejectUnauthorized: args.rejectUnauthorized,
             protocol: args.protocol || "https"
         };
 
+        // Add credentials to session config and prompt the user for any missing arguments
         const sessCfgWithCreds = await ConnectionPropsForSessCfg.addPropsOrPrompt<ISession>(sessCfg, args, {doPrompting});
         return new Session(sessCfgWithCreds);
     }
