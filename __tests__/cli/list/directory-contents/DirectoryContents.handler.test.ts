@@ -12,8 +12,8 @@
 import {CheckStatus} from "@zowe/zosmf-for-zowe-sdk";
 import {Files} from "../../../../src/api/Files";
 import {IHandlerParameters} from "@zowe/imperative";
-import * as DirectoryDefinition from "../../../../src/cli/list/directory-contents/DirectoryContents.definition";
-import * as DirectoryHandler from "../../../../src/cli/list/directory-contents/DirectoryContents.handler";
+import { DirectoryContentsDefinition } from "../../../../src/cli/list/directory-contents/DirectoryContents.definition";
+import * as DirectoryContentsHandler from "../../../../src/cli/list/directory-contents/DirectoryContents.handler";
 
 jest.mock("../../../../src/api/Files");
 
@@ -37,7 +37,8 @@ const DEFAULT_PARAMETERS: IHandlerParameters = {
             }),
             setObj: jest.fn((setObjArgs) => {
                 expect(setObjArgs).toMatchSnapshot();
-            })
+            }),
+            setExitCode: jest.fn()
         },
         console: {
             log: jest.fn((logs) => {
@@ -52,10 +53,15 @@ const DEFAULT_PARAMETERS: IHandlerParameters = {
         progress: {
             startBar: jest.fn((parms) => undefined),
             endBar: jest.fn(() => undefined)
+        },
+        format: {
+            output: jest.fn((parms) => {
+                expect(parms).toMatchSnapshot();
+            })
         }
-    } as any,
-    definition: DirectoryDefinition.DirectoryContentsDefinition,
-    fullDefinition: DirectoryDefinition.DirectoryContentsDefinition,
+    },
+    definition: DirectoryContentsDefinition,
+    fullDefinition: DirectoryContentsDefinition,
 };
 
 describe("directory-contents Handler", () => {
@@ -74,7 +80,7 @@ describe("directory-contents Handler", () => {
         CheckStatus.getZosmfInfo = jest.fn(() => {
             return {zosmf_hostname: "dummy"};
         });
-        const handler = new DirectoryHandler.default();
+        const handler = new DirectoryContentsHandler.default();
         const params = Object.assign({}, ...[DEFAULT_PARAMETERS]);
         params.arguments = {
             ...params.arguments,

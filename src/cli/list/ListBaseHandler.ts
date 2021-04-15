@@ -19,12 +19,18 @@ import { ConnectionPropsForSessCfg, ICommandArguments, ICommandHandler, IHandler
  */
 export abstract class ListBaseHandler implements ICommandHandler {
     /**
+     * Command parameters object
+     */
+    private mParams: IHandlerParameters;
+
+    /**
      * Process a command in the list command group.
      * @param {IHandlerParameters} params
      * @returns {Promise<void>}
      * @memberof ProfileArgsHandler
      */
     public async process(params: IHandlerParameters): Promise<void> {
+        this.mParams = params;
         // use the user's zosmf profile to create a session to the desired zosmf subsystem
         const session = await this.createSessCfgFromArgs(params.arguments);
         this.processWithSession(params, session);
@@ -58,7 +64,8 @@ export abstract class ListBaseHandler implements ICommandHandler {
         };
 
         // Add credentials to session config and prompt the user for any missing arguments
-        const sessCfgWithCreds = await ConnectionPropsForSessCfg.addPropsOrPrompt<ISession>(sessCfg, args, {doPrompting});
+        const sessCfgWithCreds = await ConnectionPropsForSessCfg.addPropsOrPrompt<ISession>(sessCfg, args,
+            { doPrompting, parms: this.mParams });
         return new Session(sessCfgWithCreds);
     }
 }
