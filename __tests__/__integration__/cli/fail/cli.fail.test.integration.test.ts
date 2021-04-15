@@ -28,8 +28,8 @@ describe("zowe-cli-sample fail command", () => {
     afterAll(async () => {
         await TestEnvironment.cleanUp(TEST_ENVIRONMENT);
     });
-    it("should display the help", async () => {
-        const response = await runCliScript(__dirname + "/__scripts__/fail_help.sh", TEST_ENVIRONMENT);
+    it("should display the help", () => {
+        const response = runCliScript(__dirname + "/__scripts__/fail_help.sh", TEST_ENVIRONMENT);
 
         expect(response.stderr.toString()).toBe("");
         expect(response.status).toBe(0);

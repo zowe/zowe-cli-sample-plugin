@@ -30,8 +30,8 @@ describe("zowe-cli-sample list directory-contents", () => {
         await TestEnvironment.cleanUp(TEST_ENVIRONMENT);
     });
 
-    it("should list the contents of the example directory", async () => {
-        const response = await runCliScript(__dirname + "/__scripts__/list_directory-contents.sh", TEST_ENVIRONMENT,
+    it("should list the contents of the example directory", () => {
+        const response = runCliScript(__dirname + "/__scripts__/list_directory-contents.sh", TEST_ENVIRONMENT,
             [__dirname + "/../../../__resources__/example_directory"]);
 
         expect(response.stderr.toString()).toBe("");

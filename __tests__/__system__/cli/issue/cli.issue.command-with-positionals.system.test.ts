@@ -28,8 +28,8 @@ describe("zowe-cli-sample issue command-with-positionals", () => {
         await TestEnvironment.cleanUp(TEST_ENVIRONMENT);
     });
 
-    it("should issue a response with the number and string inputted", async () => {
-        const response = await runCliScript(__dirname + "/__scripts__/issue_command_with_positionals.sh",
+    it("should issue a response with the number and string inputted", () => {
+        const response = runCliScript(__dirname + "/__scripts__/issue_command_with_positionals.sh",
             TEST_ENVIRONMENT,
             ["one", 2]);
 

@@ -1,0 +1,23 @@
+{
+    "profiles": {
+        "my_sample": {
+            "type": "sample",
+            "properties": {
+                "port": 443
+            }
+        },
+        "my_base": {
+            "type": "base",
+            "properties": {
+                "host": "old.host.com",
+                "user": "admin"
+            }
+        }
+    },
+    "defaults": {
+        "sample": "my_sample",
+        "base": "my_base"
+    },
+    "plugins": [],
+    "secure": []
+}

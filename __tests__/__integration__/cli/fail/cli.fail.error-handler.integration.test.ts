@@ -21,15 +21,15 @@ describe("zowe-cli-sample fail error-handler command", () => {
     beforeAll(async () => {
         TEST_ENVIRONMENT = await TestEnvironment.setUp({
             installPlugin: true,
-            testName: "fail_command",
+            testName: "fail_error_handler_command",
             skipProperties: true
         });
     });
     afterAll(async () => {
         await TestEnvironment.cleanUp(TEST_ENVIRONMENT);
     });
-    it("should fail the handler", async () => {
-        const response = await runCliScript(__dirname + "/__scripts__/fail_error_handler.sh", TEST_ENVIRONMENT);
+    it("should fail the handler", () => {
+        const response = runCliScript(__dirname + "/__scripts__/fail_error_handler.sh", TEST_ENVIRONMENT);
         expect(response.stderr.toString()).toMatchSnapshot();
         expect(response.status).toBe(1);
         expect(response.stdout.toString()).toMatchSnapshot();

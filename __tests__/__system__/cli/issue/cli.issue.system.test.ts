@@ -27,8 +27,8 @@ describe("zowe-cli-sample issue command", () => {
     afterAll(async () => {
         await TestEnvironment.cleanUp(TEST_ENVIRONMENT);
     });
-    it("should display the help", async () => {
-        const response = await runCliScript(__dirname + "/__scripts__/issue_help.sh", TEST_ENVIRONMENT);
+    it("should display the help", () => {
+        const response = runCliScript(__dirname + "/__scripts__/issue_help.sh", TEST_ENVIRONMENT);
 
         expect(response.stderr.toString()).toBe("");
         expect(response.status).toBe(0);
