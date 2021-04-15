@@ -12,7 +12,6 @@
 import * as fs from "fs";
 import * as path from "path";
 import { ITestEnvironment, TestEnvironment, runCliScript } from "@zowe/cli-test-utils";
-import { IO } from "@zowe/imperative";
 import { ITestPropertiesSchema } from "../../../__src__/environment/doc/ITestPropertiesSchema";
 
 // Test environment will be populated in the "beforeAll"
@@ -20,8 +19,6 @@ let TEST_ENVIRONMENT: ITestEnvironment<ITestPropertiesSchema>;
 
 const configJson = "zowe.config.json";
 const configUserJson = "zowe.config.user.json";
-const baseYaml = "my_base.yaml";
-const sampleYaml = "my_sample.yaml";
 
 describe("zowe-cli-sample list profile-args command", () => {
     // Create the unique test environment
@@ -41,7 +38,7 @@ describe("zowe-cli-sample list profile-args command", () => {
         fs.copyFileSync(path.join(__dirname, "__resources__", configJson), path.join(TEST_ENVIRONMENT.workingDir, configJson));
         fs.copyFileSync(path.join(__dirname, "__resources__", configUserJson), path.join(TEST_ENVIRONMENT.workingDir, configUserJson));
 
-        const response = runCliScript(__dirname + "/__scripts__/list_profile_args.sh", TEST_ENVIRONMENT);
+        const response = runCliScript(__dirname + "/__scripts__/list_profile_args_team_config.sh", TEST_ENVIRONMENT);
         expect(response.stderr.toString()).toBe("");
         expect(response.status).toBe(0);
         const output = response.stdout.toString();
@@ -56,12 +53,7 @@ describe("zowe-cli-sample list profile-args command", () => {
     });
 
     it("should list profile args from old school profile and other sources", () => {
-        IO.mkdirp(path.join(TEST_ENVIRONMENT.workingDir, "profiles", "base"));
-        fs.copyFileSync(path.join(__dirname, "__resources__", baseYaml), path.join(TEST_ENVIRONMENT.workingDir, "profiles", "base", baseYaml));
-        IO.mkdirp(path.join(TEST_ENVIRONMENT.workingDir, "profiles", "sample"));
-        fs.copyFileSync(path.join(__dirname, "__resources__", sampleYaml), path.join(TEST_ENVIRONMENT.workingDir, "profiles", "sample", sampleYaml));
-
-        const response = runCliScript(__dirname + "/__scripts__/list_profile_args.sh", TEST_ENVIRONMENT);
+        const response = runCliScript(__dirname + "/__scripts__/list_profile_args_old_profiles.sh", TEST_ENVIRONMENT);
         expect(response.stderr.toString()).toBe("");
         expect(response.status).toBe(0);
         const output = response.stdout.toString();

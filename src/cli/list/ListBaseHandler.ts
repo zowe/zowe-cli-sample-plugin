@@ -19,7 +19,7 @@ import { ConnectionPropsForSessCfg, ICommandArguments, ICommandHandler, IHandler
  */
 export abstract class ListBaseHandler implements ICommandHandler {
     /**
-     * Process the list profile args command.
+     * Process a command in the list command group.
      * @param {IHandlerParameters} params
      * @returns {Promise<void>}
      * @memberof ProfileArgsHandler
@@ -30,6 +30,14 @@ export abstract class ListBaseHandler implements ICommandHandler {
         this.processWithSession(params, session);
     }
 
+    /**
+     * Process a command given its parameters and an already loaded session.
+     * @abstract
+     * @param {IHandlerParameters} params
+     * @param {Session} session
+     * @returns {Promise<void>}
+     * @memberof ProfileArgsHandler
+     */
     public abstract processWithSession(params: IHandlerParameters, session: Session): Promise<void>;
 
     /**

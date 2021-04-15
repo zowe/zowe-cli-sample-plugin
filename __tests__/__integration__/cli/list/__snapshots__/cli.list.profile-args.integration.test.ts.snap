@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`zowe-cli-sample list profile-args command should list profile args from old school profile and other sources 1`] = `
+"Profile created successfully! Path:
+C:\\\\Users\\\\tj891237\\\\Projects\\\\zowe\\\\zowe-cli-sample-plugin\\\\__tests__\\\\__results__\\\\data\\\\f4208b71-37b0-4cf2-8405-e8e23daecf72_list_profile_args_command\\\\profiles\\\\base\\\\my_base.yaml
+
+host:               old.host.com
+user:               admin
+rejectUnauthorized: true
+
+Review the created profile and edit if necessary using the profile update command.
+Profile created successfully! Path:
+C:\\\\Users\\\\tj891237\\\\Projects\\\\zowe\\\\zowe-cli-sample-plugin\\\\__tests__\\\\__results__\\\\data\\\\f4208b71-37b0-4cf2-8405-e8e23daecf72_list_profile_args_command\\\\profiles\\\\sample\\\\my_sample.yaml
+
+port:               443
+user:               user1
+password:           123456
+rejectUnauthorized: true
+tshirtSize:         M
+
+Review the created profile and edit if necessary using the profile update command.
+arguments: 
+  host:               new.host.com
+  port:               1337
+  user:               user1
+  password:           123456
+  rejectUnauthorized: true
+  tshirtSize:         M
+environment: 
+  usingTeamConfig:   false
+  sampleProfileName: my_sample
+  baseProfileName:   my_base
+"
+`;
