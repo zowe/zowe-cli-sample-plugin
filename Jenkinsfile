@@ -109,7 +109,7 @@ node('zowe-jenkins-agent') {
     pipeline.test(
         name: "Integration",
         operation: {
-            sh "npm i -g @zowe/cli@latest"
+            sh "npm i -g @zowe/cli@next"
             sh "npm run test:integration"
         },
         testResults: [dir: "${INTEGRATION_TEST_ROOT}/jest-stare", files: "index.html", name: "${PRODUCT_NAME} - Integration Test Report"],
