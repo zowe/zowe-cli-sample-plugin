@@ -67,6 +67,8 @@ See [setup](docs/tutorials/Setup.md).
 
 ### Run the Automated Tests
 
+**Note:** If you don't have access to a z/OSMF instance at your site, run `npm run server:start` to launch a mock server at http://localhost:3000.
+
 1. `cd __tests__/__resources__/properties`
 2. Copy `example_properties.yaml` to `custom_properties.yaml`.
 3. Edit the properties within `custom_properties.yaml` to contain valid system information for your site.
