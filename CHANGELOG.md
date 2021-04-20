@@ -2,7 +2,7 @@
 
 All notable changes to the Sample Plug-in for Zowe CLI will be documented in this file.
 
-## Recent Changes
+## `3.0.0-next.202104201456`
 
 - Publish `@next` tag that is compatible with team config profiles.
 - Added "sample" profile type and `list profile-args` command as example of loading arguments from profiles.
