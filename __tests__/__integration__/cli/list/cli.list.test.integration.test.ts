@@ -15,20 +15,19 @@ import { ITestPropertiesSchema } from "../../../__src__/environment/doc/ITestPro
 // Test environment will be populated in the "beforeAll"
 let TEST_ENVIRONMENT: ITestEnvironment<ITestPropertiesSchema>;
 
-describe("zowe-cli-sample list", () => {
+describe("zowe-cli-sample list command", () => {
 
     // Create the unique test environment
     beforeAll(async () => {
         TEST_ENVIRONMENT = await TestEnvironment.setUp({
             installPlugin: true,
-            testName: "list_command"
+            testName: "list_command",
+            skipProperties: true
         });
     });
-
     afterAll(async () => {
         await TestEnvironment.cleanUp(TEST_ENVIRONMENT);
     });
-
     it("should display the help", () => {
         const response = runCliScript(__dirname + "/__scripts__/list_help.sh", TEST_ENVIRONMENT);
 

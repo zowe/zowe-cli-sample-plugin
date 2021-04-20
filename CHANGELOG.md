@@ -2,6 +2,13 @@
 
 All notable changes to the Sample Plug-in for Zowe CLI will be documented in this file.
 
+## Recent Changes
+
+- Publish `@next` tag that is compatible with team config profiles.
+- Added "sample" profile type and `list profile-args` command as example of loading arguments from profiles.
+- Replaced `TestEnvironment` class with @zowe/cli-test-utils package.
+- Added a local server that mocks the z/OSMF info endpoint for system tests.
+
 ## `2.0.3`
 
 - Update dependencies to conform with other plugins

@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`profile-args Handler should list profile args for old school profiles 1`] = `
+Object {
+  "format": "object",
+  "output": Object {
+    "arguments": Object {
+      "host": "fakeHost",
+      "password": "fakePass",
+      "port": 443,
+      "rejectUnauthorized": true,
+      "tshirtSize": "L",
+      "user": "fakeUser",
+    },
+    "environment": Object {
+      "baseProfileName": "fakeBase",
+      "sampleProfileName": "fakeSample",
+      "usingTeamConfig": false,
+    },
+  },
+}
+`;
+
+exports[`profile-args Handler should list profile args for team config 1`] = `
+Object {
+  "format": "object",
+  "output": Object {
+    "arguments": Object {
+      "host": "fakeHost",
+      "password": "fakePass",
+      "port": 443,
+      "rejectUnauthorized": true,
+      "tshirtSize": "S",
+      "user": "fakeUser",
+    },
+    "environment": Object {
+      "baseProfileName": "fakeBase",
+      "sampleProfileName": "fakeSample",
+      "usingTeamConfig": true,
+    },
+  },
+}
+`;

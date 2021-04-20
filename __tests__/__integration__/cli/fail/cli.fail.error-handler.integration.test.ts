@@ -9,12 +9,11 @@
 *
 */
 
-import {runCliScript} from "../../../__src__/TestUtils";
-import {ITestEnvironment} from "../../../__src__/environment/doc/response/ITestEnvironment";
-import {TestEnvironment} from "../../../__src__/environment/TestEnvironment";
+import { ITestEnvironment, TestEnvironment, runCliScript } from "@zowe/cli-test-utils";
+import { ITestPropertiesSchema } from "../../../__src__/environment/doc/ITestPropertiesSchema";
 
 // Test environment will be populated in the "beforeAll"
-let TEST_ENVIRONMENT: ITestEnvironment;
+let TEST_ENVIRONMENT: ITestEnvironment<ITestPropertiesSchema>;
 
 describe("zowe-cli-sample fail error-handler command", () => {
 
@@ -22,15 +21,15 @@ describe("zowe-cli-sample fail error-handler command", () => {
     beforeAll(async () => {
         TEST_ENVIRONMENT = await TestEnvironment.setUp({
             installPlugin: true,
-            testName: "fail_command",
+            testName: "fail_error_handler_command",
             skipProperties: true
         });
     });
     afterAll(async () => {
         await TestEnvironment.cleanUp(TEST_ENVIRONMENT);
     });
-    it("should fail the handler", async () => {
-        const response = await runCliScript(__dirname + "/__scripts__/fail_error_handler.sh", TEST_ENVIRONMENT);
+    it("should fail the handler", () => {
+        const response = runCliScript(__dirname + "/__scripts__/fail_error_handler.sh", TEST_ENVIRONMENT);
         expect(response.stderr.toString()).toMatchSnapshot();
         expect(response.status).toBe(1);
         expect(response.stdout.toString()).toMatchSnapshot();

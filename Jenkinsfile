@@ -19,7 +19,7 @@ import org.zowe.pipelines.nodejs.models.SemverLevel
  */
 def PRODUCT_NAME = "Zowe CLI"
 
-node('ca-jenkins-agent') {
+node('zowe-jenkins-agent') {
     // Initialize the pipeline
     def pipeline = new NodeJSPipeline(this)
 
@@ -33,6 +33,7 @@ node('ca-jenkins-agent') {
     // Protected branch property definitions
     pipeline.protectedBranches.addMap([
         [name: "master", tag: "latest", level: SemverLevel.MINOR, devDependencies: ["@zowe/cli": "latest", "@zowe/imperative": "latest"], aliasTags: ["zowe-v1-lts"]],
+        [name: "next", tag: "next", prerelease: "next", devDependencies: ["@zowe/cli-test-utils": "next", "@zowe/core-for-zowe-sdk": "next", "@zowe/imperative": "next", "@zowe/zosmf-for-zowe-sdk": "next"]],
         //[name: "master", tag: "latest", devDependencies: ["@zowe/cli": "latest", "@zowe/imperative": "latest"]],
         //[name: "zowe-v1-lts", tag: "zowe-v1-lts", level: SemverLevel.MINOR, devDependencies: ["@zowe/cli": "zowe-v1-lts", "@zowe/imperative": "zowe-v1-lts"]],
         [name: "lts-incremental", tag: "lts-incremental", level: SemverLevel.PATCH, devDependencies: ["@brightside/core": "lts-incremental", "@brightside/imperative": "lts-incremental"]]
@@ -52,7 +53,7 @@ node('ca-jenkins-agent') {
     ]
 
     // Initialize the pipeline library, should create 5 steps
-    pipeline.setup()
+    pipeline.setup(nodeJsVersion: 'v10.23.2')
 
     // Create a custom lint stage that runs immediately after the setup.
     pipeline.createStage(
@@ -103,13 +104,13 @@ node('ca-jenkins-agent') {
         ]
     )
 
-     def INTEGRATION_TEST_ROOT= "__tests__/__results__/integration"
-     def INTEGRATION_JUNIT_OUTPUT = "$INTEGRATION_TEST_ROOT/junit.xml"
-     // Perform a unit test and capture the results
+    def INTEGRATION_TEST_ROOT= "__tests__/__results__/integration"
+    def INTEGRATION_JUNIT_OUTPUT = "$INTEGRATION_TEST_ROOT/junit.xml"
+    // Perform a unit test and capture the results
     pipeline.test(
         name: "Integration",
         operation: {
-            sh "npm i -g @zowe/cli@latest"
+            sh "npm i -g @zowe/cli@next"
             sh "npm run test:integration"
         },
         testResults: [dir: "${INTEGRATION_TEST_ROOT}/jest-stare", files: "index.html", name: "${PRODUCT_NAME} - Integration Test Report"],
@@ -125,17 +126,18 @@ node('ca-jenkins-agent') {
         header: "## Recent Changes"
     )
 
-    // Deploys the application if on a protected branch. Give the version input
-    // 30 minutes before an auto timeout approve.
-    pipeline.deploy(
-        versionArguments: [timeout: [time: 30, unit: 'MINUTES']]
+    // Perform the versioning email mechanism
+    pipeline.version(
+        timeout: [time: 30, unit: 'MINUTES'],
+        updateChangelogArgs: [
+            file: "CHANGELOG.md",
+            header: "## Recent Changes"
+        ]
     )
 
-    // Update the changelog when merged
-    pipeline.updateChangelog(
-        file: "CHANGELOG.md",
-        header: "## Recent Changes"
-    )
+    // Deploys the application if on a protected branch. Give the version input
+    // 30 minutes before an auto timeout approve.
+    pipeline.deploy()
 
     // Once called, no stages can be added and all added stages will be executed. On completion
     // appropriate emails will be sent out by the shared library.

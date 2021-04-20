@@ -9,7 +9,6 @@
 *
 */
 
-jest.mock("fs");
 import * as fs from "fs";
 import { Files } from "../../src/api/Files";
 const EXPECTED_LSTAT_CALLS: number = 3;

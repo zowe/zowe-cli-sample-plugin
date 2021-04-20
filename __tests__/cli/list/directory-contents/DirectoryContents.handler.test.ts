@@ -9,21 +9,22 @@
 *
 */
 
-import {CheckStatus, ZosmfSession} from "@zowe/cli";
+import {CheckStatus} from "@zowe/zosmf-for-zowe-sdk";
 import {Files} from "../../../../src/api/Files";
 import {IHandlerParameters} from "@zowe/imperative";
-import * as DirectoryDefinition from "../../../../src/cli/list/directory-contents/DirectoryContents.definition";
-import * as DirectoryHandler from "../../../../src/cli/list/directory-contents/DirectoryContents.handler";
+import { DirectoryContentsDefinition } from "../../../../src/cli/list/directory-contents/DirectoryContents.definition";
+import * as DirectoryContentsHandler from "../../../../src/cli/list/directory-contents/DirectoryContents.handler";
 
 jest.mock("../../../../src/api/Files");
 
 process.env.FORCE_COLOR = "0";
 
-const DEFAULT_PARAMTERS: IHandlerParameters = {
+const DEFAULT_PARAMETERS: IHandlerParameters = {
     arguments: {
         $0: "bright",
         _: ["brightside-sample-plugin", "list", "directory-contents"],
     },
+    positionals: [],
     profiles: {
         get: (type: string) => {
             return {};
@@ -36,7 +37,8 @@ const DEFAULT_PARAMTERS: IHandlerParameters = {
             }),
             setObj: jest.fn((setObjArgs) => {
                 expect(setObjArgs).toMatchSnapshot();
-            })
+            }),
+            setExitCode: jest.fn()
         },
         console: {
             log: jest.fn((logs) => {
@@ -45,15 +47,21 @@ const DEFAULT_PARAMTERS: IHandlerParameters = {
             error: jest.fn((errors) => {
                 expect("" + errors).toMatchSnapshot();
             }),
-            errorHeader: jest.fn(() => undefined)
+            errorHeader: jest.fn(() => undefined),
+            prompt: jest.fn(() => undefined)
         },
         progress: {
             startBar: jest.fn((parms) => undefined),
             endBar: jest.fn(() => undefined)
+        },
+        format: {
+            output: jest.fn((parms) => {
+                expect(parms).toMatchSnapshot();
+            })
         }
-    } as any,
-    definition: DirectoryDefinition.DirectoryContentsDefinition,
-    fullDefinition: DirectoryDefinition.DirectoryContentsDefinition,
+    },
+    definition: DirectoryContentsDefinition,
+    fullDefinition: DirectoryContentsDefinition,
 };
 
 describe("directory-contents Handler", () => {
@@ -72,10 +80,16 @@ describe("directory-contents Handler", () => {
         CheckStatus.getZosmfInfo = jest.fn(() => {
             return {zosmf_hostname: "dummy"};
         });
-        ZosmfSession.createBasicZosmfSession = jest.fn();
-        const handler = new DirectoryHandler.default();
-        const params = Object.assign({}, ...[DEFAULT_PARAMTERS]);
-        params.arguments.directory = fakeDir;
+        const handler = new DirectoryContentsHandler.default();
+        const params = Object.assign({}, ...[DEFAULT_PARAMETERS]);
+        params.arguments = {
+            ...params.arguments,
+            directory: fakeDir,
+            host: "fake",
+            port: 443,
+            user: "admin",
+            password: "123456"
+        };
 
         // The handler should succeed
         await handler.process(params);

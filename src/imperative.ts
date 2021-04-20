@@ -10,6 +10,7 @@
 */
 
 import {IImperativeConfig} from "@zowe/imperative";
+import { ProfileConstants } from "./api/ProfileConstants";
 
 const config: IImperativeConfig = {
     commandModuleGlobs: ["**/cli/*/*.definition!(.d).*s"],
@@ -23,7 +24,47 @@ const config: IImperativeConfig = {
         "the [actions] are defined in the project under 'src/cli/', " +
         "& the [objects] (definitions & handler) are defined in the project under 'src/cli/'.",
     productDisplayName: "Zowe CLI Sample Plug-in",
-    name: "zowe-cli-sample"
+    name: "zowe-cli-sample",
+    profiles: [
+        {
+            type: "sample",
+            schema: {
+                type: "object",
+                title: "Sample Profile",
+                description: "A sample profile is required to issue commands that interact with the sample API. The " +
+                    "sample profile contains your host, port, user name, and password to connect to the sample API.",
+                properties: {
+                    host: {
+                        type: "string",
+                        optionDefinition: ProfileConstants.SAMPLE_OPTION_HOST
+                    },
+                    port: {
+                        type: "number",
+                        includeInTemplate: true,
+                        optionDefinition: ProfileConstants.SAMPLE_OPTION_PORT
+                    },
+                    user: {
+                        type: "string",
+                        secure: true,
+                        optionDefinition: ProfileConstants.SAMPLE_OPTION_USER
+                    },
+                    password: {
+                        type: "string",
+                        secure: true,
+                        optionDefinition: ProfileConstants.SAMPLE_OPTION_PASSWORD
+                    },
+                    rejectUnauthorized: {
+                        type: "boolean",
+                        optionDefinition: ProfileConstants.SAMPLE_OPTION_REJECT_UNAUTHORIZED
+                    },
+                    tshirtSize: {
+                        type: "string",
+                        optionDefinition: ProfileConstants.SAMPLE_OPTION_TSHIRT_SIZE
+                    }
+                }
+            }
+        }
+    ]
 };
 
 export = config;
