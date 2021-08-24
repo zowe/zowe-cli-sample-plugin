@@ -120,8 +120,9 @@ export class TestEnvironment {
      *   file specified in the process.env (see gulp tasks for more information).
      *  @returns  The parsed test properties.
      */
-    private static loadSystemTestProperties(filePath: string = null,
-                                            workingDir: string = process.cwd()): ITestPropertiesSchema {
+    private static loadSystemTestProperties(
+        filePath: string = null, workingDir: string = process.cwd()
+    ): ITestPropertiesSchema {
         const logger: Logger = this.getMockFileLogger(workingDir);
         // For now, I'm leaving the option for env specified properties in code. This will not be documented.
         const propfilename: string = process.env.propfile || TestEnvironment.DEFAULT_PROPERTIES;

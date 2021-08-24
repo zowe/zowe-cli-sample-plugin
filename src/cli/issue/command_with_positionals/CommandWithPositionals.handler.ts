@@ -15,7 +15,7 @@ export default class CommandWithPositionalsHandler implements ICommandHandler {
     public async process(params: IHandlerParameters): Promise<void> {
 
         // Log the command issued and set the API message (for JSON response)
-        const msg: string = `\"zowe ${params.arguments._.join(" ")}\" command issued!`;
+        const msg: string = `"zowe ${params.arguments._.join(" ")}" command issued!`;
         params.response.data.setMessage(msg);
         params.response.console.log(msg);
 
