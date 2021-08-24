@@ -51,8 +51,18 @@ node('zowe-jenkins-agent') {
         scope: '@zowe'
     ]
 
+
+    pipeline.registryConfig = [
+        [
+            email: pipeline.publishConfig.email,
+            credentialsId: pipeline.publishConfig.credentialsId,
+            url: 'https://zowe.jfrog.io/zowe/api/npm/npm-release/',
+            scope: pipeline.publishConfig.scope
+        ]
+    ]
+
     // Initialize the pipeline library, should create 5 steps
-    pipeline.setup()
+    pipeline.setup(nodeJsVersion: 'v12.22.1')
 
     // Create a custom lint stage that runs immediately after the setup.
     pipeline.createStage(
