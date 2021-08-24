@@ -24,6 +24,7 @@ const DEFAULT_PARAMTERS: IHandlerParameters = {
         $0: "bright",
         _: ["brightside-sample-plugin", "list", "directory-contents"],
     },
+    positionals: ["brightside-sample-plugin", "list", "directory-contents"],
     profiles: {
         get: (type: string) => {
             return {};
