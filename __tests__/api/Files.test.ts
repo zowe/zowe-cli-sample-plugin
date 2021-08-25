@@ -10,36 +10,23 @@
 */
 
 jest.mock("fs");
-import * as fs from "fs";
+const fs = require("fs");
 import { Files } from "../../src/api/Files";
 const EXPECTED_LSTAT_CALLS: number = 3;
 describe("Files", () => {
     it("should return attributes for a mocked directory", () => {
-
-        // Mock lstatSync to have a mocked isDirectory function
-        const mockedLstat = jest.fn((args) => {
-            return {
-                isDirectory: jest.fn((isDirArgs) => {
-                    return true;
-                }),
-                size: "big!",
-                mode: "000",
-                birthtime: "unknown",
-                mtime: "unknown",
-                name: args
-            };
+        const PARENT_DIR = "pathTo/parentDir";
+        fs.__setMockFiles({
+            [PARENT_DIR]: ["file1", "directory1"]
         });
-        (fs.lstatSync as any) = mockedLstat;
 
-        // Mock readdirSync to return a mocked list
-        const mockedReadDir = jest.fn((readDir) => {
-            return ["file1", "directory1"];
-        });
-        (fs.readdirSync as any) = mockedReadDir;
+        // note: __mocks__\fs.ts is used
+        const lstatSyncSpy = jest.spyOn(fs, "lstatSync");
+        const readdirSyncSpy = jest.spyOn(fs, "readdirSync");
 
-        const contents = Files.listDirectoryContents("fake");
+        const contents = Files.listDirectoryContents(PARENT_DIR);
         expect(contents).toMatchSnapshot();
-        expect(mockedLstat).toHaveBeenCalledTimes(EXPECTED_LSTAT_CALLS);
-        expect(mockedReadDir).toHaveBeenCalledTimes(1);
+        expect(lstatSyncSpy).toHaveBeenCalledTimes(EXPECTED_LSTAT_CALLS);
+        expect(readdirSyncSpy).toHaveBeenCalledTimes(1);
     });
 });
