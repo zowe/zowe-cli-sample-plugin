@@ -32,8 +32,9 @@ const DEFAULT_PARAMETERS: IHandlerParameters = {
     } as any,
     response: {
         data: {
-            setMessage: jest.fn((setMsgArgs) => {
+            setMessage: jest.fn((setMsgArgs): string => {
                 expect("" + setMsgArgs).toMatchSnapshot();
+                return "";
             }),
             setObj: jest.fn((setObjArgs) => {
                 expect(setObjArgs).toMatchSnapshot();
@@ -43,9 +44,11 @@ const DEFAULT_PARAMETERS: IHandlerParameters = {
         console: {
             log: jest.fn((logs) => {
                 expect("" + logs).toMatchSnapshot();
+                return "";
             }),
             error: jest.fn((errors) => {
                 expect("" + errors).toMatchSnapshot();
+                return "";
             }),
             errorHeader: jest.fn(() => undefined),
             prompt: jest.fn(() => undefined)
