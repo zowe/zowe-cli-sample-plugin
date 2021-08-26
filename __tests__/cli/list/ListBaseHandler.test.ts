@@ -23,6 +23,7 @@ const DEFAULT_PARAMETERS: Partial<IHandlerParameters> = {
         data: {
             setMessage: jest.fn((setMsgArgs) => {
                 expect("" + setMsgArgs).toMatchSnapshot();
+                return "";
             }),
             setObj: jest.fn((setObjArgs) => {
                 expect(setObjArgs).toMatchSnapshot();
@@ -32,9 +33,11 @@ const DEFAULT_PARAMETERS: Partial<IHandlerParameters> = {
         console: {
             log: jest.fn((logs) => {
                 expect("" + logs).toMatchSnapshot();
+                return "";
             }),
             error: jest.fn((errors) => {
                 expect("" + errors).toMatchSnapshot();
+                return "";
             }),
             errorHeader: jest.fn(() => undefined),
             prompt: jest.fn(() => undefined)
@@ -92,15 +95,16 @@ describe("ListBaseHandler", () => {
         params.arguments = {
             host: "fakeHost",
             port: 443,
-            authToken: "fakeToken=XXX"
+            tokenType: "fakeTokenType",
+            tokenValue: "fakeTokenValue"
         };
         await testHandler.process(params);
 
         const expectedSessCfg: ISession = {
             hostname: "fakeHost",
             port: 443,
-            tokenType: "fakeToken",
-            tokenValue: "XXX",
+            tokenType: "fakeTokenType",
+            tokenValue: "fakeTokenValue",
             type: "token"
         };
         expect(finalSessCfg).toMatchObject(expectedSessCfg);

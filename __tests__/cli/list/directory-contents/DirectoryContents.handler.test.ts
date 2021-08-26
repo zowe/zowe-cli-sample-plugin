@@ -22,9 +22,9 @@ process.env.FORCE_COLOR = "0";
 const DEFAULT_PARAMETERS: IHandlerParameters = {
     arguments: {
         $0: "bright",
-        _: ["brightside-sample-plugin", "list", "directory-contents"],
+        _: ["zowe-cli-sample", "list", "directory-contents"],
     },
-    positionals: [],
+    positionals: ["zowe-cli-sample", "list", "directory-contents"],
     profiles: {
         get: (type: string) => {
             return {};
@@ -32,8 +32,9 @@ const DEFAULT_PARAMETERS: IHandlerParameters = {
     } as any,
     response: {
         data: {
-            setMessage: jest.fn((setMsgArgs) => {
+            setMessage: jest.fn((setMsgArgs): string => {
                 expect("" + setMsgArgs).toMatchSnapshot();
+                return "";
             }),
             setObj: jest.fn((setObjArgs) => {
                 expect(setObjArgs).toMatchSnapshot();
@@ -43,9 +44,11 @@ const DEFAULT_PARAMETERS: IHandlerParameters = {
         console: {
             log: jest.fn((logs) => {
                 expect("" + logs).toMatchSnapshot();
+                return "";
             }),
             error: jest.fn((errors) => {
                 expect("" + errors).toMatchSnapshot();
+                return "";
             }),
             errorHeader: jest.fn(() => undefined),
             prompt: jest.fn(() => undefined)
@@ -77,7 +80,7 @@ describe("directory-contents Handler", () => {
                 moreFake: "directory"
             }];
         });
-        CheckStatus.getZosmfInfo = jest.fn(() => {
+        CheckStatus.getZosmfInfo = jest.fn(async () => {
             return {zosmf_hostname: "dummy"};
         });
         const handler = new DirectoryContentsHandler.default();
