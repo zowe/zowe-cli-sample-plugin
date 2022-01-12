@@ -36,21 +36,31 @@ export const CommandWithOptionsDefinition: ICommandDefinition = {
     handler: __dirname + "/CommandWithOptions.handler",
     options: [
         {
-            name: "use-the-string",
-            description: "Boolean flag, that if specified, requires that you also specify a string for option \"the string\"",
-            type: "boolean",
-            implies: ["the-string"]
+            name: "test-arg",
+            description: "String containing test data",
+            type: "string"
         },
         {
-            name: "the-string",
-            description: "A string type option that is required if \"use-the-string\" is specified.",
-            type: "string",
-        },
-        {
-            name: "required-number",
-            description: "A required number.",
-            type: "number",
-            required: true
+            name: "test-env",
+            description: "Another string containing test data",
+            type: "string"
         }
+        // {
+        //     name: "use-the-string",
+        //     description: "Boolean flag, that if specified, requires that you also specify a string for option \"the string\"",
+        //     type: "boolean",
+        //     implies: ["the-string"]
+        // },
+        // {
+        //     name: "the-string",
+        //     description: "A string type option that is required if \"use-the-string\" is specified.",
+        //     type: "string",
+        // },
+        // {
+        //     name: "required-number",
+        //     description: "A required number.",
+        //     type: "number",
+        //     required: true
+        // }
     ]
 };

@@ -127,5 +127,8 @@
     "includeFailureMsg": true
   },
   "author": "Darkside",
-  "license": "EPL-2.0"
+  "license": "EPL-2.0",
+  "dependencies": {
+    "get-stdin": "^7.0.0"
+  }
 }
