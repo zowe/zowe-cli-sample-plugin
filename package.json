@@ -24,7 +24,7 @@
     "registry": "https://zowe.jfrog.io/zowe/api/npm/npm-local-release/"
   },
   "scripts": {
-    "build": "node scripts/updateLicense.js && tsc --pretty && npm run checkTestsCompile && madge -c lib",
+    "build": "tsc --pretty && npm run checkTestsCompile && madge -c lib",
     "checkTestsCompile": "echo \"Checking that test source compiles...\" && tsc --project __tests__/test-tsconfig.json --noEmit ",
     "prebuild": "npm run clean && npm run lint && echo Using TypeScript && tsc --version",
     "clean": "rimraf lib",
@@ -38,14 +38,19 @@
     "test:integration": "env-cmd __tests__/__resources__/env/integration.env jest .*/__integration__/.* --coverage false",
     "test:unit": "env-cmd __tests__/__resources__/env/unit.env jest --coverage --testPathIgnorePatterns \".*/__system__|__integration__/.*\"",
     "installPlugin": "npm install && npm run clean && npm run build && zowe plugins install .",
-    "server:start": "cd server && json-server db.json --routes routes.json --ro"
+    "server:start": "cd server && json-server db.json --routes routes.json --ro",
+    "typedoc": "typedoc --out ./docs/typedoc/ ./src/ --disableOutputCheck",
+    "prepare": "husky install"
   },
   "imperative": {
     "configurationModule": "lib/imperative.js"
   },
   "peerDependencies": {
-    "@zowe/cli": "^6.33.0",
-    "@zowe/imperative": "^4.15.0"
+    "@zowe/imperative": ">=5.0.0-next.202108181618 <5.0.0"
+  },
+  "dependencies": {
+    "@zowe/core-for-zowe-sdk": "^7.0.0-next.202108202027",
+    "@zowe/zosmf-for-zowe-sdk": "^7.0.0-next.202108202027"
   },
   "devDependencies": {
     "@types/fs-extra": "^8.0.0",
@@ -54,14 +59,14 @@
     "@typescript-eslint/eslint-plugin": "^4.29.0",
     "@typescript-eslint/parser": "^4.29.0",
     "@zowe/cli-test-utils": "^7.0.0-next.202108202027",
-    "@zowe/core-for-zowe-sdk": "^7.0.0-next.202108202027",
     "@zowe/imperative": "^5.0.0-next.202108181618",
-    "@zowe/zosmf-for-zowe-sdk": "^7.0.0-next.202108202027",
     "env-cmd": "^8.0.2",
     "eslint": "^7.32.0",
     "eslint-plugin-jest": "^24.4.0",
+    "eslint-plugin-license-header": "^0.2.0",
     "eslint-plugin-unused-imports": "^1.1.2",
     "fs-extra": "^8.1.0",
+    "husky": "^7.0.0",
     "jest": "^27.0.6",
     "jest-cli": "^27.0.6",
     "jest-environment-node": "^27.0.6",
@@ -74,7 +79,7 @@
     "rimraf": "^2.7.1",
     "ts-jest": "^27.0.5",
     "ts-node": "^7.0.1",
-    "typedoc": "^0.15.0",
+    "typedoc": "^0.20.36",
     "typescript": "^3.8.0",
     "uuid": "^3.2.1"
   },
