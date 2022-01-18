@@ -70,6 +70,14 @@ describe("profile-args Handler", () => {
         Object.defineProperty(ImperativeConfig, "instance", {
             get: () => ({
                 config: {
+                    api: {
+                        layers: {
+                            get: jest.fn()
+                        },
+                        secure: {
+                            secureFields: jest.fn(() => [])
+                        }
+                    },
                     exists: true,
                     properties: {
                         defaults: {
@@ -77,6 +85,10 @@ describe("profile-args Handler", () => {
                             sample: "fakeSample"
                         }
                     }
+                },
+                envVariablePrefix: "TEST",
+                loadedConfig: {
+                    profiles: []
                 }
             })
         });
