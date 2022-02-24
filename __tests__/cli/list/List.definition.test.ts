@@ -10,24 +10,12 @@
 *
 */
 
-import * as fs from "fs";
-import { Imperative } from "@zowe/imperative";
+import { ICommandDefinition } from "@zowe/imperative";
 
 describe("List definition", () => {
     it("should match the snapshot", () => {
-
-        // Attempt to read the full file contents. We could require the module here, however there is normally non
-        // deterministic data (filepaths, etc.) that are resolved when the module is loaded, so it is simpler to
-        // check the contents for changes (sanity/protection agaisnt undesired changes to the definition)
-        let contents: string;
-        let error;
-        try {
-            contents = fs.readFileSync(__dirname + "/../../../src/cli/list/List.definition.ts").toString();
-        } catch (e) {
-            error = e;
-            Imperative.console.error(`Error reading List.definition.ts Did you move the file? Details: ${e.message}`);
-        }
-        expect(error).toBeUndefined();
+        const contents = require("../../../src/cli/list/List.definition");
+        contents.children.forEach((child: ICommandDefinition) => delete child.handler);
         expect(contents).toMatchSnapshot();
     });
 });
