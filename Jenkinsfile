@@ -100,7 +100,7 @@ node('zowe-jenkins-agent') {
             autoUpdateStability: false,
             coberturaReportFile: '__tests__/__results__/unit/coverage/cobertura-coverage.xml',
             classCoverageTargets: '85, 80, 45',
-            conditionalCoverageTargets: '70, 65, 50',
+            conditionalCoverageTargets: '70, 65, 30',
             failUnhealthy: false,
             failUnstable: false,
             fileCoverageTargets: '85, 80, 45',
