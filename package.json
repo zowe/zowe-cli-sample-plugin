@@ -24,12 +24,13 @@
     "registry": "https://zowe.jfrog.io/zowe/api/npm/npm-local-release/"
   },
   "scripts": {
-    "build": "node scripts/updateLicense.js && tsc --pretty && npm run checkTestsCompile && madge -c lib",
+    "build": "npm run license && tsc --pretty && npm run checkTestsCompile && madge -c lib",
     "checkTestsCompile": "echo \"Checking that test source compiles...\" && tsc --project __tests__/test-tsconfig.json --noEmit ",
     "prebuild": "npm run clean && npm run lint && echo Using TypeScript && tsc --version",
     "clean": "rimraf lib",
     "watch": "tsc --pretty --watch",
     "prepublishOnly": "npm run build",
+    "license": "node scripts/updateLicense.js",
     "lint": "eslint \"src/**/*.ts\" \"**/__tests__/**/*.ts\"",
     "lint:src": "eslint \"src/**/*.ts\" --ignore-pattern \"**/__tests__/**/*.ts\"",
     "lint:tests": "eslint \"**/__tests__/**/*.ts\"",
