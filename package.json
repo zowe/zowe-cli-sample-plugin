@@ -24,7 +24,7 @@
     "registry": "https://zowe.jfrog.io/zowe/api/npm/npm-local-release/"
   },
   "scripts": {
-    "build": "npm run license && tsc --pretty && npm run checkTestsCompile && madge -c lib",
+    "build": "tsc --pretty && npm run checkTestsCompile && madge -c lib",
     "checkTestsCompile": "echo \"Checking that test source compiles...\" && tsc --project __tests__/test-tsconfig.json --noEmit ",
     "prebuild": "npm run clean && npm run lint && echo Using TypeScript && tsc --version",
     "clean": "rimraf lib",
