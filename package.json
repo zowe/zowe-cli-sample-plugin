@@ -30,7 +30,6 @@
     "clean": "rimraf lib",
     "watch": "tsc --pretty --watch",
     "prepublishOnly": "npm run build",
-    "license": "node scripts/updateLicense.js",
     "lint": "eslint \"src/**/*.ts\" \"**/__tests__/**/*.ts\"",
     "lint:src": "eslint \"src/**/*.ts\" --ignore-pattern \"**/__tests__/**/*.ts\"",
     "lint:tests": "eslint \"**/__tests__/**/*.ts\"",
