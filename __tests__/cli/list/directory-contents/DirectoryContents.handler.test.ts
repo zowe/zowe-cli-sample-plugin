@@ -83,4 +83,49 @@ describe("directory-contents Handler", () => {
 
         expect(Files.listDirectoryContents).toHaveBeenCalledWith(fakeDir);
     });
+
+    it("should read a mocked directory, even if checkStatus fails", async () => {
+        const fakeDir: string = "fake/directory";
+        // Mock the files api call
+        Files.listDirectoryContents = jest.fn((dir) => {
+            return [{
+                fake: "file",
+                moreFake: "directory"
+            }];
+        });
+        CheckStatus.getZosmfInfo = jest.fn(async () => {
+            throw "dummy error";
+        });
+        ZosmfSession.createBasicZosmfSession = jest.fn();
+        const handler = new DirectoryHandler.default();
+        const params = Object.assign({}, ...[DEFAULT_PARAMTERS]);
+        params.arguments.directory = fakeDir;
+
+        // The handler should succeed
+        await handler.process(params);
+
+        expect(Files.listDirectoryContents).toHaveBeenCalledWith(fakeDir);
+    });
+
+    it("should read a mocked directory, even if dir is null", async () => {
+        // Mock the files api call
+        Files.listDirectoryContents = jest.fn((dir) => {
+            return [{
+                fake: "file",
+                moreFake: "directory"
+            }];
+        });
+        CheckStatus.getZosmfInfo = jest.fn(async () => {
+            throw "dummy error";
+        });
+        ZosmfSession.createBasicZosmfSession = jest.fn();
+        const handler = new DirectoryHandler.default();
+        const params = Object.assign({}, ...[DEFAULT_PARAMTERS]);
+        params.arguments.directory = null;
+
+        // The handler should succeed
+        await handler.process(params);
+
+        expect(Files.listDirectoryContents).toHaveBeenCalledWith(".");
+    });
 });

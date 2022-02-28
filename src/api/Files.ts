@@ -47,7 +47,7 @@ export class Files {
             contents = fs.readdirSync(dir);
         } catch (e) {
             throw new ImperativeError({
-                msg: `An error occurred obtainined the directory info: ${e.message}`,
+                msg: `An error occurred obtained the directory info: ${e.message}`,
                 additionalDetails: e
             });
         }
