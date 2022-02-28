@@ -6,7 +6,6 @@
 * SPDX-License-Identifier: EPL-2.0 OR Apache-2.0
 *
 * Copyright Contributors to the Zowe Project.
-*
 */
 
 import { ICommandDefinition } from "@zowe/imperative";

@@ -6,12 +6,11 @@
 * SPDX-License-Identifier: EPL-2.0 OR Apache-2.0
 *
 * Copyright Contributors to the Zowe Project.
-*
 */
 
 describe("Error Handler definition", () => {
     it("should match the snapshot", () => {
-        const contents = require("../../../../src/cli/fail/error_handler/ErrorHandler.definition")
+        const contents = require("../../../../src/cli/fail/error_handler/ErrorHandler.definition");
         Object.keys(contents).forEach(key => contents[key].handler = require("path").relative(__dirname, contents[key].handler));
         expect(contents).toMatchSnapshot();
     });
