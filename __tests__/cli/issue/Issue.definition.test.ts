@@ -14,7 +14,7 @@ import { ICommandDefinition } from "@zowe/imperative";
 describe("Issue definition", () => {
     it("should match the snapshot", () => {
         const contents = require("../../../src/cli/issue/Issue.definition");
-        contents.children.forEach((child: ICommandDefinition) => delete child.handler);
+        contents.children.forEach((child: ICommandDefinition) => child.handler = require("path").relative(__dirname, child.handler));
         expect(contents).toMatchSnapshot();
     });
 });

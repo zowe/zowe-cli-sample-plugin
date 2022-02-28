@@ -10,6 +10,7 @@ Object {
       "description": "[objects] in Zowe CLI are the entities on which [actions] are performed. [objects] are always nouns. For example, for command \\"zowe zos-files delete data-set\\", the [object] is \\"data-set\\".
 
 For this command, we list contents of the specified directory.",
+      "handler": "../../../src/cli/list/directory-contents/DirectoryContents.handler",
       "name": "directory-contents",
       "positionals": Array [
         Object {

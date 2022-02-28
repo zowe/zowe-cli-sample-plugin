@@ -10,6 +10,7 @@ Object {
       "description": "[objects] in Zowe CLI are the entities on which [actions] are perfomed. [objects] are always nouns. For example, for command \\"zowe zos-files delete data-set\\", the [object] is \\"data-set\\".
 
 For this command, we fail the handler with an ImperativeError.",
+      "handler": "../../../src/cli/fail/error_handler/ErrorHandler.handler",
       "name": "error-handler",
       "summary": "[object] error-handler always fails!",
       "type": "command",

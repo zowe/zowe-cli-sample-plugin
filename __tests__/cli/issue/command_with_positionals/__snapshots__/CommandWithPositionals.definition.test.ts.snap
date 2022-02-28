@@ -7,6 +7,7 @@ Object {
       "cwp",
     ],
     "description": "[objects] in Zowe CLI are the entities on which [actions] are perfomed. [objects] are always nouns. For example, for command \\"zowe zos-files delete data-set\\", the [object] is \\"data-set\\". For this command, we will simply print console error (stderr) messages and the command should succeed.",
+    "handler": "../../../../src/cli/issue/command_with_positionals/CommandWithPositionals.handler",
     "name": "command-with-positionals",
     "positionals": Array [
       Object {

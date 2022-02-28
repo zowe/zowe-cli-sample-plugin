@@ -12,7 +12,7 @@
 describe("directory Contents definition", () => {
     it("should match the snapshot", () => {
         const contents = require("../../../../src/cli/list/directory-contents/DirectoryContents.definition");
-        Object.keys(contents).forEach(key => delete contents[key].handler);
+        Object.keys(contents).forEach(key => contents[key].handler = require("path").relative(__dirname, contents[key].handler));
         expect(contents).toMatchSnapshot();
     });
 });
