@@ -15,8 +15,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node-version: ${{ github.event_name == 'pull_request' && [12.x, 14.x, 16.x] || [16.x] }}
-        os: ${{ github.event_name == 'pull_request' && [windows-latest, ubuntu-latest, macos-latest] || [ubuntu-latest] }}
+        node-version: [12.x, 14.x, 16.x]
+        os: [windows-latest, ubuntu-latest, macos-latest]
 
     steps:
     - name: Checkout
@@ -26,6 +26,11 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
+
+    - name: Disable Lint Annotations
+      run: |
+        echo "::remove-matcher owner=eslint-compact::"
+        echo "::remove-matcher owner=eslint-stylish::"
 
     - name: Update NPM
       if: ${{ matrix.node-version != '16.x' }}
