@@ -18,7 +18,7 @@ jest.mock("../../../../src/api/Files");
 
 process.env.FORCE_COLOR = "0";
 
-const DEFAULT_PARAMTERS: IHandlerParameters = {
+const DEFAULT_PARAMETERS: IHandlerParameters = {
     arguments: {
         $0: "bright",
         _: ["zowe-cli-sample", "list", "directory-contents"],
@@ -74,7 +74,7 @@ describe("directory-contents Handler", () => {
         });
         ZosmfSession.createBasicZosmfSession = jest.fn();
         const handler = new DirectoryHandler.default();
-        const params = Object.assign({}, ...[DEFAULT_PARAMTERS]);
+        const params = Object.assign({}, ...[DEFAULT_PARAMETERS]);
         params.arguments.directory = fakeDir;
 
         // The handler should succeed
@@ -97,7 +97,7 @@ describe("directory-contents Handler", () => {
         });
         ZosmfSession.createBasicZosmfSession = jest.fn();
         const handler = new DirectoryHandler.default();
-        const params = Object.assign({}, ...[DEFAULT_PARAMTERS]);
+        const params = Object.assign({}, ...[DEFAULT_PARAMETERS]);
         params.arguments.directory = fakeDir;
 
         // The handler should succeed
@@ -119,7 +119,7 @@ describe("directory-contents Handler", () => {
         });
         ZosmfSession.createBasicZosmfSession = jest.fn();
         const handler = new DirectoryHandler.default();
-        const params = Object.assign({}, ...[DEFAULT_PARAMTERS]);
+        const params = Object.assign({}, ...[DEFAULT_PARAMETERS]);
         params.arguments.directory = null;
 
         // The handler should succeed

@@ -9,11 +9,12 @@
  */
 
 import { ICommandDefinition } from "@zowe/imperative";
+import { relative, sep, posix } from "path";
 
 describe("Issue definition", () => {
     it("should match the snapshot", () => {
         const contents = require("../../../src/cli/issue/Issue.definition");
-        contents.children.forEach((child: ICommandDefinition) => child.handler = require("path").relative(__dirname, child.handler));
+        contents.children.forEach((child: ICommandDefinition) => child.handler = relative(__dirname, child.handler).split(sep).join(posix.sep));
         expect(contents).toMatchSnapshot();
     });
 });

@@ -8,10 +8,12 @@
  * Copyright Contributors to the Zowe Project.
  */
 
+import { relative, sep, posix } from "path";
+
 describe("Error Handler definition", () => {
     it("should match the snapshot", () => {
         const contents = require("../../../../src/cli/fail/error_handler/ErrorHandler.definition");
-        Object.keys(contents).forEach(key => contents[key].handler = require("path").relative(__dirname, contents[key].handler));
+        Object.keys(contents).forEach(key => contents[key].handler = relative(__dirname, contents[key].handler).split(sep).join(posix.sep));
         expect(contents).toMatchSnapshot();
     });
 });

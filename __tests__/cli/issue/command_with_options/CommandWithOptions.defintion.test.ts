@@ -8,10 +8,12 @@
  * Copyright Contributors to the Zowe Project.
  */
 
+import { relative, sep, posix } from "path";
+
 describe("Command With Options definition", () => {
     it("should match the snapshot", () => {
         const contents = require("../../../../src/cli/issue/command_with_options/CommandWithOptions.definition");
-        Object.keys(contents).forEach(key => contents[key].handler = require("path").relative(__dirname, contents[key].handler));
+        Object.keys(contents).forEach(key => contents[key].handler = relative(__dirname, contents[key].handler).split(sep).join(posix.sep));
         expect(contents).toMatchSnapshot();
     });
 });
