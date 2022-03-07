@@ -2,7 +2,7 @@
 
 All notable changes to the Sample Plug-in for Zowe CLI will be documented in this file.
 
-## Recent Changes
+## `2.0.4`
 
 - BugFix: Update License headers. [#44](https://github.com/zowe/zowe-cli-sample-plugin/issues/44)
 
