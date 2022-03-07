@@ -24,7 +24,7 @@
     "registry": "https://zowe.jfrog.io/zowe/api/npm/npm-local-release/"
   },
   "scripts": {
-    "build": "node scripts/updateLicense.js && tsc --pretty && npm run checkTestsCompile && madge -c lib",
+    "build": "tsc --pretty && npm run checkTestsCompile && madge -c lib",
     "checkTestsCompile": "echo \"Checking that test source compiles...\" && tsc --project __tests__/test-tsconfig.json --noEmit ",
     "prebuild": "npm run clean && npm run lint && echo Using TypeScript && tsc --version",
     "clean": "rimraf lib",
@@ -57,6 +57,7 @@
     "env-cmd": "^8.0.2",
     "eslint": "^7.32.0",
     "eslint-plugin-jest": "^24.4.0",
+    "eslint-plugin-license-header": "^0.4.0",
     "eslint-plugin-unused-imports": "^1.1.2",
     "fs-extra": "^8.1.0",
     "jest": "^27.0.6",
@@ -123,5 +124,5 @@
     "includeFailureMsg": true
   },
   "author": "Darkside",
-  "license": "EPL-2.0"
+  "license": "EPL-2.0 or Apache-2.0"
 }

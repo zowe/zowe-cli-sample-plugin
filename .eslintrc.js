@@ -39,9 +39,11 @@ module.exports = {
     "plugins": [
         "@typescript-eslint",
         "jest",
+        "license-header",
         "unused-imports"
     ],
     "rules": {
+        "license-header/header": [ "error", "LICENSE_HEADER" ],
         "max-len": ["warn", 150],
         "no-console": "error",
         "no-multiple-empty-lines": "warn",
