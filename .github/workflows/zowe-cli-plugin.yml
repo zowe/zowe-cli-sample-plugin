@@ -91,5 +91,3 @@ jobs:
         GIT_COMMITTER_EMAIL: zowe.robot@gmail.com
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         NPM_TOKEN: ${{ secrets.JF_ARTIFACTORY_TOKEN }}
-      with:
-        dry-run: true
