@@ -1,13 +1,12 @@
-/*
-* This program and the accompanying materials are made available under the terms of the
-* Eclipse Public License v2.0 which accompanies this distribution, and is available at
-* https://www.eclipse.org/legal/epl-v20.html
-*
-* SPDX-License-Identifier: EPL-2.0
-*
-* Copyright Contributors to the Zowe Project.
-*
-*/
+/**
+ * This program and the accompanying materials are made available and may be used, at your option, under either:
+ * * Eclipse Public License v2.0, available at https://www.eclipse.org/legal/epl-v20.html, OR
+ * * Apache License, version 2.0, available at http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * SPDX-License-Identifier: EPL-2.0 OR Apache-2.0
+ *
+ * Copyright Contributors to the Zowe Project.
+ */
 
 import {CheckStatus, ZosmfSession} from "@zowe/cli";
 import {Files} from "../../../../src/api/Files";
@@ -19,7 +18,7 @@ jest.mock("../../../../src/api/Files");
 
 process.env.FORCE_COLOR = "0";
 
-const DEFAULT_PARAMTERS: IHandlerParameters = {
+const DEFAULT_PARAMETERS: IHandlerParameters = {
     arguments: {
         $0: "bright",
         _: ["zowe-cli-sample", "list", "directory-contents"],
@@ -75,12 +74,57 @@ describe("directory-contents Handler", () => {
         });
         ZosmfSession.createBasicZosmfSession = jest.fn();
         const handler = new DirectoryHandler.default();
-        const params = Object.assign({}, ...[DEFAULT_PARAMTERS]);
+        const params = Object.assign({}, ...[DEFAULT_PARAMETERS]);
         params.arguments.directory = fakeDir;
 
         // The handler should succeed
         await handler.process(params);
 
         expect(Files.listDirectoryContents).toHaveBeenCalledWith(fakeDir);
+    });
+
+    it("should read a mocked directory, even if checkStatus fails", async () => {
+        const fakeDir: string = "fake/directory";
+        // Mock the files api call
+        Files.listDirectoryContents = jest.fn((dir) => {
+            return [{
+                fake: "file",
+                moreFake: "directory"
+            }];
+        });
+        CheckStatus.getZosmfInfo = jest.fn(async () => {
+            throw "dummy error";
+        });
+        ZosmfSession.createBasicZosmfSession = jest.fn();
+        const handler = new DirectoryHandler.default();
+        const params = Object.assign({}, ...[DEFAULT_PARAMETERS]);
+        params.arguments.directory = fakeDir;
+
+        // The handler should succeed
+        await handler.process(params);
+
+        expect(Files.listDirectoryContents).toHaveBeenCalledWith(fakeDir);
+    });
+
+    it("should read a mocked directory, even if dir is null", async () => {
+        // Mock the files api call
+        Files.listDirectoryContents = jest.fn((dir) => {
+            return [{
+                fake: "file",
+                moreFake: "directory"
+            }];
+        });
+        CheckStatus.getZosmfInfo = jest.fn(async () => {
+            throw "dummy error";
+        });
+        ZosmfSession.createBasicZosmfSession = jest.fn();
+        const handler = new DirectoryHandler.default();
+        const params = Object.assign({}, ...[DEFAULT_PARAMETERS]);
+        params.arguments.directory = null;
+
+        // The handler should succeed
+        await handler.process(params);
+
+        expect(Files.listDirectoryContents).toHaveBeenCalledWith(".");
     });
 });
