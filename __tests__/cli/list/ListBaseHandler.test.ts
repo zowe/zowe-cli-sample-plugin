@@ -9,6 +9,7 @@
  *
  */
 
+import { mockHandlerParameters } from "@zowe/cli-test-utils";
 import { IHandlerParameters, ISession } from "@zowe/imperative";
 import { ListBaseHandler } from "../../../src/cli/list/ListBaseHandler";
 
@@ -18,41 +19,7 @@ class ListTestHandler extends ListBaseHandler {
     }
 }
 
-const DEFAULT_PARAMETERS: Partial<IHandlerParameters> = {
-    response: {
-        data: {
-            setMessage: jest.fn((setMsgArgs) => {
-                expect("" + setMsgArgs).toMatchSnapshot();
-                return "";
-            }),
-            setObj: jest.fn((setObjArgs) => {
-                expect(setObjArgs).toMatchSnapshot();
-            }),
-            setExitCode: jest.fn()
-        },
-        console: {
-            log: jest.fn((logs) => {
-                expect("" + logs).toMatchSnapshot();
-                return "";
-            }),
-            error: jest.fn((errors) => {
-                expect("" + errors).toMatchSnapshot();
-                return "";
-            }),
-            errorHeader: jest.fn(() => undefined),
-            prompt: jest.fn(() => undefined)
-        },
-        progress: {
-            startBar: jest.fn((parms) => undefined),
-            endBar: jest.fn(() => undefined)
-        },
-        format: {
-            output: jest.fn((parms) => {
-                expect(parms).toMatchSnapshot();
-            })
-        }
-    }
-};
+const DEFAULT_PARAMETERS: IHandlerParameters = mockHandlerParameters({} as any);
 
 describe("ListBaseHandler", () => {
     let finalSessCfg: ISession;
