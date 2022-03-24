@@ -9,9 +9,10 @@
  *
  */
 
-import {CheckStatus} from "@zowe/zosmf-for-zowe-sdk";
-import {Files} from "../../../../src/api/Files";
-import {IHandlerParameters} from "@zowe/imperative";
+import { CheckStatus } from "@zowe/zosmf-for-zowe-sdk";
+import { Files } from "../../../../src/api/Files";
+import { mockHandlerParameters } from "@zowe/cli-test-utils";
+import { IHandlerParameters } from "@zowe/imperative";
 import { DirectoryContentsDefinition } from "../../../../src/cli/list/directory-contents/DirectoryContents.definition";
 import * as DirectoryContentsHandler from "../../../../src/cli/list/directory-contents/DirectoryContents.handler";
 
@@ -19,53 +20,10 @@ jest.mock("../../../../src/api/Files");
 
 process.env.FORCE_COLOR = "0";
 
-const DEFAULT_PARAMETERS: IHandlerParameters = {
-    arguments: {
-        $0: "bright",
-        _: ["zowe-cli-sample", "list", "directory-contents"],
-    },
+const DEFAULT_PARAMETERS: IHandlerParameters = mockHandlerParameters({
     positionals: ["zowe-cli-sample", "list", "directory-contents"],
-    profiles: {
-        get: (type: string) => {
-            return {};
-        }
-    } as any,
-    response: {
-        data: {
-            setMessage: jest.fn((setMsgArgs): string => {
-                expect("" + setMsgArgs).toMatchSnapshot();
-                return "";
-            }),
-            setObj: jest.fn((setObjArgs) => {
-                expect(setObjArgs).toMatchSnapshot();
-            }),
-            setExitCode: jest.fn()
-        },
-        console: {
-            log: jest.fn((logs) => {
-                expect("" + logs).toMatchSnapshot();
-                return "";
-            }),
-            error: jest.fn((errors) => {
-                expect("" + errors).toMatchSnapshot();
-                return "";
-            }),
-            errorHeader: jest.fn(() => undefined),
-            prompt: jest.fn(() => undefined)
-        },
-        progress: {
-            startBar: jest.fn((parms) => undefined),
-            endBar: jest.fn(() => undefined)
-        },
-        format: {
-            output: jest.fn((parms) => {
-                expect(parms).toMatchSnapshot();
-            })
-        }
-    },
-    definition: DirectoryContentsDefinition,
-    fullDefinition: DirectoryContentsDefinition,
-};
+    definition: DirectoryContentsDefinition
+});
 
 describe("directory-contents Handler", () => {
     afterEach(() => {

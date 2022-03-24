@@ -9,57 +9,15 @@
  *
  */
 
+import { mockHandlerParameters } from "@zowe/cli-test-utils";
 import { IHandlerParameters, ImperativeConfig } from "@zowe/imperative";
 import { ProfileArgsDefinition } from "../../../../src/cli/list/profile-args/ProfileArgs.definition";
 import * as ProfileArgsHandler from "../../../../src/cli/list/profile-args/ProfileArgs.handler";
 
-const DEFAULT_PARAMETERS: IHandlerParameters = {
-    arguments: {
-        $0: "bright",
-        _: ["brightside-sample-plugin", "list", "profile-args"],
-    },
-    positionals: [],
-    profiles: {
-        get: (type: string) => {
-            return {};
-        }
-    } as any,
-    response: {
-        data: {
-            setMessage: jest.fn((setMsgArgs) => {
-                expect("" + setMsgArgs).toMatchSnapshot();
-                return "";
-            }),
-            setObj: jest.fn((setObjArgs) => {
-                expect(setObjArgs).toMatchSnapshot();
-            }),
-            setExitCode: jest.fn()
-        },
-        console: {
-            log: jest.fn((logs) => {
-                expect("" + logs).toMatchSnapshot();
-                return "";
-            }),
-            error: jest.fn((errors) => {
-                expect("" + errors).toMatchSnapshot();
-                return "";
-            }),
-            errorHeader: jest.fn(() => undefined),
-            prompt: jest.fn(() => undefined)
-        },
-        progress: {
-            startBar: jest.fn((parms) => undefined),
-            endBar: jest.fn(() => undefined)
-        },
-        format: {
-            output: jest.fn((parms) => {
-                expect(parms).toMatchSnapshot();
-            })
-        }
-    },
-    definition: ProfileArgsDefinition,
-    fullDefinition: ProfileArgsDefinition
-};
+const DEFAULT_PARAMETERS: IHandlerParameters = mockHandlerParameters({
+    positionals: ["brightside-sample-plugin", "list", "profile-args"],
+    definition: ProfileArgsDefinition
+});
 
 describe("profile-args Handler", () => {
     afterAll(() => {
