@@ -48,18 +48,17 @@
   "peerDependencies": {
     "@zowe/imperative": ">=5.0.0-next.202108181618 <5.0.0"
   },
-  "dependencies": {
-    "@zowe/core-for-zowe-sdk": "^7.0.0-next.202108202027",
-    "@zowe/zosmf-for-zowe-sdk": "^7.0.0-next.202108202027"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/fs-extra": "^8.0.0",
     "@types/jest": "^27.0.1",
     "@types/node": "^8.10.66",
     "@typescript-eslint/eslint-plugin": "^4.29.0",
     "@typescript-eslint/parser": "^4.29.0",
-    "@zowe/cli-test-utils": "^7.0.0-next.202108202027",
-    "@zowe/imperative": "^5.0.0-next.202108181618",
+    "@zowe/cli-test-utils": "^7.0.0-next.202203231654",
+    "@zowe/core-for-zowe-sdk": "^7.0.0-next.202203231654",
+    "@zowe/imperative": "^5.0.0-next.202203231534",
+    "@zowe/zosmf-for-zowe-sdk": "^7.0.0-next.202203231654",
     "env-cmd": "^8.0.2",
     "eslint": "^7.32.0",
     "eslint-plugin-jest": "^24.4.0",
