@@ -2,7 +2,7 @@
 
 All notable changes to the Sample Plug-in for Zowe CLI will be documented in this file.
 
-## Recent Changes
+## `3.0.0-next.202203241806`
 
 - Fixed core and zosmf SDKs not included as plug-in dependencies. [#59](https://github.com/zowe/zowe-cli-sample-plugin/issues/59)
 
