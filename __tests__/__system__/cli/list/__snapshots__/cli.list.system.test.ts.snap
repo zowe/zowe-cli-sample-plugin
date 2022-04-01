@@ -21,6 +21,7 @@ exports[`zowe-cli-sample list should display the help 1`] = `
  --------
 
    directory-contents | dc Lists directory contents
+   profile-args | pa       Lists profile args      
 
  GLOBAL OPTIONS
  --------------
@@ -35,7 +36,7 @@ exports[`zowe-cli-sample list should display the help 1`] = `
 
    --help-examples  (boolean)
 
-      Display examples for all the commands in a the group
+      Display examples for all the commands in a group
 
    --help-web  | --hw (boolean)
 
