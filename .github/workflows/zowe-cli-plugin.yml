@@ -57,6 +57,7 @@ jobs:
 
     - name: Setup Test Environment
       if: ${{ always() && steps.build.outcome == 'success' }}
+      shell: bash
       run: |
         node scripts/setupTestProperties.js
         npm run server:start &
