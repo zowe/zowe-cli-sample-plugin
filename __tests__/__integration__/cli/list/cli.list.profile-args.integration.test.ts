@@ -38,8 +38,6 @@ describe("zowe-cli-sample list profile-args command", () => {
         fs.copyFileSync(path.join(__dirname, "__resources__", configUserJson), path.join(TEST_ENVIRONMENT.workingDir, configUserJson));
 
         const response = runCliScript(__dirname + "/__scripts__/list_profile_args_team_config.sh", TEST_ENVIRONMENT);
-        console.log(response.stderr.toString());  // eslint-disable-line
-        console.log(response.stdout.toString());  // eslint-disable-line
         expect(response.stderr.toString()).toBe("");
         expect(response.status).toBe(0);
         const output = response.stdout.toString();
@@ -55,8 +53,6 @@ describe("zowe-cli-sample list profile-args command", () => {
 
     it("should list profile args from old school profile and other sources", () => {
         const response = runCliScript(__dirname + "/__scripts__/list_profile_args_old_profiles.sh", TEST_ENVIRONMENT);
-        console.log(response.stderr.toString());  // eslint-disable-line
-        console.log(response.stdout.toString());  // eslint-disable-line
         expect(isStderrEmptyForProfilesCommand(response.stderr)).toBe(true);
         expect(response.status).toBe(0);
         const output = response.stdout.toString();

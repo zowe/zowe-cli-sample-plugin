@@ -47,6 +47,10 @@ jobs:
       if: ${{ always() && steps.build.outcome == 'success' }}
       run: npm run test:unit >> unit-tests.txt
 
+    - name: Unlock Keyring
+      if: ${{ always() && steps.build.outcome == 'success' && matrix.os == 'ubuntu-latest' }}
+      uses: t1m0thyj/unlock-keyring@master
+
     - name: Integration Tests
       if: ${{ always() && steps.build.outcome == 'success' }}
       run: npm run test:integration >> integration-tests.txt
@@ -54,11 +58,7 @@ jobs:
     - name: Setup Test Environment
       if: ${{ always() && steps.build.outcome == 'success' }}
       run: |
-        cp __tests__/__resources__/properties/example_properties.yaml __tests__/__resources__/properties/custom_properties.yaml
-        choco install -y --no-progress yq || true
-        yq -i e '.zosmf.protocol = "http"' __tests__/__resources__/properties/custom_properties.yaml
-        yq -i e '.zosmf.host = "localhost"' __tests__/__resources__/properties/custom_properties.yaml
-        yq -i e '.zosmf.port = 3000' __tests__/__resources__/properties/custom_properties.yaml
+        node scripts/setupTestProperties.js
         npm run server:start &
 
     - name: System Tests
