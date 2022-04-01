@@ -51,6 +51,14 @@ jobs:
       if: ${{ always() && steps.build.outcome == 'success' }}
       run: npm run test:integration >> integration-tests.txt
 
+    - name: Start Mock Server
+      if: ${{ always() && steps.build.outcome == 'success' }}
+      run: npm run server:start &
+
+    - name: System Tests
+      if: ${{ always() && steps.build.outcome == 'success' }}
+      run: npm run test:system >> system-tests.txt
+
     - name: Archive Results
       id: upload
       if: ${{ always() && steps.build.outcome == 'success' }}
@@ -61,6 +69,7 @@ jobs:
           __tests__/__results__/
           unit-tests.txt
           integration-tests.txt
+          system-tests.txt
 
   release:
     if: github.event_name == 'push' && !contains(github.event.head_commit.message, '[ci skip]')
