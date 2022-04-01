@@ -51,9 +51,14 @@ jobs:
       if: ${{ always() && steps.build.outcome == 'success' }}
       run: npm run test:integration >> integration-tests.txt
 
-    - name: Start Mock Server
+    - name: Setup Test Environment
       if: ${{ always() && steps.build.outcome == 'success' }}
-      run: npm run server:start &
+      run: |
+        cp __tests__/__resources__/properties/example_properties.yaml __tests__/__resources__/properties/custom_properties.yaml
+        yq '.zosmf.protocol = "http"' __tests__/__resources__/properties/custom_properties.yaml
+        yq '.zosmf.host = "localhost"' __tests__/__resources__/properties/custom_properties.yaml
+        yq '.zosmf.port = 3000' __tests__/__resources__/properties/custom_properties.yaml
+        npm run server:start &
 
     - name: System Tests
       if: ${{ always() && steps.build.outcome == 'success' }}
