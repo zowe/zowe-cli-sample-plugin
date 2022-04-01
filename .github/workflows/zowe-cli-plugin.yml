@@ -55,9 +55,9 @@ jobs:
       if: ${{ always() && steps.build.outcome == 'success' }}
       run: |
         cp __tests__/__resources__/properties/example_properties.yaml __tests__/__resources__/properties/custom_properties.yaml
-        yq '.zosmf.protocol = "http"' __tests__/__resources__/properties/custom_properties.yaml
-        yq '.zosmf.host = "localhost"' __tests__/__resources__/properties/custom_properties.yaml
-        yq '.zosmf.port = 3000' __tests__/__resources__/properties/custom_properties.yaml
+        yq -i e '.zosmf.protocol = "http"' __tests__/__resources__/properties/custom_properties.yaml
+        yq -i e '.zosmf.host = "localhost"' __tests__/__resources__/properties/custom_properties.yaml
+        yq -i e '.zosmf.port = 3000' __tests__/__resources__/properties/custom_properties.yaml
         npm run server:start &
 
     - name: System Tests
