@@ -62,7 +62,7 @@
     "env-cmd": "^8.0.2",
     "eslint": "^7.32.0",
     "eslint-plugin-jest": "^24.4.0",
-    "eslint-plugin-license-header": "^0.2.0",
+    "eslint-plugin-license-header": "^0.4.0",
     "eslint-plugin-unused-imports": "^1.1.2",
     "fs-extra": "^8.1.0",
     "husky": "^7.0.0",
@@ -131,5 +131,5 @@
     "includeFailureMsg": true
   },
   "author": "Darkside",
-  "license": "EPL-2.0"
+  "license": "EPL-2.0 or Apache-2.0"
 }

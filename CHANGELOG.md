@@ -13,6 +13,10 @@ All notable changes to the Sample Plug-in for Zowe CLI will be documented in thi
 - Replaced `TestEnvironment` class with @zowe/cli-test-utils package.
 - Added a local server that mocks the z/OSMF info endpoint for system tests.
 
+## `2.0.4`
+
+- BugFix: Update License headers. [#44](https://github.com/zowe/zowe-cli-sample-plugin/issues/44)
+
 ## `2.0.3`
 
 - Update dependencies to conform with other plugins

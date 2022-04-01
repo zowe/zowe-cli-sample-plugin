@@ -1,32 +1,20 @@
 /**
- * This program and the accompanying materials are made available under the terms of the
- * Eclipse Public License v2.0 which accompanies this distribution, and is available at
- * https://www.eclipse.org/legal/epl-v20.html
+ * This program and the accompanying materials are made available and may be used, at your option, under either:
+ * * Eclipse Public License v2.0, available at https://www.eclipse.org/legal/epl-v20.html, OR
+ * * Apache License, version 2.0, available at http://www.apache.org/licenses/LICENSE-2.0
  *
- * SPDX-License-Identifier: EPL-2.0
+ * SPDX-License-Identifier: EPL-2.0 OR Apache-2.0
  *
  * Copyright Contributors to the Zowe Project.
- *
  */
 
-import * as fs from "fs";
-import { Imperative } from "@zowe/imperative";
+import { ICommandDefinition } from "@zowe/imperative";
+import { relative, sep, posix } from "path";
 
-describe("fail definition", () => {
+describe("Fail definition", () => {
     it("should match the snapshot", () => {
-
-        // Attempt to read the full file contents. We could require the module here, however there is normally non
-        // deterministic data (filepaths, etc.) that are resolved when the module is loaded, so it is simpler to
-        // check the contents for changes (sanity/protection agaisnt undesired changes to the definition)
-        let contents: string;
-        let error;
-        try {
-            contents = fs.readFileSync(__dirname + "/../../../src/cli/fail/Fail.definition.ts").toString();
-        } catch (e) {
-            error = e;
-            Imperative.console.error(`Error reading Fail.definition.ts Did you move the file? Details: ${e.message}`);
-        }
-        expect(error).toBeUndefined();
+        const contents = require("../../../src/cli/fail/Fail.definition");
+        contents.children.forEach((child: ICommandDefinition) => child.handler = relative(__dirname, child.handler).split(sep).join(posix.sep));
         expect(contents).toMatchSnapshot();
     });
 });

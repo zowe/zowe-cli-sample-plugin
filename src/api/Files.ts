@@ -1,12 +1,11 @@
 /**
- * This program and the accompanying materials are made available under the terms of the
- * Eclipse Public License v2.0 which accompanies this distribution, and is available at
- * https://www.eclipse.org/legal/epl-v20.html
+ * This program and the accompanying materials are made available and may be used, at your option, under either:
+ * * Eclipse Public License v2.0, available at https://www.eclipse.org/legal/epl-v20.html, OR
+ * * Apache License, version 2.0, available at http://www.apache.org/licenses/LICENSE-2.0
  *
- * SPDX-License-Identifier: EPL-2.0
+ * SPDX-License-Identifier: EPL-2.0 OR Apache-2.0
  *
  * Copyright Contributors to the Zowe Project.
- *
  */
 
 import * as fs from "fs";
@@ -47,7 +46,7 @@ export class Files {
             contents = fs.readdirSync(dir);
         } catch (e) {
             throw new ImperativeError({
-                msg: `An error occurred obtainined the directory info: ${e.message}`,
+                msg: `An error occurred obtaining the directory info: ${e.message}`,
                 additionalDetails: e
             });
         }
