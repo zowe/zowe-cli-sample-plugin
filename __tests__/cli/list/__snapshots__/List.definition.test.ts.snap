@@ -1,43 +1,210 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`List definition should match the snapshot 1`] = `
-"/**
- * This program and the accompanying materials are made available under the terms of the
- * Eclipse Public License v2.0 which accompanies this distribution, and is available at
- * https://www.eclipse.org/legal/epl-v20.html
- *
- * SPDX-License-Identifier: EPL-2.0
- *
- * Copyright Contributors to the Zowe Project.
- *
- */
+Object {
+  "children": Array [
+    Object {
+      "aliases": Array [
+        "dc",
+      ],
+      "description": "[objects] in Zowe CLI are the entities on which [actions] are performed. [objects] are always nouns. For example, for command \\"zowe zos-files delete data-set\\", the [object] is \\"data-set\\".
 
-import { ICommandDefinition } from \\"@zowe/imperative\\";
-import { DirectoryContentsDefinition } from \\"./directory-contents/DirectoryContents.definition\\";
-import { ProfileArgsDefinition } from \\"./profile-args/ProfileArgs.definition\\";
-/**
- * [action] command definition for the [action] two group. The [action] is of imperative command definition type
- * \\"group\\", which means it must have children.
- *
- * In this case, the action is \\"list\\" - which will list files, etc.
- *
- * Property Summary:
- * =================
- * \\"name\\" of the [action]. Always a verb (e.g. \\"copy\\")
- * \\"summary\\" will display when issuing the help for the [group] (e.g. zowe zos-files --help)
- * \\"type\\" is \\"group\\" which means it has children (the [objects])
- * \\"children\\" is the set of child definitions (the [objects])
- */
-const ListDefinition: ICommandDefinition = {
-    name: \\"list\\",
-    summary: \\"Perform \\\\\\"the list [action]\\\\\\" on some [objects]\\",
-    description: \\"[actions] in Zowe CLI are groups of commands. [actions] are always verbs. \\" +
-        \\"For example, for command \\\\\\"zowe zos-files delete data-set\\\\\\", the [action] is \\\\\\"delete\\\\\\".\\\\n\\\\n\\" +
-        \\"For this action (\\\\\\"list\\\\\\") we will list files, etc.\\",
-    type: \\"group\\",
-    children: [DirectoryContentsDefinition, ProfileArgsDefinition]
-};
+For this command, we list contents of the specified directory.",
+      "handler": "../../../src/cli/list/directory-contents/DirectoryContents.handler",
+      "name": "directory-contents",
+      "options": Array [
+        Object {
+          "aliases": Array [
+            "H",
+          ],
+          "description": "The z/OSMF server host name.",
+          "group": "Zosmf Connection Options",
+          "name": "host",
+          "required": false,
+          "type": "string",
+        },
+        Object {
+          "aliases": Array [
+            "P",
+          ],
+          "defaultValue": 443,
+          "description": "The z/OSMF server port.",
+          "group": "Zosmf Connection Options",
+          "name": "port",
+          "type": "number",
+        },
+        Object {
+          "aliases": Array [
+            "u",
+          ],
+          "description": "Mainframe (z/OSMF) user name, which can be the same as your TSO login.",
+          "group": "Zosmf Connection Options",
+          "name": "user",
+          "required": false,
+          "type": "string",
+        },
+        Object {
+          "aliases": Array [
+            "pass",
+            "pw",
+          ],
+          "description": "Mainframe (z/OSMF) password, which can be the same as your TSO password.",
+          "group": "Zosmf Connection Options",
+          "name": "password",
+          "required": false,
+          "type": "string",
+        },
+        Object {
+          "aliases": Array [
+            "ru",
+          ],
+          "defaultValue": true,
+          "description": "Reject self-signed certificates.",
+          "group": "Zosmf Connection Options",
+          "name": "reject-unauthorized",
+          "type": "boolean",
+        },
+        Object {
+          "aliases": Array [
+            "bp",
+          ],
+          "description": "The base path for your API mediation layer instance. Specify this option to prepend the base path to all z/OSMF resources when making REST requests. Do not specify this option if you are not using an API mediation layer.",
+          "group": "Zosmf Connection Options",
+          "name": "base-path",
+          "type": "string",
+        },
+        Object {
+          "allowableValues": Object {
+            "caseSensitive": false,
+            "values": Array [
+              "http",
+              "https",
+            ],
+          },
+          "defaultValue": "https",
+          "description": "The protocol used (HTTP or HTTPS)",
+          "group": "Zosmf Connection Options",
+          "name": "protocol",
+          "type": "string",
+        },
+        Object {
+          "description": "The file path to a certificate file to use for authentication",
+          "group": "Zosmf Connection Options",
+          "name": "cert-file",
+          "type": "existingLocalFile",
+        },
+        Object {
+          "description": "The file path to a certificate key file to use for authentication",
+          "group": "Zosmf Connection Options",
+          "name": "cert-key-file",
+          "type": "existingLocalFile",
+        },
+      ],
+      "positionals": Array [
+        Object {
+          "description": "The directory/path to list the contents. Blank/Omitted will list the current directory",
+          "name": "directory",
+          "type": "string",
+        },
+      ],
+      "profile": Object {
+        "optional": Array [
+          "zosmf",
+        ],
+      },
+      "summary": "Lists directory contents",
+      "type": "command",
+    },
+    Object {
+      "aliases": Array [
+        "pa",
+      ],
+      "description": "[objects] in Zowe CLI are the entities on which [actions] are performed. [objects] are always nouns. For example, for command \\"zowe zos-files delete data-set\\", the [object] is \\"data-set\\".
 
-export = ListDefinition;
-"
+For this command, we list contents of the specified directory.",
+      "handler": "../../../src/cli/list/profile-args/ProfileArgs.handler",
+      "name": "profile-args",
+      "options": Array [
+        Object {
+          "aliases": Array [
+            "H",
+          ],
+          "description": "The sample service host name",
+          "group": "Sample Connection Options",
+          "name": "host",
+          "type": "string",
+        },
+        Object {
+          "aliases": Array [
+            "P",
+          ],
+          "description": "The sample service port",
+          "group": "Sample Connection Options",
+          "name": "port",
+          "type": "number",
+        },
+        Object {
+          "aliases": Array [
+            "u",
+          ],
+          "description": "The sample service user name",
+          "group": "Sample Connection Options",
+          "name": "user",
+          "type": "string",
+        },
+        Object {
+          "aliases": Array [
+            "p",
+          ],
+          "description": "The sample service password",
+          "group": "Sample Connection Options",
+          "name": "password",
+          "type": "string",
+        },
+        Object {
+          "aliases": Array [
+            "ru",
+          ],
+          "defaultValue": true,
+          "description": "Reject self-signed certificates",
+          "group": "Sample Connection Options",
+          "name": "reject-unauthorized",
+          "type": "boolean",
+        },
+        Object {
+          "aliases": Array [
+            "ts",
+          ],
+          "allowableValues": Object {
+            "values": Array [
+              "XS",
+              "S",
+              "M",
+              "L",
+              "XL",
+            ],
+          },
+          "defaultValue": "M",
+          "description": "Sample option for your T-shirt size",
+          "group": "Sample Connection Options",
+          "name": "tshirt-size",
+          "type": "string",
+        },
+      ],
+      "profile": Object {
+        "optional": Array [
+          "sample",
+        ],
+      },
+      "summary": "Lists profile args",
+      "type": "command",
+    },
+  ],
+  "description": "[actions] in Zowe CLI are groups of commands. [actions] are always verbs. For example, for command \\"zowe zos-files delete data-set\\", the [action] is \\"delete\\".
+
+For this action (\\"list\\") we will list files, etc.",
+  "name": "list",
+  "summary": "Perform \\"the list [action]\\" on some [objects]",
+  "type": "group",
+}
 `;
