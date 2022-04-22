@@ -46,8 +46,8 @@
     "configurationModule": "lib/imperative.js"
   },
   "dependencies": {
-    "@zowe/core-for-zowe-sdk": "^7.0.0-next.202203241530",
-    "@zowe/zosmf-for-zowe-sdk": "^7.0.0-next.202203241530"
+    "@zowe/core-for-zowe-sdk": "7.0.0",
+    "@zowe/zosmf-for-zowe-sdk": "7.0.0"
   },
   "devDependencies": {
     "@types/fs-extra": "^8.0.0",
@@ -55,9 +55,9 @@
     "@types/node": "^8.10.66",
     "@typescript-eslint/eslint-plugin": "^4.29.0",
     "@typescript-eslint/parser": "^4.29.0",
-    "@zowe/cli": "^7.0.0-next.202203241530",
-    "@zowe/cli-test-utils": "^7.0.0-next.202203241530",
-    "@zowe/imperative": "^5.0.0-next.202203231534",
+    "@zowe/cli": "7.0.0",
+    "@zowe/cli-test-utils": "7.0.0",
+    "@zowe/imperative": "5.0.0",
     "env-cmd": "^8.0.2",
     "eslint": "^7.32.0",
     "eslint-plugin-jest": "^24.4.0",
@@ -82,7 +82,7 @@
     "uuid": "^3.2.1"
   },
   "peerDependencies": {
-    "@zowe/imperative": ">=5.0.0-next.202108181618 <5.0.0"
+    "@zowe/imperative": "^5.0.0"
   },
   "jest": {
     "modulePathIgnorePatterns": [
@@ -132,6 +132,6 @@
     "outputPath": "__tests__/__results__/results.html",
     "includeFailureMsg": true
   },
-  "author": "Darkside",
+  "author": "Zowe",
   "license": "EPL-2.0 or Apache-2.0"
 }
