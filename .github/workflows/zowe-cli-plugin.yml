@@ -47,9 +47,24 @@ jobs:
       if: ${{ always() && steps.build.outcome == 'success' }}
       run: npm run test:unit >> unit-tests.txt
 
+    - name: Unlock Keyring
+      if: ${{ always() && steps.build.outcome == 'success' && matrix.os == 'ubuntu-latest' }}
+      uses: t1m0thyj/unlock-keyring@master
+
     - name: Integration Tests
       if: ${{ always() && steps.build.outcome == 'success' }}
       run: npm run test:integration >> integration-tests.txt
+
+    - name: Setup Test Environment
+      if: ${{ always() && steps.build.outcome == 'success' }}
+      shell: bash
+      run: |
+        node scripts/setupTestProperties.js
+        npm run server:start &
+
+    - name: System Tests
+      if: ${{ always() && steps.build.outcome == 'success' }}
+      run: npm run test:system >> system-tests.txt
 
     - name: Archive Results
       id: upload
@@ -61,6 +76,7 @@ jobs:
           __tests__/__results__/
           unit-tests.txt
           integration-tests.txt
+          system-tests.txt
 
   release:
     if: github.event_name == 'push' && !contains(github.event.head_commit.message, '[ci skip]')

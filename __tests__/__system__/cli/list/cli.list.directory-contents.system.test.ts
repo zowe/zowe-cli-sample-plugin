@@ -8,12 +8,11 @@
  * Copyright Contributors to the Zowe Project.
  */
 
-import {runCliScript} from "../../../__src__/TestUtils";
-import {ITestEnvironment} from "../../../__src__/environment/doc/response/ITestEnvironment";
-import {TestEnvironment} from "../../../__src__/environment/TestEnvironment";
+import { ITestEnvironment, TestEnvironment, runCliScript } from "@zowe/cli-test-utils";
+import { ITestPropertiesSchema } from "../../../__src__/environment/doc/ITestPropertiesSchema";
 
 // Test environment will be populated in the "beforeAll"
-let TEST_ENVIRONMENT: ITestEnvironment;
+let TEST_ENVIRONMENT: ITestEnvironment<ITestPropertiesSchema>;
 
 describe("zowe-cli-sample list directory-contents", () => {
 
@@ -30,12 +29,13 @@ describe("zowe-cli-sample list directory-contents", () => {
         await TestEnvironment.cleanUp(TEST_ENVIRONMENT);
     });
 
-    it("should list the contents of the example directory", async () => {
-        const response = await runCliScript(__dirname + "/__scripts__/list_directory-contents.sh", TEST_ENVIRONMENT,
+    it("should list the contents of the example directory", () => {
+        const response = runCliScript(__dirname + "/__scripts__/list_directory-contents.sh", TEST_ENVIRONMENT,
             [__dirname + "/../../../__resources__/example_directory"]);
 
         expect(response.stderr.toString()).toBe("");
         expect(response.status).toBe(0);
+        expect(response.stdout.toString()).toContain("We just got a valid z/OSMF status response");
         expect(response.stdout.toString()).toContain("ExampleFile.txt");
         expect(response.stdout.toString()).toContain("ExampleFolder");
     });

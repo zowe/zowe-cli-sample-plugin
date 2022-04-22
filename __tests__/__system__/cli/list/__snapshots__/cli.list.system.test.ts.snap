@@ -21,23 +21,24 @@ exports[`zowe-cli-sample list should display the help 1`] = `
  --------
 
    directory-contents | dc Lists directory contents
+   profile-args | pa       Lists profile args      
 
  GLOBAL OPTIONS
  --------------
 
-   --response-format-json  | --rfj (boolean)
+   --response-format-json | --rfj (boolean)
 
       Produce JSON formatted data from a command
 
-   --help  | -h (boolean)
+   --help | -h (boolean)
 
       Display help text
 
-   --help-examples  (boolean)
+   --help-examples (boolean)
 
-      Display examples for all the commands in a the group
+      Display examples for all the commands in a group
 
-   --help-web  | --hw (boolean)
+   --help-web | --hw (boolean)
 
       Display HTML help in browser
 

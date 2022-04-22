@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`zowe-cli-sample fail command should display the help 1`] = `
+exports[`zowe-cli-sample list command should display the help 1`] = `
 "
  DESCRIPTION
  -----------
@@ -8,19 +8,20 @@ exports[`zowe-cli-sample fail command should display the help 1`] = `
    [actions] in Zowe CLI are groups of commands. [actions] are always verbs. For
    example, for command \\"zowe zos-files delete data-set\\", the [action] is \\"delete\\".
 
-   For this action (\\"fail\\") we will fail handlers.
+   For this action (\\"list\\") we will list files, etc.
 
  USAGE
  -----
 
-   zowe zowe-cli-sample fail <command>
+   zowe zowe-cli-sample list <command>
 
    Where <command> is one of the following:
 
  COMMANDS
  --------
 
-   error-handler | eh [object] error-handler always fails!
+   directory-contents | dc Lists directory contents
+   profile-args | pa       Lists profile args      
 
  GLOBAL OPTIONS
  --------------

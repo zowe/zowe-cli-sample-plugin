@@ -1,6 +1,6 @@
 {
   "name": "@zowe/sample-plugin-for-zowe-cli",
-  "version": "2.0.4",
+  "version": "3.0.0-next.202204042046",
   "description": "A sample plugin for Zowe CLI :)",
   "homepage": "https://github.com/zowe/zowe-cli-sample-plugin#readme",
   "bugs": {
@@ -37,14 +37,17 @@
     "test:system": "env-cmd __tests__/__resources__/env/system.env jest .*/__system__/.* --coverage false",
     "test:integration": "env-cmd __tests__/__resources__/env/integration.env jest .*/__integration__/.* --coverage false",
     "test:unit": "env-cmd __tests__/__resources__/env/unit.env jest --coverage --testPathIgnorePatterns \".*/__system__|__integration__/.*\"",
-    "installPlugin": "npm install && npm run clean && npm run build && zowe plugins install ."
+    "installPlugin": "npm install && npm run clean && npm run build && zowe plugins install .",
+    "server:start": "cd server && json-server db.json --routes routes.json --ro",
+    "typedoc": "typedoc --out ./docs/typedoc/ ./src/ --disableOutputCheck",
+    "prepare": "husky install"
   },
   "imperative": {
     "configurationModule": "lib/imperative.js"
   },
-  "peerDependencies": {
-    "@zowe/cli": "^6.33.0",
-    "@zowe/imperative": "^4.15.0"
+  "dependencies": {
+    "@zowe/core-for-zowe-sdk": "7.0.0",
+    "@zowe/zosmf-for-zowe-sdk": "7.0.0"
   },
   "devDependencies": {
     "@types/fs-extra": "^8.0.0",
@@ -52,14 +55,16 @@
     "@types/node": "^8.10.66",
     "@typescript-eslint/eslint-plugin": "^4.29.0",
     "@typescript-eslint/parser": "^4.29.0",
-    "@zowe/cli": "^6.33.1",
-    "@zowe/imperative": "^4.15.0",
+    "@zowe/cli": "7.0.0",
+    "@zowe/cli-test-utils": "7.0.0",
+    "@zowe/imperative": "5.0.0",
     "env-cmd": "^8.0.2",
     "eslint": "^7.32.0",
     "eslint-plugin-jest": "^24.4.0",
     "eslint-plugin-license-header": "^0.4.0",
     "eslint-plugin-unused-imports": "^1.1.2",
     "fs-extra": "^8.1.0",
+    "husky": "^7.0.0",
     "jest": "^27.0.6",
     "jest-cli": "^27.0.6",
     "jest-environment-node": "^27.0.6",
@@ -67,13 +72,17 @@
     "jest-html-reporter": "^3.3.0",
     "jest-junit": "^6.3.0",
     "jest-stare": "^2.2.0",
+    "json-server": "^0.16.3",
     "madge": "^5.0.1",
     "rimraf": "^2.7.1",
     "ts-jest": "^27.0.5",
     "ts-node": "^7.0.1",
-    "typedoc": "^0.15.0",
-    "typescript": "^3.7.4",
+    "typedoc": "^0.20.36",
+    "typescript": "^3.8.0",
     "uuid": "^3.2.1"
+  },
+  "peerDependencies": {
+    "@zowe/imperative": "^5.0.0"
   },
   "jest": {
     "modulePathIgnorePatterns": [
@@ -113,7 +122,7 @@
       "jest-junit",
       "jest-html-reporter"
     ],
-    "coverageLink": "../coverage/lcov-report/index.html"
+    "coverageLink": "../unit/coverage/lcov-report/index.html"
   },
   "jest-junit": {
     "output": "__tests__/__results__/junit.xml"
@@ -123,6 +132,6 @@
     "outputPath": "__tests__/__results__/results.html",
     "includeFailureMsg": true
   },
-  "author": "Darkside",
+  "author": "Zowe",
   "license": "EPL-2.0 or Apache-2.0"
 }

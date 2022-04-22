@@ -5,19 +5,19 @@ module.exports = {
             level: "minor"
         },
         {
-            name: "next",
-            prerelease: true
-        },
-        {
-            name: "lts-*",
+            name: "zowe-v?-lts",
             level: "patch"
         }
+        // {
+        //     name: "next",
+        //     prerelease: true
+        // }
     ],
     plugins: [
         "@octorelease/changelog",
         ["@octorelease/npm", {
             aliasTags: {
-                "latest": "zowe-v1-lts"
+                "latest": ["zowe-v2-lts", "next"]
             },
             smokeTest: true
         }],

@@ -62,6 +62,7 @@ module.exports = {
         "@typescript-eslint/no-unused-vars": "off",
         "@typescript-eslint/no-var-requires": "off",
         "@typescript-eslint/semi": "warn",
+        "license-header/header": ["error", "./LICENSE_HEADER"],
         "unused-imports/no-unused-imports": "warn",
         "unused-imports/no-unused-vars": ["warn", {
             "args": "none"

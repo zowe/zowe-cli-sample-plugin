@@ -14,23 +14,21 @@ import { ITestPropertiesSchema } from "../../../__src__/environment/doc/ITestPro
 // Test environment will be populated in the "beforeAll"
 let TEST_ENVIRONMENT: ITestEnvironment<ITestPropertiesSchema>;
 
-describe("zowe-cli-sample issue command-with-positionals", () => {
+describe("zowe-cli-sample list command", () => {
 
     // Create the unique test environment
     beforeAll(async () => {
         TEST_ENVIRONMENT = await TestEnvironment.setUp({
             installPlugin: true,
-            testName: "command_with_positionals"
+            testName: "list_command",
+            skipProperties: true
         });
     });
     afterAll(async () => {
         await TestEnvironment.cleanUp(TEST_ENVIRONMENT);
     });
-
-    it("should issue a response with the number and string inputted", () => {
-        const response = runCliScript(__dirname + "/__scripts__/issue_command_with_positionals.sh",
-            TEST_ENVIRONMENT,
-            ["one", 2]);
+    it("should display the help", () => {
+        const response = runCliScript(__dirname + "/__scripts__/list_help.sh", TEST_ENVIRONMENT);
 
         expect(response.stderr.toString()).toBe("");
         expect(response.status).toBe(0);
