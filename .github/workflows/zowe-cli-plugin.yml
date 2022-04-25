@@ -105,7 +105,7 @@ jobs:
       env:
         GIT_COMMITTER_NAME: zowe-robot
         GIT_COMMITTER_EMAIL: zowe.robot@gmail.com
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.ZOWE_ROBOT_TOKEN }}
         NPM_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
         NPM_PASSWORD: ${{ secrets.ARTIFACTORY_PASSWORD }}
         NPM_EMAIL: zowe.robot@gmail.com
