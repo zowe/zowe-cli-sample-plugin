@@ -88,6 +88,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         fetch-depth: 0
+        persist-credentials: false
         ref: ${{ github.ref }}
 
     - name: Use Node LTS
@@ -103,9 +104,10 @@ jobs:
 
     - uses: octorelease/octorelease@master
       env:
-        GIT_COMMITTER_NAME: zowe-robot
-        GIT_COMMITTER_EMAIL: zowe.robot@gmail.com
-        GITHUB_TOKEN: ${{ secrets.ZOWE_ROBOT_TOKEN }}
+        GIT_COMMITTER_NAME: ${{ secrets.ZOWE_ROBOT_USER }}
+        GIT_COMMITTER_EMAIL: ${{ secrets.ZOWE_ROBOT_EMAIL }}
+        GIT_CREDENTIALS: ${{ secrets.ZOWE_ROBOT_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         NPM_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
         NPM_PASSWORD: ${{ secrets.ARTIFACTORY_PASSWORD }}
-        NPM_EMAIL: zowe.robot@gmail.com
+        NPM_EMAIL: ${{ secrets.ZOWE_ROBOT_EMAIL }}
