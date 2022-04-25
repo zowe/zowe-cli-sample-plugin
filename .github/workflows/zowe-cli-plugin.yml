@@ -106,7 +106,7 @@ jobs:
       env:
         GIT_COMMITTER_NAME: ${{ secrets.ZOWE_ROBOT_USER }}
         GIT_COMMITTER_EMAIL: ${{ secrets.ZOWE_ROBOT_EMAIL }}
-        GIT_CREDENTIALS: ${{ secrets.ZOWE_ROBOT_TOKEN }}
+        GIT_CREDENTIALS: x-access-token:${{ secrets.ZOWE_ROBOT_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         NPM_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
         NPM_PASSWORD: ${{ secrets.ARTIFACTORY_PASSWORD }}
