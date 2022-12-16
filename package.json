@@ -72,7 +72,7 @@
     "jest-html-reporter": "^3.3.0",
     "jest-junit": "^6.3.0",
     "jest-stare": "^2.2.0",
-    "json-server": "^0.16.3",
+    "json-server": "^0.17.1",
     "madge": "^5.0.1",
     "rimraf": "^2.7.1",
     "ts-jest": "^27.0.5",
