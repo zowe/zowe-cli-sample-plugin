@@ -31,6 +31,7 @@
     "watch": "tsc --pretty --watch",
     "prepublishOnly": "npm run build",
     "lint": "eslint \"src/**/*.ts\" \"**/__tests__/**/*.ts\"",
+    "lint:fix": "eslint \"src/**/*.ts\" \"**/__tests__/**/*.ts\" --fix",
     "lint:src": "eslint \"src/**/*.ts\" --ignore-pattern \"**/__tests__/**/*.ts\"",
     "lint:tests": "eslint \"**/__tests__/**/*.ts\"",
     "test": "npm run test:unit && npm run test:integration && npm run test:system",
