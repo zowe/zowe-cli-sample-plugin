@@ -25,6 +25,10 @@ exports[`zowe-cli-sample fail command should display the help 1`] = `
  GLOBAL OPTIONS
  --------------
 
+   --help-examples (boolean)
+
+      Display examples for all the commands in a group
+
    --response-format-json | --rfj (boolean)
 
       Produce JSON formatted data from a command
@@ -32,10 +36,6 @@ exports[`zowe-cli-sample fail command should display the help 1`] = `
    --help | -h (boolean)
 
       Display help text
-
-   --help-examples (boolean)
-
-      Display examples for all the commands in a group
 
    --help-web | --hw (boolean)
 
