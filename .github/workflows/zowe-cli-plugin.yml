@@ -15,15 +15,15 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node-version: [12.x, 14.x, 16.x]
+        node-version: [14.x, 16.x, 18.x]
         os: [windows-latest, ubuntu-latest, macos-latest]
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Setup Node ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
 
@@ -33,7 +33,7 @@ jobs:
         echo "::remove-matcher owner=eslint-stylish::"
 
     - name: Update NPM
-      if: ${{ matrix.node-version != '16.x' }}
+      if: ${{ matrix.node-version == '14.x' }}
       run: npm install -g npm@7
 
     - name: Install Dependencies
@@ -49,7 +49,7 @@ jobs:
 
     - name: Unlock Keyring
       if: ${{ always() && steps.build.outcome == 'success' && matrix.os == 'ubuntu-latest' }}
-      uses: t1m0thyj/unlock-keyring@master
+      uses: t1m0thyj/unlock-keyring@v1
 
     - name: Integration Tests
       if: ${{ always() && steps.build.outcome == 'success' }}
@@ -69,7 +69,7 @@ jobs:
     - name: Archive Results
       id: upload
       if: ${{ always() && steps.build.outcome == 'success' }}
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: ${{ matrix.os }}-${{ matrix.node-version }}-results
         path: |
@@ -79,20 +79,20 @@ jobs:
           system-tests.txt
 
   release:
-    if: github.event_name == 'push' && !contains(github.event.head_commit.message, '[ci skip]')
+    if: github.event_name == 'push' && github.ref_protected
     needs: test
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         fetch-depth: 0
         persist-credentials: false
         ref: ${{ github.ref }}
 
     - name: Use Node LTS
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
         node-version: 'lts/*'
 
@@ -102,7 +102,7 @@ jobs:
     - name: Build Source
       run: npm run build
 
-    - uses: octorelease/octorelease@master
+    - uses: zowe-actions/octorelease@master
       env:
         GIT_COMMITTER_NAME: ${{ secrets.ZOWE_ROBOT_USER }}
         GIT_COMMITTER_EMAIL: ${{ secrets.ZOWE_ROBOT_EMAIL }}
