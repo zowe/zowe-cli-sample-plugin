@@ -11,9 +11,9 @@
 import {IImperativeConfig} from "@zowe/imperative";
 import { ProfileConstants } from "./api/ProfileConstants";
 
-const config: IImperativeConfig = {
+const pluginDef: IImperativeConfig = {
     commandModuleGlobs: ["**/cli/*/*.definition!(.d).*s"],
-    pluginHealthCheck: __dirname + "/healthCheck.Handler",
+    pluginLifeCycle: __dirname + "/LifeCycleForSample",
     pluginSummary: "Zowe CLI sample plug-in",
     pluginAliases: ["zcsp"],
     rootCommandDescription: "Welcome to the sample plug-in for Zowe CLI!\n\n The sample plug-in " +
@@ -66,4 +66,4 @@ const config: IImperativeConfig = {
     ]
 };
 
-export = config;
+export = pluginDef;

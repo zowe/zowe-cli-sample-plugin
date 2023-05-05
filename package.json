@@ -44,11 +44,11 @@
     "prepare": "husky install"
   },
   "imperative": {
-    "configurationModule": "lib/imperative.js"
+    "configurationModule": "lib/pluginDef.js"
   },
   "dependencies": {
-    "@zowe/core-for-zowe-sdk": "^7.10.4",
-    "@zowe/zosmf-for-zowe-sdk": "^7.10.4"
+    "@zowe/core-for-zowe-sdk": "^7.14.1",
+    "@zowe/zosmf-for-zowe-sdk": "^7.14.1"
   },
   "devDependencies": {
     "@types/fs-extra": "^8.1.2",
@@ -56,9 +56,9 @@
     "@types/node": "^8.10.66",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
-    "@zowe/cli": "^7.10.4",
-    "@zowe/cli-test-utils": "^7.10.4",
-    "@zowe/imperative": "^5.8.3",
+    "@zowe/cli": "^7.14.1",
+    "@zowe/cli-test-utils": "^7.14.1",
+    "@zowe/imperative": "^5.13.0",
     "env-cmd": "^8.0.2",
     "eslint": "^7.32.0",
     "eslint-plugin-jest": "^24.7.0",
