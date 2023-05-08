@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node-version: [14.x, 16.x, 18.x]
+        node-version: [16.x, 18.x]
         os: [windows-latest, ubuntu-latest, macos-latest]
 
     steps:
@@ -102,7 +102,7 @@ jobs:
     - name: Build Source
       run: npm run build
 
-    - uses: zowe-actions/octorelease@master
+    - uses: zowe-actions/octorelease@v1
       env:
         GIT_COMMITTER_NAME: ${{ secrets.ZOWE_ROBOT_USER }}
         GIT_COMMITTER_EMAIL: ${{ secrets.ZOWE_ROBOT_EMAIL }}
