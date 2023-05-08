@@ -1,5 +1,5 @@
 # Developing a new plug-in
-Before you begin this tutorial, make sure that you completed the [Extending an existing plug-in]() tutorial. 
+Before you begin this tutorial, make sure that you completed the [Extending an existing plug-in]() tutorial.
 
 ## Overview
 This tutorial demonstrates creating a brand new Zowe CLI plug-in that uses Zowe CLI Node.js programmatic APIs.
@@ -31,7 +31,7 @@ Use a unique `npm` name for your plugin. Change `package.json` name field as fol
 - Issue the command `npm install`
 
 ### Adjusting Imperative CLI Framework configuration
-Change `imperative.ts` to contain the following:
+Change `pluginDef.ts` to contain the following:
 ```typescript
 import { IImperativeConfig } from "@zowe/imperative";
 

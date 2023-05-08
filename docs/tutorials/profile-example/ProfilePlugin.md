@@ -1,13 +1,13 @@
 # Implementing profiles in a Zowe CLI plug-in
-You can use this profile template to create a profile for your product.  
+You can use this profile template to create a profile for your product.
 
-The profile definition is placed in the 'imperative.ts' file.
+The profile definition is placed in the 'pluginDef.ts' file.
 
-`someproduct` will be the profile name that you might require on various commands to have credentials loaded 
+`someproduct` will be the profile name that you might require on various commands to have credentials loaded
 from a secure credential manager and retain host/port information (so that you can easily swap to different servers)
 from the CLI).
 
-By default, if your plug-in is installed into Zowe CLI that contains a profile definition like this, commands will automatically 
+By default, if your plug-in is installed into Zowe CLI that contains a profile definition like this, commands will automatically
 be created under `zowe profiles ...` to create, validate, set default, list, etc... for your profile.
 
 ```typescript
@@ -34,7 +34,7 @@ profiles: [
             optionDefinition: {
               type: "number",
               name: "port",
-               alias:["P"],         
+               alias:["P"],
               required: true,
               description: "Port number of your SOME PRODUCT REST API server"
             }
@@ -44,7 +44,7 @@ profiles: [
             optionDefinition: {
               type: "string",
               name: "user",
-              alias:["u"],          
+              alias:["u"],
               required: true,
               description: "User name to authenticate to your SOME PRODUCT REST API server"
             },
@@ -55,7 +55,7 @@ profiles: [
             optionDefinition: {
               type: "string",
               name: "password",
-              alias:["p"],          
+              alias:["p"],
               required: true,
               description: "Password to authenticate to your SOME PRODUCT REST API server"
             },
