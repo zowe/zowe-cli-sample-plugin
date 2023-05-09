@@ -32,10 +32,6 @@ jobs:
         echo "::remove-matcher owner=eslint-compact::"
         echo "::remove-matcher owner=eslint-stylish::"
 
-    - name: Update NPM
-      if: ${{ matrix.node-version == '14.x' }}
-      run: npm install -g npm@7
-
     - name: Install Dependencies
       run: npm ci
 
