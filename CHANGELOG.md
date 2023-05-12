@@ -4,8 +4,8 @@ All notable changes to the Sample Plug-in for Zowe CLI will be documented in thi
 
 ## Recent Changes
 
-- Enhancement: Add plugin lifecycle example.
-- Enhancement: Remove deprecated pluginHealthCheck.
+- Enhancement: Added plugin lifecycle example.
+- Enhancement: Removed deprecated pluginHealthCheck.
 
 ## `3.0.0`
 
