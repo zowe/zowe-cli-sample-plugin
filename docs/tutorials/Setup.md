@@ -4,7 +4,7 @@ Before you follow the development tutorials for installing, extending, and creat
 
 ## Prequisites
 
-[Install Zowe CLI](https://zowe.github.io/docs-site/latest/user-guide/cli-installcli.html).
+[Install Zowe CLI](https://docs.zowe.org/stable/user-guide/cli-install-cli-checklist).
 
 ## Initial setup
 
