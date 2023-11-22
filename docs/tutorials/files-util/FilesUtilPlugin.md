@@ -209,4 +209,4 @@ Install the `diff2html` CLI via `npm install -g diff2html-cli`. Then, pipe your 
 - `zowe files-util diff data-sets "kelda16.work.jcl(iefbr14)" "kelda16.work.jcl(iefbr15)" | diff2html -i stdin`
 
 ## Next steps
-Try the [Implementing profiles in a plug-in](url) tutorial to learn about using profiles with your plug-in.
+Try the [Implementing profiles in a plug-in](/docs/tutorials/profile-example/ProfilePlugin.md) tutorial to learn about using profiles with your plug-in.
