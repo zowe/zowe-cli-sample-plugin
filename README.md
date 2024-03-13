@@ -3,29 +3,42 @@
 This repository contains a sample Zowe CLI plug-in that adheres to the contribution guidelines for the project. Use this project and the associated tutorials as a starting point for creating Zowe CLI plug-ins.
 
 - [Zowe CLI Sample Plug-in](#zowe-cli-sample-plug-in)
+  - [Plug-in Sample Overview](#plug-in-sample-overview)
   - [Why Create a Zowe CLI Plug-in?](#why-create-a-zowe-cli-plug-in)
   - [Tutorials, Documentation, and Guidelines](#tutorials-documentation-and-guidelines)
     - [Tutorials](#tutorials)
     - [Contribution Guidelines](#contribution-guidelines)
     - [Imperative CLI Framework Documentation](#imperative-cli-framework-documentation)
-    - [Jenkinsfile Guidelines](#jenkinsfile-guidelines)
+    - [CICD Guidelines](#cicd-guidelines)
   - [Prerequisites](#prerequisites)
   - [Create a Local Development Space](#create-a-local-development-space)
     - [Clone zowe-cli-sample-plugin and Build From Source](#clone-zowe-cli-sample-plugin-and-build-from-source)
     - [Run the Automated Tests](#run-the-automated-tests)
     - [Install the zowe-cli-sample-plugin to Zowe CLI](#install-the-zowe-cli-sample-plugin-to-zowe-cli)
 
+## Plug-in Sample Overview
+
+This sample plug-in includes:
+- Source code for a command that lists contents in a remote directory.
+- Tutorials on:
+  - Building the plug-in and using its `zowe zowe-cli-sample list directory-contents` command.
+  - Enhancing the code with a third-party package by creating a command for file-diff highlighting.
+  - Augmenting the code to connect with Typicode's external API, showcasing the retrieval and display simulated backend data.
+- Examples of lifecycle hooks and GitHub workflows for CI/CD.
+- Templates for model testing suites.
+
 ## Why Create a Zowe CLI Plug-in?
 
 You might want to create a Zowe CLI plug-in to accomplish the following:
 
-* Provide new scriptable functionality for yourself, your organization, or to a broader community.
+* Provide new script-able functionality for yourself, your organization, or to a broader community.
 * Make use of Zowe CLI infrastructure (profiles and programmatic APIs).
 * Participate in the Zowe CLI community space.
 
+
 ## Tutorials, Documentation, and Guidelines
 
-We also provide the following tutorials, guidelines, and documentation to assist you during development:
+We provide the following tutorials, guidelines, and documentation to assist you during development:
 
 ### Tutorials
 
@@ -43,9 +56,9 @@ The guidelines contain critical information about working with the code, running
 
 [Imperative CLI Framework](https://github.com/zowe/imperative/wiki) documentation is a key source of information to learn about the features of Imperative CLI Framework (the code framework that you use to build plug-ins for Zowe CLI). Refer to these documents during development.
 
-### Jenkinsfile Guidelines
+### CICD Guidelines
 
-Reference the [Jenkinsfile Guidelines](CICD-TEMPLATE.md) for information about setting up and maintaining automated testing/deployment for your plug-in with Jenkins automation server.
+Reference our [Github Actions](CICD-TEMPLATE.md) page for information about setting up and maintaining automated testing/deployment for your plug-in with Github Actions.
 
 ## Prerequisites
 
@@ -55,7 +68,7 @@ Before you work with the Zowe CLI sample plug-in, [install Zowe CLI globally.](h
 
 To create your development space, clone and build the Zowe CLI sample plug-in from source.
 
-Create a local development folder named `zowe-tutorial`. You will clone and build all projects in this folder.
+Create a local development folder named `zowe-tutorial`. You will clone and build all projects in this folder. Then install all dependencies.
 
 Clone the repositories into your development folder to match the following structure:
 
