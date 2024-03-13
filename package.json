@@ -83,7 +83,7 @@
     "uuid": "^3.4.0"
   },
   "peerDependencies": {
-    "@zowe/imperative": "^5.13.1"
+    "@zowe/imperative": "^8.0.0-next"
   },
   "jest": {
     "modulePathIgnorePatterns": [
