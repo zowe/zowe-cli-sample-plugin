@@ -7,7 +7,7 @@ This tutorial demonstrates creating a brand new Zowe CLI plug-in that uses Zowe 
 At the end of this tutorial, you will have created a data set diff utility plug-in for Zowe CLI, from which you can pipe
 your plugin's output to another utility for a side-by-side diff of data set member contents.
 
-![Side by Side Diff](images/htmlDiff.png)
+![Side by Side Diff](images/htmlDiff2.png)
 
 ### Cloning the `zowe-cli-sample-plugin` source
 Here you'll clone the sample repo, delete the irrelevant source, and make a brand new plug-in. Perform the following:
