@@ -91,13 +91,13 @@ mode  size   birthed                                                   lastModif
 **Note:** If you don't have access to a z/OSMF instance at your site, run `npm run server:start` to launch a mock server at http://localhost:3000.
 
 #### Setup your system connection details:
-1. `cd __tests__/__resources__/properties`
-2. Copy `example_properties.yaml` to `custom_properties.yaml`.
-3. Edit the properties within `custom_properties.yaml` to contain valid system information for your site.
+i. `cd __tests__/__resources__/properties`\
+ii. Copy `example_properties.yaml` to `custom_properties.yaml`.\
+iii. Edit the properties within `custom_properties.yaml` to contain valid system information for your site.
 
 #### Run tests:
-4. `cd` to your `zowe-cli-sample-plugin` folder
-5. `npm run test`
+i. `cd` to your `zowe-cli-sample-plugin` folder\
+ii. `npm run test`
 
 ## Next steps
 

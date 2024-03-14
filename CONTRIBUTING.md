@@ -1,7 +1,7 @@
-# Contribution Guidelines
+# Contribution guidelines
 This document is intended to be a living summary of conventions & best practices for development within Sample plug-infor Zowe CLI.
 
-## Changelog Update Guidelines
+## Changelog update guidelines
 
 The changelog should be updated for any PR that updates code that will be distributed to the end user. Changes to certain files, for example those listed in `.gitignore`, do not require an update to the changelog.
 
@@ -14,7 +14,7 @@ The following code block should be inserted into the Changelog above the last re
 - <be documented here>
 ```
 
-# Primary Contribution Guidelines
+# Primary contribution guidelines
 
 We provide guidelines for developing Zowe CLI plug-ins in the [Zowe CLI GitHub repository](https://github.com/zowe/zowe-cli). The following information is critical to working with the code, running/writing/maintaining automated tests, developing consistent syntax in your plug-in, and ensuring that your plug-in integrates with Zowe CLI properly:
 
@@ -27,7 +27,7 @@ We provide guidelines for developing Zowe CLI plug-ins in the [Zowe CLI GitHub r
 | Documentation that describes the features of the Imperative CLI Framework | [About Imperative CLI Framework](https://github.com/zowe/imperative/wiki) |
 Versioning conventions for Zowe CLI and plug-ins| [Versioning Guidelines](https://github.com/zowe/zowe-cli/blob/master/docs/MaintainerVersioning.md) |
 
-## Contribution Guidelines Specific to the CICS Plug-in
+## Contribution guidelines specific to the CICS plug-in
 The following guidelines apply specifically to the Sample plug-infor Zowe CLI:
 
 -   None at this time.
