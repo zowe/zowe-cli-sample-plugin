@@ -2,7 +2,7 @@
 Before you begin this tutorial, make sure that you completed the [Extending an existing plug-in]() tutorial.
 
 ## Overview
-This tutorial demonstrates creating a brand new Zowe CLI Plug-in that uses Zowe CLI Node.js programmatic APIs.
+This tutorial demonstrates creating a brand new Zowe CLI plug-inthat uses Zowe CLI Node.js programmatic APIs.
 
 At the end of this tutorial, you will have created a data set diff utility plug-in for Zowe CLI, from which you can pipe
 your plugin's output to another utility for a side-by-side diff of data set member contents.

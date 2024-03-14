@@ -1,5 +1,5 @@
 # Contribution Guidelines
-This document is intended to be a living summary of conventions & best practices for development within Sample Plug-in for Zowe CLI.
+This document is intended to be a living summary of conventions & best practices for development within Sample plug-infor Zowe CLI.
 
 ## Changelog Update Guidelines
 
@@ -20,14 +20,14 @@ We provide guidelines for developing Zowe CLI plug-ins in the [Zowe CLI GitHub r
 
 | For more information about ... | See: |
 | ------------------------------ | ----- |
-| General guidelines that apply to contributing to Zowe CLI and Plug-ins | [Contribution Guidelines](https://github.com/zowe/zowe-cli/blob/master/CONTRIBUTING.md) |
+| General guidelines that apply to contributing to Zowe CLI and plug-ins | [Contribution Guidelines](https://github.com/zowe/zowe-cli/blob/master/CONTRIBUTING.md) |
 | Conventions and best practices for creating packages and plug-ins for Zowe CLI | [Package and Plug-in Guidelines](https://github.com/zowe/zowe-cli/blob/master/docs/PackagesAndPluginGuidelines.md)|
 | Guidelines for running tests on Zowe CLI | [Testing Guidelines](https://github.com/zowe/zowe-cli/blob/master/docs/TESTING.md) |
 | Guidelines for running tests on the plug-ins that you build for Zowe CLI | [Plug-in Testing Guidelines](https://github.com/zowe/zowe-cli/blob/master/docs/PluginTESTINGGuidelines.md) |
 | Documentation that describes the features of the Imperative CLI Framework | [About Imperative CLI Framework](https://github.com/zowe/imperative/wiki) |
-Versioning conventions for Zowe CLI and Plug-ins| [Versioning Guidelines](https://github.com/zowe/zowe-cli/blob/master/docs/MaintainerVersioning.md) |
+Versioning conventions for Zowe CLI and plug-ins| [Versioning Guidelines](https://github.com/zowe/zowe-cli/blob/master/docs/MaintainerVersioning.md) |
 
 ## Contribution Guidelines Specific to the CICS Plug-in
-The following guidelines apply specifically to the Sample Plug-in for Zowe CLI:
+The following guidelines apply specifically to the Sample plug-infor Zowe CLI:
 
 -   None at this time.

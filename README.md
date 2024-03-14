@@ -1,6 +1,6 @@
 # Zowe CLI Sample Plug-in
 
-This repository contains a sample Zowe CLI Plug-in that adheres to the contribution guidelines for the project. Use this project and the associated tutorials as a starting point for creating Zowe CLI Plug-ins.
+This repository contains a sample Zowe CLI plug-in that adheres to the contribution guidelines for the project. Use this project and the associated tutorials as a starting point for creating Zowe CLI Plug-ins.
 
 - [Zowe CLI Sample Plug-in](#zowe-cli-sample-plug-in)
   - [Sample Plug-in Overview](#sample-plug-in-overview)
@@ -29,7 +29,7 @@ This sample includes:
 
 ## Why Create a Zowe CLI Plug-in?
 
-You might want to create a Zowe CLI Plug-in to accomplish the following:
+You might want to create a Zowe CLI plug-into accomplish the following:
 
 * Provide new script-able functionality for yourself, your organization, or to a broader community.
 * Make use of Zowe CLI infrastructure (profiles and programmatic APIs).
@@ -41,7 +41,7 @@ You might want to create a Zowe CLI Plug-in to accomplish the following:
 
 ### Tutorials
 
-This sample plug-in comes with [tutorial information](docs/tutorials), but more in-depth documentation can be found online. See [Extend Zowe CLI](https://docs.zowe.org/stable/extend/extend-zowe-overview/#extend-zowe-cli) to learn more about how to work with this sample plug-in, build new commands, or build a new Zowe CLI Plug-in.
+This sample plug-in comes with [tutorial information](docs/tutorials), but more in-depth documentation can be found online. See [Extend Zowe CLI](https://docs.zowe.org/stable/extend/extend-zowe-overview/#extend-zowe-cli) to learn more about how to work with this sample plug-in, build new commands, or build a new Zowe CLI plug-in.
 
 
 **Note:** For an advanced example on how to create a plug-in that serves as a Credential Manager, see [Zowe CLI secrets for Kubernetes](https://github.com/zowe/zowe-cli-secrets-for-kubernetes/)

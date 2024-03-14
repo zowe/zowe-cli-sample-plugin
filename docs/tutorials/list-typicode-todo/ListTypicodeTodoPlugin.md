@@ -7,7 +7,7 @@ This tutorial demonstrates how to extend the plug-in that is bundled with this s
 2. Creating a new command definition
 3. Creating a new handler
 
-We'll do this by using `@zowe/imperative` infrastructure to surface REST API data on our Zowe CLI Plug-in.
+We'll do this by using `@zowe/imperative` infrastructure to surface REST API data on our Zowe CLI plug-in.
 
 Specifically, we're going to show data from [this URI](https://jsonplaceholder.typicode.com/todos) by [Typicode](https://jsonplaceholder.typicode.com/).
 Typicode serves sample REST JSON data for testing purposes.
@@ -161,7 +161,7 @@ is presented. You can also see how to use your optional `--id` flag:
 ![output](images/completedSample.png)
 
 # Summary
-You extended an existing Zowe CLI Plug-in by introducing a Node.js programmatic API, and you created a command definition with a handler.
+You extended an existing Zowe CLI plug-inby introducing a Node.js programmatic API, and you created a command definition with a handler.
 For an official plugin, you would also add [JSDoc](http://usejsdoc.org/) to your code and create tests.
 
 Completed source can be found on the `typicode-todos` branch of this repo.
