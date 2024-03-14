@@ -1,16 +1,17 @@
-# Installing the sample plug-in
+# Using the sample plug-in
 
-Before you begin, [setup](../Setup.md) your environment to install a plug-in.
+(NOTE: This step may have completed during [setup](../Setup.md).)
+
+Before you begin, ensure you've completed the [initial setup](../../../README.md#initial-setup) of your environment to install a plug-in.
 
 ## Overview
 
-This tutorial covers installing and running this bundled Zowe CLI Plug-in as-is (without modification), which will display your current directory contents.
+This tutorial covers running this bundled Zowe CLI Plug-in as-is (without modification), which will display your current directory contents.
 
 The plug-in adds a command to the CLI that lists the contents of a directory on your PC.
 
 ## Installing the sample plug-in to Zowe CLI
 
-(NOTE: This step may have completed during [setup](../Setup.md).)
 
 To begin, `cd` into your `zowe-tutorial` folder.
 

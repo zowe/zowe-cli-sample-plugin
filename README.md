@@ -19,10 +19,11 @@ This repository contains a sample Zowe CLI Plug-in that adheres to the contribut
 
 This sample includes:
 - Source code for extending the Zowe CLI with a command that lists the contents of a remote directory.
-- Tutorials on:
+- Tutorials for:
   - [Building the plug-in](docs/tutorials/list-directory-contents/ListDirectoryContentsPlugin.md) to use its `zowe zowe-cli-sample list directory-contents` command.
   - [Enhancing the sample](docs/tutorials/files-util/FilesUtilPlugin.md) with a third-party package and creating a new command for file-diff highlighting.
   - [Augmenting the code](docs/tutorials/list-typicode-todo/ListTypicodeTodoPlugin.md) to connect with Typicode's external API, a simulator of backend data, to walk through the cli's interaction with RESTful services.
+  - [Using profiles](docs/tutorials/profile-example/ProfilePlugin.md) with your plug-in.
 - Examples of lifecycle hooks and GitHub Actions workflows for CICD.
 - Templates for unit, system and integration testing suites.
 
@@ -67,7 +68,7 @@ Reference our [included GitHub Actions workflows](.github/workflows/) for guidan
 
 ### Initial Setup
 
-To create your development space, you will clone and build zowe-cli-sample-plugin from source.
+To create your development space, you will clone and build the zowe-cli-sample-plugin from source.
 
 Clone the repository into your development folder to match the following structure:
 ```
