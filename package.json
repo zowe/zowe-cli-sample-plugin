@@ -1,7 +1,7 @@
 {
   "name": "@zowe/sample-plugin-for-zowe-cli",
   "version": "3.0.0",
-  "description": "A sample plugin for Zowe CLI :)",
+  "description": "A sample plug-in for Zowe CLI :)",
   "homepage": "https://github.com/zowe/zowe-cli-sample-plugin#readme",
   "bugs": {
     "url": "https://github.com/zowe/zowe-cli-sample-plugin/issues"

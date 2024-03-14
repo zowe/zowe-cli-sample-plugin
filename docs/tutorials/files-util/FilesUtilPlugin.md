@@ -2,7 +2,7 @@
 Before you begin this tutorial, make sure that you completed the [Extending an existing plug-in]() tutorial.
 
 ## Overview
-This tutorial demonstrates creating a brand new Zowe CLI plug-in that uses Zowe CLI Node.js programmatic APIs.
+This tutorial demonstrates creating a brand new Zowe CLI Plug-in that uses Zowe CLI Node.js programmatic APIs.
 
 At the end of this tutorial, you will have created a data set diff utility plug-in for Zowe CLI, from which you can pipe
 your plugin's output to another utility for a side-by-side diff of data set member contents.
@@ -37,7 +37,7 @@ import { IImperativeConfig } from "@zowe/imperative";
 
 const config: IImperativeConfig = {
     commandModuleGlobs: ["**/cli/*/*.definition!(.d).*s"],
-    rootCommandDescription: "Files utilty plugin for Zowe CLI",
+    rootCommandDescription: "Files utilty plug-in for Zowe CLI",
     envVariablePrefix: "FILES_UTIL_PLUGIN",
     defaultHome: "~/.files_util_plugin",
     productDisplayName: "Files Util Plugin",
@@ -189,7 +189,7 @@ export default class DataSetsDiffHandler implements ICommandHandler {
 ```
 
 ## Trying your command
-Be sure to build your plugin via `npm run build`.
+Be sure to build your plug-in via `npm run build`.
 
 Install your plug-in into Zowe CLI via `'zowe plugins install .`'
 

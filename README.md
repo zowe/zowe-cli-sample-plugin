@@ -1,6 +1,6 @@
 # Zowe CLI Sample Plug-in
 
-This repository contains a sample Zowe CLI plug-in that adheres to the contribution guidelines for the project. Use this project and the associated tutorials as a starting point for creating Zowe CLI plug-ins.
+This repository contains a sample Zowe CLI Plug-in that adheres to the contribution guidelines for the project. Use this project and the associated tutorials as a starting point for creating Zowe CLI Plug-ins.
 
 - [Zowe CLI Sample Plug-in](#zowe-cli-sample-plug-in)
   - [Plug-in Sample Overview](#plug-in-sample-overview)
@@ -18,18 +18,18 @@ This repository contains a sample Zowe CLI plug-in that adheres to the contribut
 
 ## Plug-in Sample Overview
 
-This sample plug-in includes:
-- Source code for a command that lists contents in a remote directory.
+This plug-in sample includes:
+- Source code for extending the Zowe CLI with a command that lists the contents of a remote directory.
 - Tutorials on:
-  - Building the plug-in and using its `zowe zowe-cli-sample list directory-contents` command.
-  - Enhancing the code with a third-party package by creating a command for file-diff highlighting.
-  - Augmenting the code to connect with Typicode's external API, showcasing the retrieval and display simulated backend data.
-- Examples of lifecycle hooks and GitHub workflows for CI/CD.
+  - [Building the plug-in](docs/tutorials/list-directory-contents/ListDirectoryContentsPlugin.md) to use its `zowe zowe-cli-sample list directory-contents` command.
+  - [Enhancing the sample](docs/tutorials/files-util/FilesUtilPlugin.md) with a third-party package and creating a new command for file-diff highlighting.
+  - [Augmenting the code](docs/tutorials/list-typicode-todo/ListTypicodeTodoPlugin.md) to connect with Typicode's external API, a simulator of backend data, to walk through the cli's interaction with RESTful services.
+- Examples of lifecycle hooks and GitHub Actions workflows for CICD.
 - Templates for model testing suites.
 
 ## Why Create a Zowe CLI Plug-in?
 
-You might want to create a Zowe CLI plug-in to accomplish the following:
+You might want to create a Zowe CLI Plug-in to accomplish the following:
 
 * Provide new script-able functionality for yourself, your organization, or to a broader community.
 * Make use of Zowe CLI infrastructure (profiles and programmatic APIs).
@@ -42,27 +42,28 @@ We provide the following tutorials, guidelines, and documentation to assist you 
 
 ### Tutorials
 
-To learn about how to work with this sample plug-in, build new commands, or build a new Zowe CLI plug-in, see [Extend Zowe CLI](https://docs.zowe.org/stable/extend/extend-zowe-overview/#extend-zowe-cli).
+This sample plug-in comes with [tutorial information](docs/tutorials), but more in-depth documentation can be found online. See [Extend Zowe CLI](https://docs.zowe.org/stable/extend/extend-zowe-overview/#extend-zowe-cli) to learn more about how to work with this sample plug-in, build new commands, or build a new Zowe CLI Plug-in.
+
 
 **Note:** For an advanced example on how to create a plug-in that serves as a Credential Manager, see [Zowe CLI secrets for Kubernetes](https://github.com/zowe/zowe-cli-secrets-for-kubernetes/)
 
 ### Contribution Guidelines
 
-The Zowe CLI [contribution guidelines](CONTRIBUTING.md) contain standards and conventions for developing Zowe CLI plug-ins.
+The Zowe CLI [contribution guidelines](CONTRIBUTING.md) contain standards and conventions for developing Zowe CLI Plug-ins.
 
 The guidelines contain critical information about working with the code, running/writing/maintaining automated tests, developing consistent syntax in your plug-in, and ensuring that your plug-in integrates with Zowe CLI properly.
 
 ### Imperative CLI Framework Documentation
 
-[Imperative CLI Framework](https://github.com/zowe/imperative/wiki) documentation is a key source of information to learn about the features of Imperative CLI Framework (the code framework that you use to build plug-ins for Zowe CLI). Refer to these documents during development.
+The Zowe CLI once required the [Imperative CLI Framework](https://github.com/zowe/imperative/wiki) as a dependency. As of V3 of the CLI, Imperative has become a built-in package of the CLI. Many of the CLI's capabilities stem from Imperative's provided structural foundation. The following archived information about the Imperative CLI Framework is still relevant and will provide you with a good understanding about the underpinnings and features of the Zowe CLI. Refer to these documents during the development of your plug-in.
 
 ### CICD Guidelines
 
-Reference our [included Github workflows](.github/workflows/) for guidance about setting up and maintaining automated testing/deployment for your plug-in with Github Actions.
+Reference our [included GitHub Actions workflows](.github/workflows/) for guidance about setting up and maintaining automated testing and deployment for your plug-in with GitHub Actions.
 
 ## Prerequisites
 
-Before you work with the Zowe CLI sample plug-in, [install Zowe CLI globally.](https://docs.zowe.org/active-development/user-guide/cli-installcli.html)
+Before you work with the Zowe CLI sample plug-in, [install Zowe CLI](https://docs.zowe.org/stable/user-guide/cli-installcli) and its dependencies globally.
 
 ## Create a Local Development Space
 
@@ -85,11 +86,14 @@ See [setup](docs/tutorials/Setup.md).
 
 **Note:** If you don't have access to a z/OSMF instance at your site, run `npm run server:start` to launch a mock server at http://localhost:3000.
 
+#### If you have a z/OSMF system you are connecting to:
 1. `cd __tests__/__resources__/properties`
-2. Copy `example_properties.yaml` to `custom_properties.yaml`.
-3. Edit the properties within `custom_properties.yaml` to contain valid system information for your site.
-4. `cd` to your `zowe-cli-sample-plugin` folder
-5. `npm run test`
+2. a) Copy `example_properties.yaml` to `custom_properties.yaml`.\
+b) Edit the properties within `custom_properties.yaml` to contain valid system information for your site.
+
+#### Run your tests:
+3. `cd` to your `zowe-cli-sample-plugin` folder
+4. `npm run test`
 
 ### Install the zowe-cli-sample-plugin to Zowe CLI
 

@@ -4,7 +4,11 @@ All notable changes to the Sample Plug-in for Zowe CLI will be documented in thi
 
 ## Recent Changes
 
-- Enhancement: Added plugin lifecycle example.
+- Enhancement:
+  - Removed detailed Jenkins information and switched to GHA
+  - Updated imports and resolved errors when making plug-in v3 compatible
+
+- Enhancement: Added plug-in lifecycle example.
 - Enhancement: Removed deprecated pluginHealthCheck.
 - BugFix: Updated dependencies for technical currency.
 
