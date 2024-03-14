@@ -14,6 +14,7 @@ import { ProfileConstants } from "./api/ProfileConstants";
 const pluginDef: IImperativeConfig = {
     commandModuleGlobs: ["**/cli/*/*.definition!(.d).*s"],
     pluginSummary: "Zowe CLI sample plug-in",
+    pluginLifeCycle: "LifeCycleForSample",
     pluginAliases: ["zcsp"],
     rootCommandDescription: "Welcome to the sample plug-in for Zowe CLI!\n\n The sample plug-in " +
         "(& CLI) follows the Zowe CLI command syntax 'zowe [group] [action] [object] [options]'. " +
