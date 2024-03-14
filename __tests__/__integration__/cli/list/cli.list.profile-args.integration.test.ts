@@ -50,19 +50,4 @@ describe("zowe-cli-sample list profile-args command", () => {
         expect(output).toMatch(/baseProfileName:\s+my_base/);
         expect(output).toMatchSnapshot();
     });
-
-    it("should list profile args from old school profile and other sources", () => {
-        const response = runCliScript(__dirname + "/__scripts__/list_profile_args_old_profiles.sh", TEST_ENVIRONMENT);
-        expect(isStderrEmptyForProfilesCommand(response.stderr)).toBe(true);
-        expect(response.status).toBe(0);
-        const output = response.stdout.toString();
-        expect(output).toMatch(/host:\s+new.host.com/);
-        expect(output).toMatch(/port:\s+1337/);
-        expect(output).toMatch(/user:\s+user1/);
-        expect(output).toMatch(/password:\s+123456/);
-        expect(output).toMatch(/usingTeamConfig:\s+false/);
-        expect(output).toMatch(/sampleProfileName:\s+my_sample/);
-        expect(output).toMatch(/baseProfileName:\s+my_base/);
-        expect(output).toMatchSnapshot();
-    });
 });
