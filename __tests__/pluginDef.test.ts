@@ -15,8 +15,8 @@ describe("plugin definition", () => {
     it("pluginDef should match expected values", () => {
         const pluginDef = require("../src/pluginDef");
         expect(pluginDef.name).toBe("zowe-cli-sample");
-        expect(pluginDef.pluginSummary).toBe("Zowe CLI sample plug-in");
         expect(pluginDef.pluginLifeCycle).toContain("LifeCycleForSample");
+        expect(pluginDef.pluginSummary).toBe("Zowe CLI sample plug-in");
         expect(pluginDef.productDisplayName).toBe("Zowe CLI Sample Plug-in");
         expect(pluginDef.rootCommandDescription).toContain("Welcome to the sample plug-in");
     });
