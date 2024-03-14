@@ -69,7 +69,6 @@ mode  size   birthed                                                   lastModif
 33206        Tue Sep 20 2022 12:44:18 GMT-0400 (Eastern Daylight Time) Tue Sep 20 2022 12:44:18 GMT-0400 (Eastern Daylight Time) .npmignore
 33206 37     Tue Sep 20 2022 12:44:18 GMT-0400 (Eastern Daylight Time) Tue Sep 20 2022 12:44:18 GMT-0400 (Eastern Daylight Time) .npmrc
 33206 1384   Tue Sep 20 2022 12:44:18 GMT-0400 (Eastern Daylight Time) Wed May 03 2023 16:10:46 GMT-0400 (Eastern Daylight Time) CHANGELOG.md
-33206 6855   Tue Sep 20 2022 12:44:18 GMT-0400 (Eastern Daylight Time) Tue Sep 20 2022 12:44:18 GMT-0400 (Eastern Daylight Time) CICD-TEMPLATE.md
 33206 2176   Tue Sep 20 2022 12:44:18 GMT-0400 (Eastern Daylight Time) Tue Sep 20 2022 12:44:18 GMT-0400 (Eastern Daylight Time) CONTRIBUTING.md
 16822        Tue Sep 20 2022 12:44:18 GMT-0400 (Eastern Daylight Time) Tue Sep 20 2022 12:44:18 GMT-0400 (Eastern Daylight Time) docs
 16822        Tue May 09 2023 13:19:02 GMT-0400 (Eastern Daylight Time) Tue May 09 2023 13:19:02 GMT-0400 (Eastern Daylight Time) lib

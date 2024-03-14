@@ -3,7 +3,7 @@ This document is intended to be a living summary of conventions & best practices
 
 ## Changelog Update Guidelines
 
-The changelog should be updated for any PR that updates code that will be distributed to the end user. Changes to certain files, such as the Jenkinsfile, do not require an update to the changelog.
+The changelog should be updated for any PR that updates code that will be distributed to the end user. Changes to certain files, for example those listed in `.gitignore`, do not require an update to the changelog.
 
 The following code block should be inserted into the Changelog above the last released version:
 

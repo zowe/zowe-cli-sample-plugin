@@ -58,7 +58,7 @@ The guidelines contain critical information about working with the code, running
 
 ### CICD Guidelines
 
-Reference our [Github Actions](CICD-TEMPLATE.md) page for information about setting up and maintaining automated testing/deployment for your plug-in with Github Actions.
+Reference our [included Github workflows](.github/workflows/) for guidance about setting up and maintaining automated testing/deployment for your plug-in with Github Actions.
 
 ## Prerequisites
 
