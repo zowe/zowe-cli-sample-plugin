@@ -47,9 +47,6 @@ export default class ProfileArgsHandler extends ListBaseHandler {
         if (usingTeamConfig) {
             output.environment.sampleProfileName = ImperativeConfig.instance.config.properties.defaults.sample;
             output.environment.baseProfileName = ImperativeConfig.instance.config.properties.defaults.base;
-        } else {
-            output.environment.sampleProfileName = params.profiles.getMeta("sample", false)?.name;
-            output.environment.baseProfileName = params.profiles.getMeta("base", false)?.name;
         }
 
         // Set output for --rfj response and print it to console
