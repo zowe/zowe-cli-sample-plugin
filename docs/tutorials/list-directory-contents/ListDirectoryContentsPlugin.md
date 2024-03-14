@@ -87,13 +87,18 @@ mode  size   birthed                                                   lastModif
 16822        Tue Sep 20 2022 12:44:18 GMT-0400 (Eastern Daylight Time) Wed May 03 2023 13:47:37 GMT-0400 (Eastern Daylight Time) __tests__
 
 ```
-## Testing the installed plug-in
+## (Optional) Testing the installed plug-in
 
-To run automated tests against the plug-in, `cd` into your `zowe-tutorial/zowe-cli-sample-plugin` folder.
+**Note:** If you don't have access to a z/OSMF instance at your site, run `npm run server:start` to launch a mock server at http://localhost:3000.
 
-Issue the following command:
+#### Setup your system connection details:
+1. `cd __tests__/__resources__/properties`
+2. Copy `example_properties.yaml` to `custom_properties.yaml`.
+3. Edit the properties within `custom_properties.yaml` to contain valid system information for your site.
 
-* `npm run test`
+#### Run tests:
+4. `cd` to your `zowe-cli-sample-plugin` folder
+5. `npm run test`
 
 ## Next steps
 
