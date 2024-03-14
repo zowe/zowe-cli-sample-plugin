@@ -83,4 +83,4 @@ zowe-tutorial
 
 ## Next steps: Using your Sample Plug-in
 
-After you complete your setup, follow the [Installing the sample plug-in to Zowe CLI](./list-directory-contents/ListDirectoryContentsPlugin.md) tutorial to install, use and test this sample plug-in with the Zowe CLI.
+After you complete your setup, follow the [Installing the sample plug-in to Zowe CLI](docs/tutorials/list-directory-contents/ListDirectoryContentsPlugin.md) tutorial to install, use and test this sample plug-in with the Zowe CLI.
