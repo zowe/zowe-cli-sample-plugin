@@ -2,7 +2,7 @@
 
 All notable changes to the sample plug-in for Zowe CLI will be documented in this file.
 
-## Recent Changes
+## `4.0.0-next.202403151916`
 
 - Enhancement:
   - Removed detailed Jenkins information and switched to GHA
