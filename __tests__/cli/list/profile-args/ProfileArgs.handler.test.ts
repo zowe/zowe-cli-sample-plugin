@@ -67,50 +67,6 @@ describe("profile-args Handler", () => {
                 rejectUnauthorized: true
             },
             environment: {
-                usingTeamConfig: true,
-                sampleProfileName: "fakeSample",
-                baseProfileName: "fakeBase"
-            }
-        };
-        let actualOutput = null;
-        params.response.data.setObj.mockImplementation((obj: any) => {
-            actualOutput = obj;
-        });
-
-        await handler.process(params);
-        expect(actualOutput).toMatchObject(expectedOutput);
-    });
-
-    it("should list profile args for old school profiles", async () => {
-        Object.defineProperty(ImperativeConfig, "instance", {
-            get: () => ({})
-        });
-        const profileArgs = {
-            host: "fakeHost",
-            port: 443,
-            user: "fakeUser",
-            password: "fakePass",
-            tshirtSize: "L"
-        };
-
-        const handler = new ProfileArgsHandler.default();
-        const params = Object.assign({}, ...[DEFAULT_PARAMETERS]);
-        params.arguments = {...params.arguments, ...profileArgs};
-        params.profiles = {
-            getMeta: (name: string) => {
-                return {
-                    name: "fake" + name.charAt(0).toUpperCase() + name.slice(1)
-                };
-            }
-        };
-
-        const expectedOutput = {
-            arguments: {
-                ...profileArgs,
-                rejectUnauthorized: true
-            },
-            environment: {
-                usingTeamConfig: false,
                 sampleProfileName: "fakeSample",
                 baseProfileName: "fakeBase"
             }

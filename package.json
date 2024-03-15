@@ -1,7 +1,7 @@
 {
   "name": "@zowe/sample-plugin-for-zowe-cli",
-  "version": "3.0.0",
-  "description": "A sample plugin for Zowe CLI :)",
+  "version": "4.0.0",
+  "description": "A sample plug-in for Zowe CLI :)",
   "homepage": "https://github.com/zowe/zowe-cli-sample-plugin#readme",
   "bugs": {
     "url": "https://github.com/zowe/zowe-cli-sample-plugin/issues"
@@ -47,8 +47,8 @@
     "configurationModule": "lib/pluginDef.js"
   },
   "dependencies": {
-    "@zowe/core-for-zowe-sdk": "^7.23.2",
-    "@zowe/zosmf-for-zowe-sdk": "^7.23.2"
+    "@zowe/core-for-zowe-sdk": "^8.0.0-next.202403141949",
+    "@zowe/zosmf-for-zowe-sdk": "^8.0.0-next.202403141949"
   },
   "devDependencies": {
     "@types/fs-extra": "^8.1.2",
@@ -56,9 +56,9 @@
     "@types/node": "^8.10.66",
     "@typescript-eslint/eslint-plugin": "^5.59.5",
     "@typescript-eslint/parser": "^5.59.5",
-    "@zowe/cli": "^7.23.2",
-    "@zowe/cli-test-utils": "^7.23.2",
-    "@zowe/imperative": "^5.22.2",
+    "@zowe/cli": "^8.0.0-next.202403141949",
+    "@zowe/cli-test-utils": "^8.0.0-next.202403141949",
+    "@zowe/imperative": "^8.0.0-next.202403141949",
     "env-cmd": "^8.0.2",
     "eslint": "^8.40.0",
     "eslint-plugin-jest": "^27.2.1",
@@ -83,7 +83,7 @@
     "uuid": "^3.4.0"
   },
   "peerDependencies": {
-    "@zowe/imperative": "^5.13.1"
+    "@zowe/imperative": "^8.0.0-next.202403141949"
   },
   "jest": {
     "modulePathIgnorePatterns": [

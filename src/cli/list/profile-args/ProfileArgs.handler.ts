@@ -26,7 +26,6 @@ export default class ProfileArgsHandler extends ListBaseHandler {
      */
     public async processWithSession(params: IHandlerParameters, session: Session): Promise<void> {
         // Build an output object for command response
-        const usingTeamConfig = ImperativeConfig.instance.config?.exists || false;
         const output: any = {
             arguments: {
                 // Load connection info from session object
@@ -39,18 +38,12 @@ export default class ProfileArgsHandler extends ListBaseHandler {
                 tshirtSize: params.arguments.tshirtSize
             },
             environment: {
-                usingTeamConfig
             }
         };
 
-        // Show names of base and sample profiles if they exist
-        if (usingTeamConfig) {
-            output.environment.sampleProfileName = ImperativeConfig.instance.config.properties.defaults.sample;
-            output.environment.baseProfileName = ImperativeConfig.instance.config.properties.defaults.base;
-        } else {
-            output.environment.sampleProfileName = params.profiles.getMeta("sample", false)?.name;
-            output.environment.baseProfileName = params.profiles.getMeta("base", false)?.name;
-        }
+        // Show names of base and sample profiles
+        output.environment.sampleProfileName = ImperativeConfig.instance.config.properties.defaults.sample;
+        output.environment.baseProfileName = ImperativeConfig.instance.config.properties.defaults.base;
 
         // Set output for --rfj response and print it to console
         params.response.data.setObj(output);

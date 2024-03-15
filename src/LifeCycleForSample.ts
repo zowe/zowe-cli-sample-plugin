@@ -11,20 +11,20 @@
 import {AbstractPluginLifeCycle, ImperativeError, Logger} from "@zowe/imperative";
 
 /**
- * This class performs lifecycle functions for your plugin. You are free to
- * change the name of this class to reflect your plugin and its actions.
+ * This class performs lifecycle functions for your plug-in. You are free to
+ * change the name of this class to reflect your plug-in and its actions.
  *
  * You only have to supply such a class if you specify the 'pluginLifeCycle'
- * property in your IImperativeConfig definition for your plugin. In this sample,
+ * property in your IImperativeConfig definition for your plug-in. In this sample,
  * that definition is supplied in src/pluginDef.ts.
  */
 export class LifeCycleForSample extends AbstractPluginLifeCycle {
     /**
-     * This function will be called after a plugin is installed.
-     * A plugin can use this opportunity to perform a sanity test or to
-     * perform some additional setup which is specific to your plugin.
+     * This function will be called after a plug-in is installed.
+     * A plug-in can use this opportunity to perform a sanity test or to
+     * perform some additional setup which is specific to your plug-in.
      *
-     * If your plugin's postInstall function performs an asynchronous operation,
+     * If your plug-in's postInstall function performs an asynchronous operation,
      * its postInstall function should return a promise, allowing the CLI
      * to await the postInstall function. Such a signature would be like this:
      *
@@ -39,7 +39,7 @@ export class LifeCycleForSample extends AbstractPluginLifeCycle {
      */
     public postInstall(): void {
         /* It is up to you to decide what actions are meaningful for you
-         * to perform immediately after your plugin is installed.
+         * to perform immediately after your plug-in is installed.
          *
          * When all goes well, you probably should display nothing to the user.
          */
@@ -58,7 +58,7 @@ export class LifeCycleForSample extends AbstractPluginLifeCycle {
              * default log level is WARN. So by default, only messages displayed at
              * the WARN, ERROR, and FATAL levels will be displayed (or logged).
              */
-            const warnMsg = "Something weird happened in the sample plugin's " +
+            const warnMsg = "Something weird happened in the sample plug-in's " +
                  "postInstall function. However, things should still work ok.";
             Logger.getConsoleLogger().warn(warnMsg);
             Logger.getImperativeLogger().warn(warnMsg);
@@ -68,30 +68,30 @@ export class LifeCycleForSample extends AbstractPluginLifeCycle {
          * an imperative error. The "zowe plugins install" command will catch
          * that error, display it, and add some additional information.
          *
-         * Your plugin has already been installed. However, when you throw an
+         * Your plug-in has already been installed. However, when you throw an
          * error during your postInstall function, the 'zowe plugins install'
          * command will exit with a non-zero exit code.
          */
         const someBigProblemOccurred = false;
         if ( someBigProblemOccurred ) {
             throw new ImperativeError({
-                msg: "Something awful happened in the sample plugin's " +
-                     "postInstall function. Thus, the plugin could not be properly setup."
+                msg: "Something awful happened in the sample plug-in's " +
+                     "postInstall function. Thus, the plug-in could not be properly setup."
             });
         }
     }
 
     /**
-     * This function will be called before a plugin is uninstalled.
+     * This function will be called before a plug-in is uninstalled.
      * This lifecycle hook is intended to replace the capability that used to
      * be performed by the NPM pre-uninstall action before NPM removed that
      * capability in NPM version 7.
      * See https://docs.npmjs.com/cli/v9/using-npm/scripts#a-note-on-a-lack-of-npm-uninstall-scripts
      *
-     * A plugin can use this opportunity to revert any specialized setup that was
-     * established during the lifetime of your plugin.
+     * A plug-in can use this opportunity to revert any specialized setup that was
+     * established during the lifetime of your plug-in.
      *
-     * If your plugin's preUninstall function performs an asynchronous operation,
+     * If your plug-in's preUninstall function performs an asynchronous operation,
      * its preUninstall function should return a promise, allowing the CLI
      * framework to await the preUninstall function. Such a signature would be like this:
      *
@@ -110,7 +110,7 @@ export class LifeCycleForSample extends AbstractPluginLifeCycle {
          */
         const somethingWeirdOccurred = true;
         if ( somethingWeirdOccurred ) {
-            const warnMsg = "Something weird happened in the sample plugin's " +
+            const warnMsg = "Something weird happened in the sample plug-in's " +
                 "preUninstall function that we thought you should know about.";
             Logger.getConsoleLogger().warn(warnMsg);
             Logger.getImperativeLogger().warn(warnMsg);
@@ -125,9 +125,9 @@ export class LifeCycleForSample extends AbstractPluginLifeCycle {
         const someBigProblemOccurred = false;
         if ( someBigProblemOccurred ) {
             throw new ImperativeError({
-                msg: "Something awful happened during the sample plugin's " +
+                msg: "Something awful happened during the sample plug-in's " +
                      "preUninstall function. Maybe you have to manually release " +
-                     "some resource that was used by this plugin."
+                     "some resource that was used by this plug-in."
             });
         }
     }

@@ -1,16 +1,15 @@
-# Installing the sample plug-in
+# Using the sample plug-in
 
-Before you begin, [setup](../Setup.md) your environment to install a plug-in.
+Before you begin, ensure you've completed the [initial setup](../../../README.md#initial-setup) of your environment to install a plug-in.
 
 ## Overview
 
-This tutorial covers installing and running this bundled Zowe CLI plugin as-is (without modification), which will display your current directory contents.
+This tutorial covers running this bundled Zowe CLI plug-in as-is (without modification), which will display your current directory contents.
 
 The plug-in adds a command to the CLI that lists the contents of a directory on your PC.
 
 ## Installing the sample plug-in to Zowe CLI
 
-(NOTE: This step may have completed during [setup](../Setup.md).)
 
 To begin, `cd` into your `zowe-tutorial` folder.
 
@@ -69,7 +68,6 @@ mode  size   birthed                                                   lastModif
 33206        Tue Sep 20 2022 12:44:18 GMT-0400 (Eastern Daylight Time) Tue Sep 20 2022 12:44:18 GMT-0400 (Eastern Daylight Time) .npmignore
 33206 37     Tue Sep 20 2022 12:44:18 GMT-0400 (Eastern Daylight Time) Tue Sep 20 2022 12:44:18 GMT-0400 (Eastern Daylight Time) .npmrc
 33206 1384   Tue Sep 20 2022 12:44:18 GMT-0400 (Eastern Daylight Time) Wed May 03 2023 16:10:46 GMT-0400 (Eastern Daylight Time) CHANGELOG.md
-33206 6855   Tue Sep 20 2022 12:44:18 GMT-0400 (Eastern Daylight Time) Tue Sep 20 2022 12:44:18 GMT-0400 (Eastern Daylight Time) CICD-TEMPLATE.md
 33206 2176   Tue Sep 20 2022 12:44:18 GMT-0400 (Eastern Daylight Time) Tue Sep 20 2022 12:44:18 GMT-0400 (Eastern Daylight Time) CONTRIBUTING.md
 16822        Tue Sep 20 2022 12:44:18 GMT-0400 (Eastern Daylight Time) Tue Sep 20 2022 12:44:18 GMT-0400 (Eastern Daylight Time) docs
 16822        Tue May 09 2023 13:19:02 GMT-0400 (Eastern Daylight Time) Tue May 09 2023 13:19:02 GMT-0400 (Eastern Daylight Time) lib
@@ -88,13 +86,18 @@ mode  size   birthed                                                   lastModif
 16822        Tue Sep 20 2022 12:44:18 GMT-0400 (Eastern Daylight Time) Wed May 03 2023 13:47:37 GMT-0400 (Eastern Daylight Time) __tests__
 
 ```
-## Testing the installed plug-in
+## (Optional) Testing the installed plug-in
 
-To run automated tests against the plug-in, `cd` into your `zowe-tutorial/zowe-cli-sample-plugin` folder.
+**Note:** If you don't have access to a z/OSMF instance at your site, run `npm run server:start` to launch a mock server at http://localhost:3000.
 
-Issue the following command:
+#### Setup your system connection details:
+i. `cd __tests__/__resources__/properties`\
+ii. Copy `example_properties.yaml` to `custom_properties.yaml`.\
+iii. Edit the properties within `custom_properties.yaml` to contain valid system information for your site.
 
-* `npm run test`
+#### Run tests:
+i. `cd` to your `zowe-cli-sample-plugin` folder\
+ii. `npm run test`
 
 ## Next steps
 

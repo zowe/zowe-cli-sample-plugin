@@ -3,7 +3,7 @@
 exports[`zowe-cli-sample issue command-with-options should issue a response with the number and string inputted 1`] = `
 "\\"zowe zcsp issue command-with-options\\" command issued!
 The string specified:
-\\"teststring!\\"
+\\"\\"teststring!\\"\\"
 The number specified was \\"1\\".
 "
 `;

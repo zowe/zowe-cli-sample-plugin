@@ -8,7 +8,7 @@
  * Copyright Contributors to the Zowe Project.
  */
 
-describe("plugin definition", () => {
+describe("plug-in definition", () => {
 
     // Will fail if imperative config object is changed. This is a sanity/protection check to ensure that any
     // changes to the configuration document are intended.

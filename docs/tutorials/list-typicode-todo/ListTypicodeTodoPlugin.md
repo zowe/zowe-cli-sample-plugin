@@ -1,4 +1,4 @@
-# Extending a plug-in 
+# Extending a plug-in
 Before you begin, be sure to complete the [Installing the sample plug-in]() tutorial.
 
 ## Overview
