@@ -1,5 +1,5 @@
 # Contribution guidelines
-This document is intended to be a living summary of conventions & best practices for development within Sample plug-infor Zowe CLI.
+This document is intended to be a living summary of conventions & best practices for development within Sample plug-in for Zowe CLI.
 
 ## Changelog update guidelines
 
@@ -28,6 +28,6 @@ We provide guidelines for developing Zowe CLI plug-ins in the [Zowe CLI GitHub r
 Versioning conventions for Zowe CLI and plug-ins| [Versioning Guidelines](https://github.com/zowe/zowe-cli/blob/master/docs/MaintainerVersioning.md) |
 
 ## Contribution guidelines specific to the CICS plug-in
-The following guidelines apply specifically to the Sample plug-infor Zowe CLI:
+The following guidelines apply specifically to the Sample plug-in for Zowe CLI:
 
 -   None at this time.

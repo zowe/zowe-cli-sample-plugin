@@ -9,7 +9,6 @@ exports[`zowe-cli-sample list profile-args command should list profile args from
   rejectUnauthorized: true
   tshirtSize:         M
 environment: 
-  usingTeamConfig:   true
   sampleProfileName: my_sample
   baseProfileName:   my_base
 "

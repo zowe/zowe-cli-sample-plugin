@@ -10,7 +10,7 @@
 
 import * as fs from "fs";
 import * as path from "path";
-import { ITestEnvironment, TestEnvironment, runCliScript, isStderrEmptyForProfilesCommand } from "@zowe/cli-test-utils";
+import { ITestEnvironment, TestEnvironment, runCliScript } from "@zowe/cli-test-utils";
 import { ITestPropertiesSchema } from "../../../__src__/environment/doc/ITestPropertiesSchema";
 
 // Test environment will be populated in the "beforeAll"
@@ -45,7 +45,6 @@ describe("zowe-cli-sample list profile-args command", () => {
         expect(output).toMatch(/port:\s+1337/);
         expect(output).toMatch(/user:\s+user1/);
         expect(output).toMatch(/password:\s+123456/);
-        expect(output).toMatch(/usingTeamConfig:\s+true/);
         expect(output).toMatch(/sampleProfileName:\s+my_sample/);
         expect(output).toMatch(/baseProfileName:\s+my_base/);
         expect(output).toMatchSnapshot();

@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to the Sample plug-in for Zowe CLI will be documented in this file.
+All notable changes to the sample plug-in for Zowe CLI will be documented in this file.
 
 ## Recent Changes
 

@@ -1,4 +1,4 @@
-# Extending a plug-in 
+# Extending a plug-in
 Before you begin, be sure to complete the [Installing the sample plug-in]() tutorial.
 
 ## Overview
@@ -161,7 +161,7 @@ is presented. You can also see how to use your optional `--id` flag:
 ![output](images/completedSample.png)
 
 # Summary
-You extended an existing Zowe CLI plug-inby introducing a Node.js programmatic API, and you created a command definition with a handler.
+You extended an existing Zowe CLI plug-in by introducing a Node.js programmatic API, and you created a command definition with a handler.
 For an official plugin, you would also add [JSDoc](http://usejsdoc.org/) to your code and create tests.
 
 Completed source can be found on the `typicode-todos` branch of this repo.

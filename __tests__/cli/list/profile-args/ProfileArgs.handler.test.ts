@@ -67,7 +67,6 @@ describe("profile-args Handler", () => {
                 rejectUnauthorized: true
             },
             environment: {
-                usingTeamConfig: true,
                 sampleProfileName: "fakeSample",
                 baseProfileName: "fakeBase"
             }

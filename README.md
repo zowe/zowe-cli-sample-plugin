@@ -1,6 +1,6 @@
 # Zowe CLI sample plug-in
 
-This repository contains a sample Zowe CLI plug-in that adheres to the contribution guidelines for the project. Use this project and the associated tutorials as a starting point for creating Zowe CLI Plug-ins.
+This repository contains a sample Zowe CLI plug-in that adheres to the contribution guidelines for the project. Use this project and the associated tutorials as a starting point for creating Zowe CLI plug-ins.
 
 - [Zowe CLI sample plug-in](#zowe-cli-sample-plug-in)
   - [Sample plug-in overview](#sample-plug-in-overview)
