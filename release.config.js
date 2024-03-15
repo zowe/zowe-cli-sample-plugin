@@ -10,7 +10,7 @@ module.exports = {
         },
         {
             name: "next",
-            leverl: "none",
+            level: "none",
             prerelease: true
         }
     ],
