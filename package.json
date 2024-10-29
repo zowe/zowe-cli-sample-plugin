@@ -41,7 +41,7 @@
     "installPlugin": "npm install && npm run clean && npm run build && zowe plugins install .",
     "server:start": "cd server && json-server db.json --routes routes.json --ro",
     "typedoc": "typedoc --out ./docs/typedoc/ ./src/ --disableOutputCheck",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "imperative": {
     "configurationModule": "lib/pluginDef.js"
