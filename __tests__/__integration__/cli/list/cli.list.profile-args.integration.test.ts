@@ -10,7 +10,7 @@
 
 import * as fs from "fs";
 import * as path from "path";
-import { ITestEnvironment, TestEnvironment, runCliScript, isStderrEmptyForProfilesCommand } from "@zowe/cli-test-utils";
+import { ITestEnvironment, TestEnvironment, runCliScript, isStderrEmptyForProfilesCommand, stripProfileDeprecationMessages } from "@zowe/cli-test-utils";
 import { ITestPropertiesSchema } from "../../../__src__/environment/doc/ITestPropertiesSchema";
 
 // Test environment will be populated in the "beforeAll"
@@ -53,7 +53,7 @@ describe("zowe-cli-sample list profile-args command", () => {
 
     it("should list profile args from old school profile and other sources", () => {
         const response = runCliScript(__dirname + "/__scripts__/list_profile_args_old_profiles.sh", TEST_ENVIRONMENT);
-        expect(isStderrEmptyForProfilesCommand(response.stderr)).toBe(true);
+        expect(stripProfileDeprecationMessages(response.stderr)).toEqual("");
         expect(response.status).toBe(0);
         const output = response.stdout.toString();
         expect(output).toMatch(/host:\s+new.host.com/);
