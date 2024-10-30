@@ -57,7 +57,7 @@
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
     "@zowe/cli": "^7.29.3",
-    "@zowe/cli-test-utils": "^7.29.2",
+    "@zowe/cli-test-utils": "^7.29.4",
     "@zowe/imperative": "^5.27.1",
     "env-cmd": "^8.0.2",
     "eslint": "^8.57.1",
