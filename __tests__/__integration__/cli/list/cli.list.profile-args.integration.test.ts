@@ -10,7 +10,7 @@
 
 import * as fs from "fs";
 import * as path from "path";
-import { ITestEnvironment, TestEnvironment, runCliScript, isStderrEmptyForProfilesCommand, stripProfileDeprecationMessages } from "@zowe/cli-test-utils";
+import { ITestEnvironment, TestEnvironment, runCliScript, stripProfileDeprecationMessages } from "@zowe/cli-test-utils";
 import { ITestPropertiesSchema } from "../../../__src__/environment/doc/ITestPropertiesSchema";
 
 // Test environment will be populated in the "beforeAll"
