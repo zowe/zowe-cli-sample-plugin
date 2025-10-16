@@ -9,7 +9,7 @@
  */
 
 import { mockHandlerParameters } from "@zowe/cli-test-utils";
-import { IHandlerParameters, Imperative, ImperativeConfig, ISession } from "@zowe/imperative";
+import { IHandlerParameters, ImperativeConfig, ISession } from "@zowe/imperative";
 import { ListBaseHandler } from "../../../src/cli/list/ListBaseHandler";
 import { homedir } from "os";
 import { join } from "path";
