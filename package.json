@@ -1,6 +1,6 @@
 {
   "name": "@zowe/sample-plugin-for-zowe-cli",
-  "version": "4.0.0-next.202510161630",
+  "version": "4.0.0-next.202510162136",
   "description": "A sample plug-in for Zowe CLI :)",
   "homepage": "https://github.com/zowe/zowe-cli-sample-plugin#readme",
   "bugs": {
