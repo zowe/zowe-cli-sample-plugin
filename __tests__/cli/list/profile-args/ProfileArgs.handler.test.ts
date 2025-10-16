@@ -32,7 +32,8 @@ describe("profile-args Handler", () => {
                             get: jest.fn()
                         },
                         secure: {
-                            secureFields: jest.fn(() => [])
+                            secureFields: jest.fn(() => []),
+                            findSecure: jest.fn(() => [])
                         }
                     },
                     exists: true,
@@ -41,13 +42,14 @@ describe("profile-args Handler", () => {
                             base: "fakeBase",
                             sample: "fakeSample"
                         }
-                    }
+                    },
+                    mProperties: {}
                 },
                 envVariablePrefix: "TEST",
                 loadedConfig: {
                     profiles: []
-                }
-            })
+                },
+            }),
         });
         const profileArgs = {
             host: "fakeHost",

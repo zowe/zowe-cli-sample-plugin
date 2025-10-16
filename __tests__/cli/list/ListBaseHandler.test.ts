@@ -9,8 +9,10 @@
  */
 
 import { mockHandlerParameters } from "@zowe/cli-test-utils";
-import { IHandlerParameters, ISession } from "@zowe/imperative";
+import { IHandlerParameters, Imperative, ImperativeConfig, ISession } from "@zowe/imperative";
 import { ListBaseHandler } from "../../../src/cli/list/ListBaseHandler";
+import { homedir } from "os";
+import { join } from "path";
 
 class ListTestHandler extends ListBaseHandler {
     public async processWithSession(params: IHandlerParameters, session: any): Promise<void> {
@@ -30,6 +32,9 @@ describe("ListBaseHandler", () => {
         testHandler.processWithSession = jest.fn().mockImplementation((params, session) => {
             finalSessCfg = session.ISession;
         });
+        const imperativeConfig = new ImperativeConfig();
+        jest.spyOn(imperativeConfig, "cliHome", "get").mockReturnValue(join(homedir(), ".zowe"));
+        jest.spyOn(ImperativeConfig, "instance", "get").mockReturnValue(imperativeConfig);
     });
 
     afterEach(() => {
