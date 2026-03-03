@@ -45,15 +45,16 @@ module.exports = {
         "unused-imports"
     ],
     "rules": {
+        "comma-dangle": ["warn", "only-multiline"],
+        "indent": ["warn", 4],
         "license-header/header": [ "error", "LICENSE_HEADER" ],
         "max-len": ["warn", 150],
         "no-console": "error",
         "no-multiple-empty-lines": "warn",
         "no-trailing-spaces": "warn",
+        "semi": "warn",
         "@typescript-eslint/ban-types": "off",
-        "@typescript-eslint/comma-dangle": ["warn", "only-multiline"],
         "@typescript-eslint/explicit-module-boundary-types": "off",
-        "@typescript-eslint/indent": ["warn", 4],
         "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/no-inferrable-types": "off",
         "@typescript-eslint/no-magic-numbers": ["warn", {
@@ -61,9 +62,9 @@ module.exports = {
             "ignoreDefaultValues": true,
             "ignoreReadonlyClassProperties": true
         }],
+        "@typescript-eslint/no-require-imports": "off",
         "@typescript-eslint/no-unused-vars": "off",
         "@typescript-eslint/no-var-requires": "off",
-        "@typescript-eslint/semi": "warn",
         "license-header/header": ["error", "./LICENSE_HEADER"],
         "unused-imports/no-unused-imports": "warn",
         "unused-imports/no-unused-vars": ["warn", {
