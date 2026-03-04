@@ -26,7 +26,7 @@ export default class ProfileArgsHandler extends ListBaseHandler {
      */
     public async processWithSession(params: IHandlerParameters, session: Session): Promise<void> {
         // Build an output object for command response
-        const usingTeamConfig = ImperativeConfig.instance.config?.exists || false;
+        const teamConfigExists = ImperativeConfig.instance.config?.exists || false;
         const output: any = {
             arguments: {
                 // Load connection info from session object
@@ -39,17 +39,17 @@ export default class ProfileArgsHandler extends ListBaseHandler {
                 tshirtSize: params.arguments.tshirtSize
             },
             environment: {
-                usingTeamConfig
+                teamConfigExists
             }
         };
 
         // Show names of base and sample profiles if they exist
-        if (usingTeamConfig) {
+        if (teamConfigExists) {
             output.environment.sampleProfileName = ImperativeConfig.instance.config.properties.defaults.sample;
             output.environment.baseProfileName = ImperativeConfig.instance.config.properties.defaults.base;
         } else {
-            output.environment.sampleProfileName = params.profiles.getMeta("sample", false)?.name;
-            output.environment.baseProfileName = params.profiles.getMeta("base", false)?.name;
+            output.environment.sampleProfileName = "No sample profile available, because zowe.config.jason does not exist";
+            output.environment.baseProfileName = "No base profile available, because zowe.config.jason does not exist";
         }
 
         // Set output for --rfj response and print it to console
