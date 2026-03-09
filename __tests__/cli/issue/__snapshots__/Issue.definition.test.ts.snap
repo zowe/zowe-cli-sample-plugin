@@ -1,32 +1,32 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Issue definition should match the snapshot 1`] = `
-Object {
-  "children": Array [
-    Object {
-      "aliases": Array [
+{
+  "children": [
+    {
+      "aliases": [
         "cwo",
       ],
-      "description": "[objects] in Zowe CLI are the entities on which [actions] are perfomed. [objects] are always nouns. For example, for command \\"zowe zos-files delete data-set\\", the [object] is \\"data-set\\".
+      "description": "[objects] in Zowe CLI are the entities on which [actions] are perfomed. [objects] are always nouns. For example, for command "zowe zos-files delete data-set", the [object] is "data-set".
 
 For this command, we require options to be specified.",
       "handler": "../../../src/cli/issue/command_with_options/CommandWithOptions.handler",
       "name": "command-with-options",
-      "options": Array [
-        Object {
-          "description": "Boolean flag, that if specified, requires that you also specify a string for option \\"the string\\"",
-          "implies": Array [
+      "options": [
+        {
+          "description": "Boolean flag, that if specified, requires that you also specify a string for option "the string"",
+          "implies": [
             "the-string",
           ],
           "name": "use-the-string",
           "type": "boolean",
         },
-        Object {
-          "description": "A string type option that is required if \\"use-the-string\\" is specified.",
+        {
+          "description": "A string type option that is required if "use-the-string" is specified.",
           "name": "the-string",
           "type": "string",
         },
-        Object {
+        {
           "description": "A required number.",
           "name": "required-number",
           "required": true,
@@ -36,21 +36,21 @@ For this command, we require options to be specified.",
       "summary": "[object] command-with-options requires options",
       "type": "command",
     },
-    Object {
-      "aliases": Array [
+    {
+      "aliases": [
         "cwp",
       ],
-      "description": "[objects] in Zowe CLI are the entities on which [actions] are perfomed. [objects] are always nouns. For example, for command \\"zowe zos-files delete data-set\\", the [object] is \\"data-set\\". For this command, we will simply print console error (stderr) messages and the command should succeed.",
+      "description": "[objects] in Zowe CLI are the entities on which [actions] are perfomed. [objects] are always nouns. For example, for command "zowe zos-files delete data-set", the [object] is "data-set". For this command, we will simply print console error (stderr) messages and the command should succeed.",
       "handler": "../../../src/cli/issue/command_with_positionals/CommandWithPositionals.handler",
       "name": "command-with-positionals",
-      "positionals": Array [
-        Object {
+      "positionals": [
+        {
           "description": "The first positional parameter",
           "name": "firstpositional",
           "required": true,
           "type": "string",
         },
-        Object {
+        {
           "description": "The second positional parameter",
           "name": "secondpositional",
           "required": true,
@@ -61,11 +61,11 @@ For this command, we require options to be specified.",
       "type": "command",
     },
   ],
-  "description": "[actions] in Zowe are groups of commands. [actions] are always verbs. For example, for command \\"zowe zos-files delete data-set\\", the [action] is \\"delete\\".
+  "description": "[actions] in Zowe are groups of commands. [actions] are always verbs. For example, for command "zowe zos-files delete data-set", the [action] is "delete".
 
-For this action (\\"issue\\") we will issue commands with required/optional/positional options.",
+For this action ("issue") we will issue commands with required/optional/positional options.",
   "name": "issue",
-  "summary": "Perform \\"the issue [action]\\" on some [objects]",
+  "summary": "Perform "the issue [action]" on some [objects]",
   "type": "group",
 }
 `;

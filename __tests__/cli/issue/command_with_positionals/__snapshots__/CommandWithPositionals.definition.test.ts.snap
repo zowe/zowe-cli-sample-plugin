@@ -1,22 +1,22 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Command With Positionals definition should match the snapshot 1`] = `
-Object {
-  "CommandWithPositionalsDefinition": Object {
-    "aliases": Array [
+{
+  "CommandWithPositionalsDefinition": {
+    "aliases": [
       "cwp",
     ],
-    "description": "[objects] in Zowe CLI are the entities on which [actions] are perfomed. [objects] are always nouns. For example, for command \\"zowe zos-files delete data-set\\", the [object] is \\"data-set\\". For this command, we will simply print console error (stderr) messages and the command should succeed.",
+    "description": "[objects] in Zowe CLI are the entities on which [actions] are perfomed. [objects] are always nouns. For example, for command "zowe zos-files delete data-set", the [object] is "data-set". For this command, we will simply print console error (stderr) messages and the command should succeed.",
     "handler": "../../../../src/cli/issue/command_with_positionals/CommandWithPositionals.handler",
     "name": "command-with-positionals",
-    "positionals": Array [
-      Object {
+    "positionals": [
+      {
         "description": "The first positional parameter",
         "name": "firstpositional",
         "required": true,
         "type": "string",
       },
-      Object {
+      {
         "description": "The second positional parameter",
         "name": "secondpositional",
         "required": true,

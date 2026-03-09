@@ -1,12 +1,12 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Error Handler definition should match the snapshot 1`] = `
-Object {
-  "ErrorHandlerDefinition": Object {
-    "aliases": Array [
+{
+  "ErrorHandlerDefinition": {
+    "aliases": [
       "eh",
     ],
-    "description": "[objects] in Zowe CLI are the entities on which [actions] are perfomed. [objects] are always nouns. For example, for command \\"zowe zos-files delete data-set\\", the [object] is \\"data-set\\".
+    "description": "[objects] in Zowe CLI are the entities on which [actions] are perfomed. [objects] are always nouns. For example, for command "zowe zos-files delete data-set", the [object] is "data-set".
 
 For this command, we fail the handler with an ImperativeError.",
     "handler": "../../../../src/cli/fail/error_handler/ErrorHandler.handler",
