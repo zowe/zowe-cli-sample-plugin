@@ -12,7 +12,7 @@ import { ICommandHandler, IHandlerParameters, ImperativeError } from "@zowe/impe
 
 export default class ErrorHandlerHandler implements ICommandHandler {
     public async process(params: IHandlerParameters): Promise<void> {
-        const msg: string = `"zowe zowe-cli-sample ${params.arguments._.join(" ")}" command failed!`;
+        const msg: string = `"zowe ${params.arguments._.join(" ")}" command failed!`;
         throw new ImperativeError({msg});
     }
 }
