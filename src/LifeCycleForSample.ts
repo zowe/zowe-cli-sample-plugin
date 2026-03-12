@@ -58,8 +58,8 @@ export class LifeCycleForSample extends AbstractPluginLifeCycle {
              * default log level is WARN. So by default, only messages displayed at
              * the WARN, ERROR, and FATAL levels will be displayed (or logged).
              */
-            const warnMsg = "Something weird happened in the sample plugin's " +
-                 "postInstall function. However, things should still work ok.";
+            const warnMsg = "This message is an example of how a plugin can report warnings during postInstall. " +
+                 "For this plugin, the installation was fine.";
             Logger.getConsoleLogger().warn(warnMsg);
             Logger.getImperativeLogger().warn(warnMsg);
         }
@@ -75,8 +75,8 @@ export class LifeCycleForSample extends AbstractPluginLifeCycle {
         const someBigProblemOccurred = false;
         if ( someBigProblemOccurred ) {
             throw new ImperativeError({
-                msg: "Something awful happened in the sample plugin's " +
-                     "postInstall function. Thus, the plugin could not be properly setup."
+                msg: "This exception is an example of how a plugin can report a failure during postInstall. " +
+                 "In such a situation, the plugin could not be properly setup."
             });
         }
     }
@@ -110,8 +110,8 @@ export class LifeCycleForSample extends AbstractPluginLifeCycle {
          */
         const somethingWeirdOccurred = true;
         if ( somethingWeirdOccurred ) {
-            const warnMsg = "Something weird happened in the sample plugin's " +
-                "preUninstall function that we thought you should know about.";
+            const warnMsg = "This message is an example of how a plugin can report warnings during preUninstall. " +
+                "For this plugin, the uninstall was fine.";
             Logger.getConsoleLogger().warn(warnMsg);
             Logger.getImperativeLogger().warn(warnMsg);
         }
@@ -125,9 +125,9 @@ export class LifeCycleForSample extends AbstractPluginLifeCycle {
         const someBigProblemOccurred = false;
         if ( someBigProblemOccurred ) {
             throw new ImperativeError({
-                msg: "Something awful happened during the sample plugin's " +
-                     "preUninstall function. Maybe you have to manually release " +
-                     "some resource that was used by this plugin."
+                msg: "This exception is an example of how a plugin can report a failure during preUninstall. " +
+                    "In such a situation, you may have to manually release " +
+                    "some resource that was used by this plugin."
             });
         }
     }
