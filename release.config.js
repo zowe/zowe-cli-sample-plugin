@@ -2,7 +2,7 @@ module.exports = {
     branches: [
         {
             name: "master",
-            level: "major"
+            level: "minor"
         },
         {
             name: "zowe-v?-lts",
