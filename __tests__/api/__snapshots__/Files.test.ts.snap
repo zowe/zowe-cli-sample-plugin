@@ -1,15 +1,15 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Files should return attributes for a mocked directory 1`] = `
-Array [
-  Object {
+[
+  {
     "birthed": "unknown",
     "lastModified": "unknown",
     "mode": "000",
     "name": "file1",
     "size": "big!",
   },
-  Object {
+  {
     "birthed": "unknown",
     "lastModified": "unknown",
     "mode": "000",

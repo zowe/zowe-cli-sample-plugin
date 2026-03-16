@@ -11,7 +11,7 @@
 
 const path = require("path");
 
-const fs = jest.genMockFromModule("fs") as any;
+const fs = jest.createMockFromModule("fs") as any;
 const oldReadFileSync = jest.requireActual("fs").readFileSync;
 
 // This is a custom function that our tests can use during setup to specify

@@ -16,8 +16,8 @@ describe("error-handler Handler", () => {
         try {
             await handler.process({
                 arguments: {
-                    $0: "fake",
-                    _: ["fake"]
+                    $0: "irrelevantCmd",
+                    _: ["zowe-cli-sample", "fakeHandler"]
                 }
             });
         } catch (e) {

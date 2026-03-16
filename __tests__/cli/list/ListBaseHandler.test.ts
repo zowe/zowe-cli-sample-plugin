@@ -9,7 +9,7 @@
  */
 
 import { mockHandlerParameters } from "@zowe/cli-test-utils";
-import { IHandlerParameters, ISession } from "@zowe/imperative";
+import { ConfigUtils, IHandlerParameters, ISession } from "@zowe/imperative";
 import { ListBaseHandler } from "../../../src/cli/list/ListBaseHandler";
 
 class ListTestHandler extends ListBaseHandler {
@@ -38,7 +38,7 @@ describe("ListBaseHandler", () => {
 
     it("should create session config of type basic", async () => {
         const params = Object.assign({}, ...[DEFAULT_PARAMETERS]);
-        params.arguments = {
+        (params.arguments as any) = {
             host: "fakeHost",
             port: 443,
             user: "fakeUser",
@@ -58,7 +58,7 @@ describe("ListBaseHandler", () => {
 
     it("should create session config of type token", async () => {
         const params = Object.assign({}, ...[DEFAULT_PARAMETERS]);
-        params.arguments = {
+        (params.arguments as any) = {
             host: "fakeHost",
             port: 443,
             tokenType: "fakeTokenType",
@@ -77,12 +77,15 @@ describe("ListBaseHandler", () => {
     });
 
     it("should prompt for properties missing from session config", async () => {
+        // a mock to avoid trying to get cliHome
+        jest.spyOn(ConfigUtils, "onlyV1ProfilesExist", "get").mockReturnValue(false);
+
         const params = Object.assign({}, ...[DEFAULT_PARAMETERS]);
-        params.arguments = {
+        (params.arguments as any) = {
             host: "fakeHost",
             port: 443
         };
-        params.response.console.prompt.mockResolvedValueOnce("fakeUser").mockResolvedValueOnce("fakePass");
+        (params.response.console.prompt as any).mockResolvedValueOnce("fakeUser").mockResolvedValueOnce("fakePass");
         await testHandler.process(params);
 
         const expectedSessCfg: ISession = {
