@@ -2,7 +2,7 @@
 
 All notable changes to the Sample Plug-in for Zowe CLI will be documented in this file.
 
-## Recent Changes
+## `4.0.0`
 
 - Major: Updated the Zowe sample plug-in to be compatible with Zowe V3. [#140](https://github.com/zowe/zowe-cli-sample-plugin/pull/140)
   - Enhancement: Added plug-in lifecycle example.

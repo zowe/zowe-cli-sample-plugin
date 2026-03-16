@@ -1,6 +1,6 @@
 {
   "name": "@zowe/sample-plugin-for-zowe-cli",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "A sample plugin for Zowe CLI :)",
   "homepage": "https://github.com/zowe/zowe-cli-sample-plugin#readme",
   "bugs": {
@@ -51,9 +51,9 @@
     "@zowe/zosmf-for-zowe-sdk": "^8.30.1"
   },
   "ToDo_AddToDevDependencies": {
-      "eslint-plugin-deprecation": "^3.0.0",
-      "WhenToAdd": "When a version of eslint-plugin-deprecation is compatible with eslint 10.",
-      "Cleanup": "When all dependencies are added, remove ToDo_AddToDevDependencies."
+    "eslint-plugin-deprecation": "^3.0.0",
+    "WhenToAdd": "When a version of eslint-plugin-deprecation is compatible with eslint 10.",
+    "Cleanup": "When all dependencies are added, remove ToDo_AddToDevDependencies."
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.5",
