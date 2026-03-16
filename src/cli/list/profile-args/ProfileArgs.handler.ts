@@ -48,8 +48,8 @@ export default class ProfileArgsHandler extends ListBaseHandler {
             output.environment.sampleProfileName = ImperativeConfig.instance.config.properties.defaults.sample;
             output.environment.baseProfileName = ImperativeConfig.instance.config.properties.defaults.base;
         } else {
-            output.environment.sampleProfileName = "No sample profile available, because zowe.config.jason does not exist";
-            output.environment.baseProfileName = "No base profile available, because zowe.config.jason does not exist";
+            output.environment.sampleProfileName = "No sample profile available, because zowe.config.json does not exist";
+            output.environment.baseProfileName = "No base profile available, because zowe.config.json does not exist";
         }
 
         // Set output for --rfj response and print it to console
