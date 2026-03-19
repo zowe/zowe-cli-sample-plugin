@@ -6,12 +6,12 @@ exports[`zowe-cli-sample fail error-handler command should fail the handler 2`] 
 "{
   "success": false,
   "exitCode": 1,
-  "message": "\\"zowe zcsp fail error-handler\\" command failed!",
+  "message": "This is an example of throwing an error from this command:\\n\\"zowe zcsp fail error-handler\\"",
   "stdout": "",
-  "stderr": "Unable to perform this operation due to the following problem.\\n\\"zowe zcsp fail error-handler\\" command failed!\\n",
+  "stderr": "Unable to perform this operation due to the following problem.\\nThis is an example of throwing an error from this command:\\n\\"zowe zcsp fail error-handler\\"\\n",
   "data": {},
   "error": {
-    "msg": "\\"zowe zcsp fail error-handler\\" command failed!"
+    "msg": "This is an example of throwing an error from this command:\\n\\"zowe zcsp fail error-handler\\""
   }
 }"
 `;

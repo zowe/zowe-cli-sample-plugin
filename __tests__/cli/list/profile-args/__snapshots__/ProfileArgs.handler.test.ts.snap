@@ -14,7 +14,7 @@ exports[`profile-args Handler should list profile args for team config 1`] = `
     },
     "environment": {
       "baseProfileName": "fakeBase",
-      "sampleProfileName": "fakeSample",
+      "tShirtProfileName": "fakeTshirt",
       "teamConfigExists": true,
     },
   },

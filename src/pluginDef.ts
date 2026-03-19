@@ -26,39 +26,94 @@ const pluginDef: IImperativeConfig = {
     name: "zowe-cli-sample",
     profiles: [
         {
-            type: "sample",
+            type: "tShirtProfile",
             schema: {
                 type: "object",
-                title: "Sample Profile",
-                description: "A sample profile is required to issue commands that interact with the sample API. The " +
-                    "sample profile contains your host, port, user name, and password to connect to the sample API.",
+                title: "A sample profile that is like a z/OSMF profile with an extra T-shirt property",
+                description: "A profile that includes connection type of properties (which are not used) " +
+                             "plus a T-shirt property.",
                 properties: {
                     host: {
                         type: "string",
-                        optionDefinition: ProfileConstants.SAMPLE_OPTION_HOST
+                        optionDefinition: ProfileConstants.SAMPLE_CONN_OPTION_HOST
                     },
                     port: {
                         type: "number",
                         includeInTemplate: true,
-                        optionDefinition: ProfileConstants.SAMPLE_OPTION_PORT
+                        optionDefinition: ProfileConstants.SAMPLE_CONN_OPTION_PORT
                     },
                     user: {
                         type: "string",
                         secure: true,
-                        optionDefinition: ProfileConstants.SAMPLE_OPTION_USER
+                        optionDefinition: ProfileConstants.SAMPLE_CONN_OPTION_USER
                     },
                     password: {
                         type: "string",
                         secure: true,
-                        optionDefinition: ProfileConstants.SAMPLE_OPTION_PASSWORD
+                        optionDefinition: ProfileConstants.SAMPLE_CONN_OPTION_PASSWORD
                     },
                     rejectUnauthorized: {
                         type: "boolean",
-                        optionDefinition: ProfileConstants.SAMPLE_OPTION_REJECT_UNAUTHORIZED
+                        optionDefinition: ProfileConstants.SAMPLE_CONN_OPTION_REJECT_UNAUTHORIZED
                     },
                     tshirtSize: {
                         type: "string",
-                        optionDefinition: ProfileConstants.SAMPLE_OPTION_TSHIRT_SIZE
+                        optionDefinition: ProfileConstants.SAMPLE_TSHIRT_OPTION_TSHIRT_SIZE
+                    }
+                }
+            }
+        },
+        {
+            type: "scrtProfile",
+            schema: {
+                type: "object",
+                title: "Scrt Profile",
+                description: "An SCRT profile is used to test the transmission of SCRT properties " +
+                             "from a Zowe client app to a REST service. It contains connection " +
+                             "properties (host, port, etc) and scrt properties (featureName, productId, etc).",
+                properties: {
+                    protocol: {
+                        type: "string",
+                        optionDefinition: ProfileConstants.SAMPLE_CONN_OPTION_PROTOCOL
+                    },
+                    host: {
+                        type: "string",
+                        optionDefinition: ProfileConstants.SAMPLE_CONN_OPTION_HOST
+                    },
+                    port: {
+                        type: "number",
+                        includeInTemplate: true,
+                        optionDefinition: ProfileConstants.SAMPLE_CONN_OPTION_PORT
+                    },
+                    user: {
+                        type: "string",
+                        secure: true,
+                        optionDefinition: ProfileConstants.SAMPLE_CONN_OPTION_USER
+                    },
+                    password: {
+                        type: "string",
+                        secure: true,
+                        optionDefinition: ProfileConstants.SAMPLE_CONN_OPTION_PASSWORD
+                    },
+                    rejectUnauthorized: {
+                        type: "boolean",
+                        optionDefinition: ProfileConstants.SAMPLE_CONN_OPTION_REJECT_UNAUTHORIZED
+                    },
+                    restResource: {
+                        type: "string",
+                        optionDefinition: ProfileConstants.SAMPLE_SCRT_OPTION_REST_RESOURCE
+                    },
+                    featureName: {
+                        type: "string",
+                        optionDefinition: ProfileConstants.SAMPLE_SCRT_OPTION_FEATURE_NAME
+                    },
+                    productId: {
+                        type: "string",
+                        optionDefinition: ProfileConstants.SAMPLE_SCRT_OPTION_PRODUCT_ID
+                    },
+                    productVersion: {
+                        type: "string",
+                        optionDefinition: ProfileConstants.SAMPLE_SCRT_OPTION_PRODUCT_VERSION
                     }
                 }
             }

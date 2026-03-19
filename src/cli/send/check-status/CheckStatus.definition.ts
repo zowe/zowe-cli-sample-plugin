@@ -9,12 +9,10 @@
  */
 
 import { ICommandDefinition } from "@zowe/imperative";
-import { ProfileConstants } from "../../../api/ProfileConstants";
+import { ZosmfSession } from "@zowe/zosmf-for-zowe-sdk";
 /**
- * Command one [object] definition. This definition is of imperative type "command" and therefore must have a
+ * This definition is of imperative type "command" and therefore must have a
  * command handler (which performs the "work" for this command).
- *
- * In this case, "error-messages" will simply print console error (stderr) messages.
  *
  * Property Summary:
  * =================
@@ -25,17 +23,15 @@ import { ProfileConstants } from "../../../api/ProfileConstants";
  * "handler" is the file path to the handler (does the work)
  * "options" an array of options
  */
-export const ProfileArgsDefinition: ICommandDefinition = {
-    name: "profile-args",
-    aliases: ["pa"],
-    summary: "Lists profile args",
-    description: "[objects] in Zowe CLI are the entities on which [actions] are performed. [objects] are always nouns. " +
-        "For example, for command \"zowe zos-files delete data-set\", the [object] is \"data-set\".\n\nFor this command, " +
-        "we list contents of the specified directory.",
+export const CheckStatusDefinition: ICommandDefinition = {
+    name: "check-status",
+    aliases: ["cs"],
+    summary: "Perform a z/OSMF status check",
+    description: "Sends a REST request to check the status of the targeted z/OSMF system",
     type: "command",
-    handler: __dirname + "/ProfileArgs.handler",
+    handler: __dirname + "/CheckStatus.handler",
     profile: {
-        optional: ["tShirtProfile"]
+        optional: ["zosmf"]
     },
-    options: [...ProfileConstants.SAMPLE_TSHIRT_OPTIONS]
+    options: [...ZosmfSession.ZOSMF_CONNECTION_OPTIONS]
 };

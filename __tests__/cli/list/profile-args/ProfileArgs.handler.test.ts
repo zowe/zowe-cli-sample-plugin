@@ -40,7 +40,7 @@ describe("profile-args Handler", () => {
                     properties: {
                         defaults: {
                             base: "fakeBase",
-                            sample: "fakeSample"
+                            tShirtProfile: "fakeTshirt"
                         }
                     },
                     mProperties: {
@@ -73,7 +73,7 @@ describe("profile-args Handler", () => {
             },
             environment: {
                 teamConfigExists: true,
-                sampleProfileName: "fakeSample",
+                tShirtProfileName: "fakeTshirt",
                 baseProfileName: "fakeBase"
             }
         };

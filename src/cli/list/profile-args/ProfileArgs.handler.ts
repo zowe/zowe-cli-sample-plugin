@@ -45,10 +45,10 @@ export default class ProfileArgsHandler extends ListBaseHandler {
 
         // Show names of base and sample profiles if they exist
         if (teamConfigExists) {
-            output.environment.sampleProfileName = ImperativeConfig.instance.config.properties.defaults.sample;
+            output.environment.tShirtProfileName = ImperativeConfig.instance.config.properties.defaults.tShirtProfile;
             output.environment.baseProfileName = ImperativeConfig.instance.config.properties.defaults.base;
         } else {
-            output.environment.sampleProfileName = "No sample profile available, because zowe.config.json does not exist";
+            output.environment.tShirtProfileName = "No tShirt profile available, because zowe.config.json does not exist";
             output.environment.baseProfileName = "No base profile available, because zowe.config.json does not exist";
         }
 

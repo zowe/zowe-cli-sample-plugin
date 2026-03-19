@@ -21,7 +21,7 @@ const configUserJson = "zowe.config.user.json";
 
 describe("zowe-cli-sample list profile-args command", () => {
     // Create the unique test environment
-    beforeEach(async () => {
+    beforeAll(async () => {
         TEST_ENVIRONMENT = await TestEnvironment.setUp({
             installPlugin: true,
             testName: "list_profile_args_command",
@@ -29,7 +29,7 @@ describe("zowe-cli-sample list profile-args command", () => {
         });
     });
 
-    afterEach(async () => {
+    afterAll(async () => {
         await TestEnvironment.cleanUp(TEST_ENVIRONMENT);
     });
 
@@ -46,7 +46,7 @@ describe("zowe-cli-sample list profile-args command", () => {
         expect(output).toMatch(/user:\s+user1/);
         expect(output).toMatch(/password:\s+123456/);
         expect(output).toMatch(/teamConfigExists:\s+true/);
-        expect(output).toMatch(/sampleProfileName:\s+my_sample/);
+        expect(output).toMatch(/tShirtProfileName:\s+my_tShirt/);
         expect(output).toMatch(/baseProfileName:\s+my_base/);
         expect(output).toMatchSnapshot();
     });
