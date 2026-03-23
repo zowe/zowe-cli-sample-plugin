@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`zowe-cli-sample send should display the help 1`] = `
+"
+ DESCRIPTION
+ -----------
+
+   The 'send' command will send a REST request. The type of request is determined
+   by which type is specified.
+
+ USAGE
+ -----
+
+   zowe zowe-cli-sample send <command>
+
+   Where <command> is one of the following:
+
+ COMMANDS
+ --------
+
+   check-status | cs Perform a z/OSMF status check                           
+   scrt              Test the transmission of SCRT data from client to server
+
+ GLOBAL OPTIONS
+ --------------
+
+   --help-examples (boolean)
+
+      Display examples for all the commands in a group
+
+   --response-format-json | --rfj (boolean)
+
+      Produce JSON formatted data from a command
+
+   --help | -h (boolean)
+
+      Display help text
+
+   --help-web | --hw (boolean)
+
+      Display HTML help in browser
+
+"
+`;

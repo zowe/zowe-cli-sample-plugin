@@ -34,7 +34,7 @@ export default class CheckStatusHandler extends SendBaseHandler {
         try {
             const zosResponse = await CheckStatus.getZosmfInfo(session);
             params.response.console.log(`We got the following z/OSMF status information:\n` +
-                `host = '${zosResponse.zosmf_hostname}'  port = '${session.ISession.port}'\n` +
+                `host = '${zosResponse.zosmf_hostname}'  port = '${zosResponse.zosmf_port}'\n` +
                 `z/OSMF version = '${zosResponse.zosmf_full_version}'  z/OS version = '${zosResponse.zos_version}'\n`
             );
 

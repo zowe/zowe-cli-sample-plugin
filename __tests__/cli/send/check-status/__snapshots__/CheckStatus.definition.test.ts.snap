@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Check Status definition should match the snapshot 1`] = `
+{
+  "CheckStatusDefinition": {
+    "aliases": [
+      "cs",
+    ],
+    "description": "Sends a REST request to check the status of the targeted z/OSMF system",
+    "handler": "../../../../src/cli/send/check-status/CheckStatus.handler",
+    "name": "check-status",
+    "options": [
+      {
+        "aliases": [
+          "H",
+        ],
+        "description": "The z/OSMF server host name.",
+        "group": "Zosmf Connection Options",
+        "name": "host",
+        "required": false,
+        "type": "string",
+      },
+      {
+        "aliases": [
+          "P",
+        ],
+        "defaultValue": 443,
+        "description": "The z/OSMF server port.",
+        "group": "Zosmf Connection Options",
+        "name": "port",
+        "type": "number",
+      },
+      {
+        "aliases": [
+          "u",
+        ],
+        "description": "Mainframe (z/OSMF) user name, which can be the same as your TSO login.",
+        "group": "Zosmf Connection Options",
+        "name": "user",
+        "required": false,
+        "type": "string",
+      },
+      {
+        "aliases": [
+          "pass",
+          "pw",
+        ],
+        "description": "Mainframe (z/OSMF) password, which can be the same as your TSO password.",
+        "group": "Zosmf Connection Options",
+        "name": "password",
+        "required": false,
+        "type": "string",
+      },
+      {
+        "aliases": [
+          "ru",
+        ],
+        "defaultValue": true,
+        "description": "Reject self-signed certificates.",
+        "group": "Zosmf Connection Options",
+        "name": "reject-unauthorized",
+        "type": "boolean",
+      },
+      {
+        "aliases": [
+          "bp",
+        ],
+        "description": "The base path for your API mediation layer instance. Specify this option to prepend the base path to all z/OSMF resources when making REST requests. Do not specify this option if you are not using an API mediation layer.",
+        "group": "Zosmf Connection Options",
+        "name": "base-path",
+        "type": "string",
+      },
+      {
+        "allowableValues": {
+          "caseSensitive": false,
+          "values": [
+            "http",
+            "https",
+          ],
+        },
+        "defaultValue": "https",
+        "description": "The protocol used (HTTP or HTTPS)",
+        "group": "Zosmf Connection Options",
+        "name": "protocol",
+        "type": "string",
+      },
+      {
+        "description": "The file path to a certificate file to use for authentication",
+        "group": "Zosmf Connection Options",
+        "name": "cert-file",
+        "type": "existingLocalFile",
+      },
+      {
+        "description": "The file path to a certificate key file to use for authentication",
+        "group": "Zosmf Connection Options",
+        "name": "cert-key-file",
+        "type": "existingLocalFile",
+      },
+      {
+        "aliases": [
+          "cto",
+        ],
+        "description": "The amount in time, in seconds, a REST operation should wait to complete before timing out",
+        "group": "Zosmf Connection Options",
+        "name": "completion-timeout",
+        "type": "number",
+      },
+      {
+        "aliases": [
+          "ecto",
+        ],
+        "description": "The amount of time, in seconds, a REST operation should wait while connecting to the server before timing out",
+        "group": "Zosmf Connection Options",
+        "name": "establish-connection-timeout",
+        "type": "number",
+      },
+    ],
+    "profile": {
+      "optional": [
+        "zosmf",
+      ],
+    },
+    "summary": "Perform a z/OSMF status check",
+    "type": "command",
+  },
+}
+`;
