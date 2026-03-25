@@ -8,7 +8,9 @@
  * Copyright Contributors to the Zowe Project.
  */
 
+import * as os from 'os';
 import { IHandlerParameters, Session } from "@zowe/imperative";
+import { ScrtRestClient } from "./ScrtRestClient";
 import { SendBaseHandler } from "../SendBaseHandler";
 
 /**
@@ -28,26 +30,50 @@ export default class ScrtHandler extends SendBaseHandler {
      * @memberof ScrtHandler
      */
     public async processWithSession(params: IHandlerParameters, session: Session): Promise<void> {
-        // form the URL from our connection properties and the SCRT restResource property
-        const url = `${params.arguments.protocol}://${params.arguments.host}:${params.arguments.port}/` +
-            `${params.arguments.restResource}`;
+        // form the path portion of the URL from the SCRT restResource & restQuery properties
+        const urlPath = `${params.arguments.restResource}` +
+            (params.arguments.restQuery ? `?${params.arguments.restQuery}` : "");
+
+        const fullUrl = `${params.arguments.protocol}://${params.arguments.host}:${params.arguments.port}` +
+            (params.arguments.basePath ? `/${params.arguments.basePath}` : "") +
+            `/${urlPath}`;
+
+        // If scrtData is available, add it to our session.
+        // Because the scrt command of the sample plugin is used as a test tool,
+        // we gather SCRT properties from our sample scrtProfile for flexibility.
+        // If you follow recommended practices, a real client app will specify only featureName.
+        // Further, a real client app might simply supply its featureName as a hard-coded value.
+        // Thus the following block of code could be much simpler in a real Zowe client app.
+        if (params.arguments.featureName) {
+            session.ISession["scrtData"] = { featureName: params.arguments.featureName };
+
+            // only if we have the feature, do we bother with the other scrt properties
+            if (params.arguments.productId) {
+                session.ISession.scrtData.productId = params.arguments.productId;
+            }
+            if (params.arguments.productVersion) {
+                session.ISession.scrtData.productVersion = params.arguments.productVersion;
+            }
+        }
 
         try {
-            /* zzz
-            const zosResponse = await CheckStatus.getZosmfInfo(session);
-            params.response.console.log("We just got a valid z/OSMF status response from system = " +
-                zosResponse.zosmf_hostname + "\n"
-            );
-            zzz */
+            const restResponse = await ScrtRestClient.getExpectJSON(session, urlPath);
             params.response.console.log(
-                `Pretend that we sent featureName = '${params.arguments.featureName}' ` +
-                `in an SCRT header to\n\t'${url}'.`
+                `This is the response from your service:\n` +
+                JSON.stringify(restResponse, null, 2) +
+                `\n\nA successful response above from our GET request to the following URL:` +
+                `\n\t${fullUrl}` +
+                `\nimplies that we transmitted the following SCRT data:\n` +
+                (session.ISession["scrtData"] ?
+                    JSON.stringify(session.ISession["scrtData"], null, 2) :
+                    "No SCRT data was supplied"
+                ) +
+                `\nIf your service did not receive SCRT data, check the following log file for errors:` +
+                `\n\t${os.homedir() }/.zowe/logs/imperative.log`
             );
-            // console.log("ScrtHandler.processWithSession:zzz: params:\n" + JSON.stringify(params, null, 2));
-
         } catch (except) {
             params.response.console.log("We got an exception when calling the following REST service:\n\t" +
-                url + "\nReason = " + except.message
+                fullUrl + "\nReason = " + except.message
             );
         }
     }

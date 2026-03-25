@@ -8,7 +8,10 @@
  * Copyright Contributors to the Zowe Project.
  */
 
-import { ConnectionPropsForSessCfg, ICommandArguments, ICommandHandler, IHandlerParameters, ISession, Session } from "@zowe/imperative";
+import {
+    ConnectionPropsForSessCfg, ICommandArguments, ICommandHandler,
+    IHandlerParameters, ISession, Session
+} from "@zowe/imperative";
 
 /**
  * Command handler for sending a REST request.

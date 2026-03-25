@@ -8,8 +8,7 @@
  * Copyright Contributors to the Zowe Project.
  */
 
-import { CheckStatus, IZosmfInfoResponse } from "@zowe/zosmf-for-zowe-sdk";
-import { Files } from "../../../../src/api/Files";
+import { CheckStatus } from "@zowe/zosmf-for-zowe-sdk";
 import { mockHandlerParameters } from "@zowe/cli-test-utils";
 import { IHandlerParameters } from "@zowe/imperative";
 import { CheckStatusDefinition } from "../../../../src/cli/send/check-status/CheckStatus.definition";

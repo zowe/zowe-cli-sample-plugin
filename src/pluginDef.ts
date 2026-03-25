@@ -85,6 +85,10 @@ const pluginDef: IImperativeConfig = {
                         includeInTemplate: true,
                         optionDefinition: ProfileConstants.SAMPLE_CONN_OPTION_PORT
                     },
+                    basePath: {
+                        type: "string",
+                        optionDefinition: ProfileConstants.SAMPLE_CONN_BASE_PATH
+                    },
                     user: {
                         type: "string",
                         secure: true,
@@ -102,6 +106,10 @@ const pluginDef: IImperativeConfig = {
                     restResource: {
                         type: "string",
                         optionDefinition: ProfileConstants.SAMPLE_SCRT_OPTION_REST_RESOURCE
+                    },
+                    restQuery : {
+                        type: "string",
+                        optionDefinition: ProfileConstants.SAMPLE_SCRT_OPTION_REST_QUERY
                     },
                     featureName: {
                         type: "string",

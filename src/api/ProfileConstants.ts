@@ -40,6 +40,16 @@ export class ProfileConstants {
         group: ProfileConstants.SAMPLE_CONN_OPTION_GROUP
     };
 
+    public static SAMPLE_CONN_BASE_PATH: ICommandOptionDefinition = {
+        name: "base-path",
+        aliases: ["bp"],
+        description: "The base path for your API mediation layer instance." +
+            " Specify this option to prepend the base path to all z/OSMF resources when making REST requests." +
+            " Do not specify this option if you are not using the API mediation layer.",
+        type: "string",
+        group: ProfileConstants.SAMPLE_CONN_OPTION_GROUP
+    };
+
     public static SAMPLE_CONN_OPTION_USER: ICommandOptionDefinition = {
         name: "user",
         aliases: ["u"],
@@ -79,10 +89,20 @@ export class ProfileConstants {
         name: "rest-resource",
         aliases: ["rr"],
         description: "The REST resource path which will be added to https://host:port/ in order " +
-                     "to send a request containing an SCRT header to your desired REST service",
+                     "to send a GET request containing an SCRT header to your desired REST service",
         type: "string",
         group: ProfileConstants.SAMPLE_SCRT_OPTION_GROUP,
         required: true
+    };
+
+    public static SAMPLE_SCRT_OPTION_REST_QUERY: ICommandOptionDefinition = {
+        name: "rest-query",
+        aliases: ["rq"],
+        description: "A query string that can be added to the the https://host:port/rest-resource in order " +
+            "to successfully perform a GET request to your desired REST service",
+        type: "string",
+        group: ProfileConstants.SAMPLE_SCRT_OPTION_GROUP,
+        required: false
     };
 
     public static SAMPLE_SCRT_OPTION_FEATURE_NAME: ICommandOptionDefinition = {
@@ -116,6 +136,7 @@ export class ProfileConstants {
         ProfileConstants.SAMPLE_CONN_OPTION_PROTOCOL,
         ProfileConstants.SAMPLE_CONN_OPTION_HOST,
         ProfileConstants.SAMPLE_CONN_OPTION_PORT,
+        ProfileConstants.SAMPLE_CONN_BASE_PATH,
         ProfileConstants.SAMPLE_CONN_OPTION_USER,
         ProfileConstants.SAMPLE_CONN_OPTION_PASSWORD,
         ProfileConstants.SAMPLE_CONN_OPTION_REJECT_UNAUTHORIZED
@@ -124,6 +145,7 @@ export class ProfileConstants {
     public static SAMPLE_SCRT_OPTIONS: ICommandOptionDefinition[] = [
         ... ProfileConstants.SAMPLE_CONN_OPTIONS,
         ProfileConstants.SAMPLE_SCRT_OPTION_REST_RESOURCE,
+        ProfileConstants.SAMPLE_SCRT_OPTION_REST_QUERY,
         ProfileConstants.SAMPLE_SCRT_OPTION_FEATURE_NAME,
         ProfileConstants.SAMPLE_SCRT_OPTION_PRODUCT_ID,
         ProfileConstants.SAMPLE_SCRT_OPTION_PRODUCT_VERSION

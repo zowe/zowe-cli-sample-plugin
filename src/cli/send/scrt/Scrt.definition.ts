@@ -28,12 +28,13 @@ export const ScrtDefinition: ICommandDefinition = {
     name: "scrt",
     aliases: [],
     summary: "Test the transmission of SCRT data from client to server",
-    description: "Sends a REST request with an SCRT header to the targeted REST service",
+    description: "Sends a GET REST request with an SCRT header to the targeted REST service. " +
+        "The purpose of this command is to test the transmission of SCRT data to a REST service. " +
+        "Note that an SCRT header is not sent when using a direct connection to z/OSMF.",
     type: "command",
     handler: __dirname + "/Scrt.handler",
-    positionals: [],
     profile: {
-        required: ["scrtProfile"],
+        optional: ["scrtProfile"],
     },
     options: [...ProfileConstants.SAMPLE_SCRT_OPTIONS]
 };

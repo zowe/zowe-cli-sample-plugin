@@ -10,17 +10,17 @@
 
 import {
     IImperativeError, Logger, RestClient,
-    RestConstants, SessConstants
+    RestConstants, SessConstants,
 } from "@zowe/imperative";
+import { ZosmfHeaders } from "@zowe/core-for-zowe-sdk";
 
 /**
- * Wrapper for invoke z/OSMF API through the RestClient to perform common error
- * handling and checking and resolve promises according to generic types
+ * Wrapper for the RestClient to perform common error handling.
  * @export
- * @class ZosmfRestClient
+ * @class ScrtRestClient
  * @extends {RestClient}
  */
-export class ZosmfRestClient extends RestClient {
+export class ScrtRestClient extends RestClient {
 
     /**
      * Use the Zowe logger instead of the imperative logger
@@ -31,10 +31,27 @@ export class ZosmfRestClient extends RestClient {
     }
 
     /**
+     * Append z/OSMF specific headers to the caller's headers.
+     * This is done so that a z/OSMF url can be used for testing the
+     * transmission of SCRT headers. The X_CSRF_ZOSMF_HEADER will be
+     * harmlessly ignored by REST services other than z/OSMF.
+     * @param {any[] | undefined} headers - current header array
+     * @memberof ZosmfRestClient
+     */
+    protected appendHeaders(headers: any[] | undefined): any[] {
+        if (headers == null) {
+            headers = [ZosmfHeaders.X_CSRF_ZOSMF_HEADER];
+        } else {
+            headers.push(ZosmfHeaders.X_CSRF_ZOSMF_HEADER);
+        }
+        return headers;
+    }
+
+    /**
      * Process an error encountered in the rest client
      * @param {IImperativeError} original - the original error automatically built by the abstract rest client
      * @returns {IImperativeError} - the processed error with details added
-     * @memberof ZosmfRestClient
+     * @memberof ScrtRestClient
      */
     protected processError(original: IImperativeError): IImperativeError {
         let causeErrorsJson;
@@ -49,7 +66,7 @@ export class ZosmfRestClient extends RestClient {
                 // if we didn't get an error trying to parse causeErrorsString, check if there is a stack
                 // on the JSON error and delete it
                 if (causeErrorsJson.stack != null) {
-                    this.log.error("An error was encountered in z/OSMF with a stack." +
+                    this.log.error("An error was encountered which contains a stack trace." +
                         " Here is the full error before deleting the stack:\n%s", JSON.stringify(causeErrorsJson));
                     this.log.error("The stack has been deleted from the error before displaying the error to the user");
                     delete causeErrorsJson.stack; // remove the stack field
