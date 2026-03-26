@@ -126,7 +126,7 @@ exports[`Send definition should match the snapshot 1`] = `
     },
     {
       "aliases": [],
-      "description": "Sends a REST request with an SCRT header to the targeted REST service",
+      "description": "Sends a GET REST request with an SCRT header to the targeted REST service. The purpose of this command is to test the transmission of SCRT data to a REST service. Note that an SCRT header is not sent when using a direct connection to z/OSMF.",
       "handler": "../../../src/cli/send/scrt/Scrt.handler",
       "name": "scrt",
       "options": [
@@ -160,6 +160,15 @@ exports[`Send definition should match the snapshot 1`] = `
         },
         {
           "aliases": [
+            "bp",
+          ],
+          "description": "The base path for your API mediation layer instance. Specify this option to prepend the base path to all z/OSMF resources when making REST requests. Do not specify this option if you are not using the API mediation layer.",
+          "group": "Connection Options",
+          "name": "base-path",
+          "type": "string",
+        },
+        {
+          "aliases": [
             "u",
           ],
           "description": "The sample service user name",
@@ -190,10 +199,20 @@ exports[`Send definition should match the snapshot 1`] = `
           "aliases": [
             "rr",
           ],
-          "description": "The REST resource path which will be added to https://host:port/ in order to send a request containing an SCRT header to your desired REST service",
+          "description": "The REST resource path which will be added to https://host:port/ in order to send a GET request containing an SCRT header to your desired REST service",
           "group": "SCRT Options",
           "name": "rest-resource",
           "required": true,
+          "type": "string",
+        },
+        {
+          "aliases": [
+            "rq",
+          ],
+          "description": "A query string that can be added to the the https://host:port/rest-resource in order to successfully perform a GET request to your desired REST service",
+          "group": "SCRT Options",
+          "name": "rest-query",
+          "required": false,
           "type": "string",
         },
         {
@@ -225,9 +244,8 @@ exports[`Send definition should match the snapshot 1`] = `
           "type": "string",
         },
       ],
-      "positionals": [],
       "profile": {
-        "required": [
+        "optional": [
           "scrtProfile",
         ],
       },
