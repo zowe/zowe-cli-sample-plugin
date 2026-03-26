@@ -9,6 +9,7 @@
  */
 
 import * as os from 'os';
+import * as path from 'path';
 import { IHandlerParameters, Session } from "@zowe/imperative";
 import { ScrtRestClient } from "./ScrtRestClient";
 import { SendBaseHandler } from "../SendBaseHandler";
@@ -68,8 +69,8 @@ export default class ScrtHandler extends SendBaseHandler {
                     JSON.stringify(session.ISession["scrtData"], null, 2) :
                     "No SCRT data was supplied"
                 ) +
-                `\nIf your service did not receive SCRT data, check the following log file for errors:` +
-                `\n\t${os.homedir() }/.zowe/logs/imperative.log`
+                `\nIf your service did not receive SCRT data, check the following log file for errors:\n\t` +
+                `${os.homedir()}${path.sep}.zowe${path.sep}logs${path.sep}imperative.log`
             );
         } catch (except) {
             params.response.console.log("We got an exception when calling the following REST service:\n\t" +
