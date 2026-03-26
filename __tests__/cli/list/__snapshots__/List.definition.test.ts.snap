@@ -173,6 +173,15 @@ For this command, we list contents of the specified directory.",
         },
         {
           "aliases": [
+            "bp",
+          ],
+          "description": "The base path for your API mediation layer instance. Specify this option to prepend the base path to all z/OSMF resources when making REST requests. Do not specify this option if you are not using the API mediation layer.",
+          "group": "Connection Options",
+          "name": "base-path",
+          "type": "string",
+        },
+        {
+          "aliases": [
             "u",
           ],
           "description": "The sample service user name",
