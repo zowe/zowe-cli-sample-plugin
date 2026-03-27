@@ -14,8 +14,6 @@ import { IHandlerParameters } from "@zowe/imperative";
 import { CheckStatusDefinition } from "../../../../src/cli/send/check-status/CheckStatus.definition";
 import * as CheckStatusHandler from "../../../../src/cli/send/check-status/CheckStatus.handler";
 
-jest.mock("../../../../src/api/Files");
-
 process.env.FORCE_COLOR = "0";
 
 const fakeHostNm = "fakeHostName";
@@ -74,11 +72,10 @@ describe("check-status Handler", () => {
     });
 
     it("should catch an exception from zosmf check status", async () => {
-        const checkStatusErr = "CheckStatus.getZosmfInfo() threw this fake error";
-
         // create a failure
-        CheckStatus.getZosmfInfo = jest.fn(async () => {
-            throw checkStatusErr;
+        const checkStatusErrText = "CheckStatus.getZosmfInfo() threw this fake error";
+        jest.spyOn(CheckStatus as any, "getZosmfInfo").mockImplementation(() =>{
+            throw new Error(checkStatusErrText);
         });
 
         // place desired input and expected output into params
@@ -91,11 +88,13 @@ describe("check-status Handler", () => {
             }
         } as any;
 
-        // The handler should succeed
+        // The handler should fail with an error
         const checkStatHandler = new CheckStatusHandler.default();
         await checkStatHandler.process(params);
         expect(logMessage).toContain(`We got an exception calling Zowe CLI's CheckStatus.getZosmfInfo API for ` +
             `host = '${fakeHostNm}'  port = '${fakePort}`);
         expect(logMessage).toContain("Reason = ");
+        expect(logMessage).toContain(checkStatusErrText);
+
     });
 });
