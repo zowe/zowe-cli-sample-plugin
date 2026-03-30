@@ -9,7 +9,7 @@
  */
 
 import { mockHandlerParameters } from "@zowe/cli-test-utils";
-import { IHandlerParameters } from "@zowe/imperative";
+import { IHandlerParameters, ImperativeError } from "@zowe/imperative";
 import { ScrtRestClient } from "../../../../src/cli/send/scrt/ScrtRestClient";
 import { ScrtDefinition } from "../../../../src/cli/send/scrt/Scrt.definition";
 import * as ScrtHandler from "../../../../src/cli/send/scrt/Scrt.handler";
@@ -83,28 +83,32 @@ describe("scrt Handler", () => {
         // The handler should succeed
         const scrtHandler = new ScrtHandler.default();
         await scrtHandler.process(params);
-        expect(logMessage).toContain("This is the response from your service");
-        expect(logMessage).toContain(JSON.stringify(CMD_RESPONSE, null, 2));
-        expect(logMessage).toContain("our GET request to the following URL:");
+        expect(logMessage).toContain("This is the response from a GET request to the following URL");
         expect(logMessage).toContain(URL);
-        expect(logMessage).toContain("we transmitted the following SCRT data");
+        expect(logMessage).toContain(JSON.stringify(CMD_RESPONSE, null, 2));
+        expect(logMessage).toContain("A successful response implies that we transmitted the following SCRT data");
         expect(logMessage).toContain(JSON.stringify(SCRT_DATA_FROM_SESSION, null, 2));
     });
 
     it("should catch an exception from getExpectJSON", async () => {
         // create a failure
         const scrtErrText = "ScrtRestClient.getExpectJSON() threw this fake error";
+        const scrtErrDetails = "These are fake Scrt error details";
+
         jest.spyOn(ScrtRestClient as any, "getExpectJSON")
             .mockImplementation(() =>{
-                throw new Error(scrtErrText);
+                throw new ImperativeError({
+                    msg: scrtErrText,
+                    additionalDetails: scrtErrDetails
+                });
             });
 
         // The handler should fail with an error
         const scrtHandler = new ScrtHandler.default();
         await scrtHandler.process(params);
-        expect(logMessage).toContain("We got an exception when calling the following REST service");
+        expect(logMessage).toContain("We encountered an error when sending a GET request to the following URL");
         expect(logMessage).toContain(URL);
-        expect(logMessage).toContain("Reason = ");
         expect(logMessage).toContain(scrtErrText);
+        expect(logMessage).toContain(scrtErrDetails);
     });
 });

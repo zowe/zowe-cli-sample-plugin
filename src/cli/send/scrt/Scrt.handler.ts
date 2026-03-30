@@ -60,21 +60,23 @@ export default class ScrtHandler extends SendBaseHandler {
         try {
             const restResponse = await ScrtRestClient.getExpectJSON(session, urlPath);
             params.response.console.log(
-                `This is the response from your service:\n` +
+                `This is the response from a GET request to the following URL:` +
+                `\n\t${fullUrl}\n` +
                 JSON.stringify(restResponse, null, 2) +
-                `\n\nA successful response above from our GET request to the following URL:` +
-                `\n\t${fullUrl}` +
-                `\nimplies that we transmitted the following SCRT data:\n` +
+                `\n______________________________________\n` +
+                `\nA successful response implies that we transmitted the following SCRT data:\n` +
                 (session.ISession["scrtData"] ?
                     JSON.stringify(session.ISession["scrtData"], null, 2) :
                     "No SCRT data was supplied"
                 ) +
-                `\nIf your service did not receive SCRT data, check the following log file for errors:\n\t` +
-                `${os.homedir()}${path.sep}.zowe${path.sep}logs${path.sep}imperative.log`
+                `\n\nIf your service did not receive this SCRT data, check the following log file for errors:` +
+                `\n\t${os.homedir()}${path.sep}.zowe${path.sep}logs${path.sep}imperative.log` +
+                `\nDebugging trick: Rerun with a bad host name. It will report an error, `+
+                `which displays the actual headers that are sent.`
             );
         } catch (except) {
-            params.response.console.log("We got an exception when calling the following REST service:\n\t" +
-                fullUrl + "\nReason = " + except.message
+            params.response.console.log("We encountered an error when sending a GET request to the following URL:" +
+                `\n\t${fullUrl}\n\n${except.mDetails?.msg}\n${except.mDetails?.additionalDetails}`
             );
         }
     }
