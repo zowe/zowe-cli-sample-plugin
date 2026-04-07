@@ -6,7 +6,7 @@ exports[`zowe-cli-sample send should display the help 1`] = `
  -----------
 
    The 'send' command will send a REST request. The type of request is determined
-   by which type is specified.
+   by which command is specified.
 
  USAGE
  -----
