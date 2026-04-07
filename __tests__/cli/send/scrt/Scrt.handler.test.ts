@@ -23,7 +23,7 @@ const fakeRestResource = "path/to/your/rest/resource";
 const fakeRestQuery = "OptionalQueryStringForYourResource";
 const fakeFeatureName = "YourScrtFeatureName";
 const fakePoductId = "YorPrdId";
-const fakeProductVersion = "11.22.33"
+const fakeProductVersion = "11.22.33";
 
 const URL = `${fakeProtocol}://${fakeHostNm}:${fakePort}/${fakeRestResource}?${fakeRestQuery}`;
 
