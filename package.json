@@ -47,8 +47,8 @@
     "configurationModule": "lib/pluginDef.js"
   },
   "dependencies": {
-    "@zowe/core-for-zowe-sdk": "^8.30.1",
-    "@zowe/zosmf-for-zowe-sdk": "^8.30.1"
+    "@zowe/core-for-zowe-sdk": "^8.31.3",
+    "@zowe/zosmf-for-zowe-sdk": "^8.31.3"
   },
   "ToDo_AddToDevDependencies": {
     "eslint-plugin-deprecation": "^3.0.0",
@@ -63,9 +63,9 @@
     "@types/node": "^25.3.3",
     "@typescript-eslint/eslint-plugin": "^8.57.0",
     "@typescript-eslint/parser": "^8.57.0",
-    "@zowe/cli": "^8.30.2",
-    "@zowe/cli-test-utils": "^8.30.1",
-    "@zowe/imperative": "^8.30.1",
+    "@zowe/cli": "^8.31.4",
+    "@zowe/cli-test-utils": "^8.31.3",
+    "@zowe/imperative": "^8.31.3",
     "env-cmd": "^11.0.0",
     "eslint": "^10.0.3",
     "eslint-plugin-jest": "^29.15.0",
@@ -91,7 +91,7 @@
     "uuid": "^13.0.0"
   },
   "peerDependencies": {
-    "@zowe/imperative": "^8.30.1"
+    "@zowe/imperative": "^8.31.3"
   },
   "jest": {
     "modulePathIgnorePatterns": [
