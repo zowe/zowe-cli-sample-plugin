@@ -12,6 +12,7 @@ zowe zowe-cli-sample issue command-with-options
 zowe zowe-cli-sample issue command-with-options --required-number 1111
 zowe zowe-cli-sample issue command-with-options --required-number 1111 --use-the-string
 zowe zcsp issue command-with-options --required-number 1111 --use-the-string --the-string "Test string"
+zowe zowe-cli-sample issue command-with-positionals parmOne 222
 zowe zowe-cli-sample list directory-contents
 zowe zowe-cli-sample list profile-args
 zowe zowe-cli-sample send check-status
