@@ -29,7 +29,7 @@ const SendDefinition: ICommandDefinition = {
     name: "send",
     summary: "Send a REST request",
     description: "The 'send' command will send a REST request. " +
-                 "The type of request is determined by which type is specified.",
+                 "The type of request is determined by which command is specified.",
     type: "group",
     children: [CheckStatusDefinition, ScrtDefinition]
 };

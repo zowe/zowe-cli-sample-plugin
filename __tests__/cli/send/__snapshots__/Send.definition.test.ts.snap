@@ -253,7 +253,7 @@ exports[`Send definition should match the snapshot 1`] = `
       "type": "command",
     },
   ],
-  "description": "The 'send' command will send a REST request. The type of request is determined by which type is specified.",
+  "description": "The 'send' command will send a REST request. The type of request is determined by which command is specified.",
   "name": "send",
   "summary": "Send a REST request",
   "type": "group",

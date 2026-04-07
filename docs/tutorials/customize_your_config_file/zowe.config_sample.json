@@ -1,0 +1,49 @@
+{
+    "$schema": "./zowe.schema.json",
+    "defaults": {
+        "base": "connProps",
+        "zosmf": "zosmfDirect",
+        "scrtProfile": "connProps.scrtTest",
+        "tShirtProfile": "connProps.tShirtTest"
+    },
+    "profiles": {
+        "connProps": {  // Shared connection props
+            "type": "base",
+            "properties": {
+                "protocol": "https",
+                "host": "Your.Mainframe.Host.Name",
+                "port": 1234,   // Your APIML port number
+                "basePath": "ibmzosmf/api/v1",
+                "user": "Your_User_Name",
+                "password": "Your_Password",    // After satisfactory testing you should use the Zowe Secure Credential Store
+                "rejectUnauthorized": false,
+            },
+            "profiles": {
+                "zosmfDirect": {    // You can run the 'send check-status' command against z/OSMF using this profile
+                    "type": "zosmf",
+                    "properties": {
+                        "port": 443 // Your z/OSMF port number
+                    }
+                },
+                "scrtTest": {               // This profile and the 'send scrt' command can send SCRT data to APIML.
+                    "type": "scrtProfile",  // Eventually switch to your own REST service.
+                    "properties": {
+                    "properties": {
+                        "restResource": "zosmf/restfiles/ds",   // The resource portion of your REST service URL
+                        "restQuery": "dslevel=SYS1.PARMLIB*",   // Any REST query parameter needed by your TEST service
+                        "featureName": "YourScrtFeatureName",
+                        "productId": "YorPrdId",                // Optional if your REST service supplies its product ID
+                        "productVersion": "11.22.33"            // Optional if your REST service supplies its version
+                    }
+                },
+                "tShirtTest": { // An example of a specialized profile and a command (list profile-args) that uses it.
+                    "type": "tShirtProfile",
+                    "properties": {
+                        "tshirtSize": "XL"
+                    }
+                }
+            }
+        }
+    },
+    "autoStore": true
+}

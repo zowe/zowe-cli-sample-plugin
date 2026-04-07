@@ -27,7 +27,9 @@ You might want to create a Zowe CLI plug-in to accomplish the following:
 * Participate in the Zowe CLI community space.
 
 ## Prerequisites
+
 ### Install Zowe CLI before you work with the Zowe CLI sample plug-in.
+
 See [Installing Zowe CLI](https://docs.zowe.org/stable/user-guide/cli-installcli#installing-zowe-cli-and-zowe-cli-plug-ins-from-a-local-package)
 
 ### Obtain the zowe-cli-sample-plugin
@@ -37,14 +39,18 @@ Most of this plugin is merely a sample for you to program your own plug-in. For 
 #### Download a published version of the zowe-cli-sample-plugin
 
 1. Download the sample plug-in from the Zowe JFrog registry.
-
+   
     `npm pack @zowe/sample-plugin-for-zowe-cli@latest -registry https://zowe.jfrog.io/zowe/api/npm/npm-local-release/`
-
+   
     If your site restricts access to zowe.jfrog.io, you may need to use a corporate internal registry.
 
-2. Install the sample plug-in using your previosuly installed Zowe CLI and the sample plug-in package that you downloaded. In the example below we used the 4.1.0 version of the sample plug-in.
-
+2. Install the sample plug-in using your previously installed Zowe CLI and the sample plug-in package that you downloaded. In the example below we used the 4.1.0 version of the sample plug-in.
+   
     `zowe plugins install zowe-sample-plugin-for-zowe-cli-4.1.0.tgz`
+
+#### Customize the supplied sample config file
+
+To quickly use a config file appropriate for the sample plugin, view the Readme file and customize the sample Zowe config file located in the folder [customize_your_config_file](https://github.com/zowe/zowe-cli-sample-plugin/blob/master/docs/tutorials/customize_your_config_file).
 
 #### Clone zowe-cli-sample-plugin and Build From Source
 
