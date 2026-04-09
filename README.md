@@ -30,7 +30,7 @@ You might want to create a Zowe CLI plug-in to accomplish the following:
 
 ### Install Zowe CLI before you work with the Zowe CLI sample plug-in
 
-See [Installing Zowe CLI](https://docs.zowe.org/stable/user-guide/cli-installcli#installing-zowe-cli-and-zowe-cli-plug-ins-from-a-local-package)
+See [Installing Zowe CLI](https://docs.zowe.org/stable/user-guide/cli-installcli#installing-zowe-cli-and-zowe-cli-plug-ins-from-a-local-package).
 
 ### Obtain the zowe-cli-sample-plugin
 
