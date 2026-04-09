@@ -42,7 +42,7 @@ Most of this plug-in is merely a sample for you to program your own plug-in. For
    
     `npm pack @zowe/sample-plugin-for-zowe-cli@latest -registry https://zowe.jfrog.io/zowe/api/npm/npm-local-release/`
    
-    If your site restricts access to zowe.jfrog.io, you may need to use a corporate internal registry.
+    If your site restricts access to zowe.jfrog.io, you might need to use a corporate internal registry.
 
 2. Install the sample plug-in using your previously installed Zowe CLI and the sample plug-in package that you downloaded. In the example below we used the 4.1.0 version of the sample plug-in.
    
