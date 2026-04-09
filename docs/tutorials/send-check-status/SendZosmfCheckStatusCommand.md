@@ -8,7 +8,7 @@ This command demonstrates how a command handler can use an existing Zowe z/OSMF 
 ## Configuration
 
 Like all Zowe commands, options can be supplied on the command line. For simplicity,
-use a zowe.config.json file similar to the one below.
+use a `zowe.config.json` file similar to the one below.
 
  ```
  {
