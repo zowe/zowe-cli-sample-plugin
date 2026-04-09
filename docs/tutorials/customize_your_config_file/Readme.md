@@ -2,7 +2,7 @@ The zowe.config_sample.json file in this folder can be customized to enable you 
 
 1. Install Zowe CLI.  See instructions in the sample plugin's main [README](https://github.com/zowe/zowe-cli-sample-plugin/blob/master/README.md) file.
 2. Install the Zowe sample plug-in.  Again, see instructions in the sample plugin's main [README](https://github.com/zowe/zowe-cli-sample-plugin/blob/master/README.md)) file.
-3. Copy zowe.config_sample.json to zowe.config.json in a directory of your choice.
+3. Copy `zowe.config_sample.json` to `zowe.config.json` in a directory of your choice.
 4. Update the properties in zowe.config.json to reflect the values used at your company.
 5. You can then successfully run each of the following sample plug-in commands:
 
