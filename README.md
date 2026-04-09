@@ -34,7 +34,7 @@ See [Installing Zowe CLI](https://docs.zowe.org/stable/user-guide/cli-installcli
 
 ### Obtain the zowe-cli-sample-plugin
 
-Most of this plugin is merely a sample for you to program your own plug-in. For that purpose, you should clone the repository and build the sample plug-in from source. However, one feature of the plug-in can be used as a tool to test the transmission of SCRT data to a targeted REST service. To simply use the plugin for testing purposes, you can download a published package of the zowe-cli-sample-plugin.
+Most of this plug-in is merely a sample for you to program your own plug-in. For that purpose, you should clone the repository and build the sample plug-in from source. However, one feature of the plug-in can be used as a tool to test the transmission of SCRT data to a targeted REST service. To simply use the plug-in for testing purposes, you can download a published package of the zowe-cli-sample-plugin.
 
 #### Download a published version of the zowe-cli-sample-plugin
 
