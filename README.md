@@ -5,9 +5,10 @@ This repository contains a sample Zowe CLI plug-in that adheres to the contribut
 - [Zowe CLI Sample Plug-in](#zowe-cli-sample-plug-in)
   - [Why Create a Zowe CLI Plug-in?](#why-create-a-zowe-cli-plug-in)
   - [Prerequisites](#prerequisites)
-    - [Install Zowe CLI before you work with the Zowe CLI sample plug-in.](#install-zowe-cli-before-you-work-with-the-zowe-cli-sample-plug-in)
+    - [Install Zowe CLI before you work with the Zowe CLI sample plug-in](#install-zowe-cli-before-you-work-with-the-zowe-cli-sample-plug-in)
     - [Obtain the zowe-cli-sample-plugin](#obtain-the-zowe-cli-sample-plugin)
       - [Download a published version of the zowe-cli-sample-plugin](#download-a-published-version-of-the-zowe-cli-sample-plugin)
+      - [Customize the supplied sample configuration file](#customize-the-supplied-sample-configuration-file)
       - [Clone zowe-cli-sample-plugin and Build From Source](#clone-zowe-cli-sample-plugin-and-build-from-source)
   - [Tutorials, Documentation, and Guidelines](#tutorials-documentation-and-guidelines)
     - [Tutorials](#tutorials)
@@ -39,18 +40,18 @@ Most of this plug-in is merely a sample for you to program your own plug-in. For
 #### Download a published version of the zowe-cli-sample-plugin
 
 1. Download the sample plug-in from the Zowe JFrog registry:
-   
+
     `npm pack @zowe/sample-plugin-for-zowe-cli@latest -registry https://zowe.jfrog.io/zowe/api/npm/npm-local-release/`
-   
+
     If your site restricts access to zowe.jfrog.io, you might need to use a corporate internal registry.
 
-2. Install the sample plug-in using your previously installed Zowe CLI and the sample plug-in package that you downloaded. In the example below we used the 4.1.0 version of the sample plug-in.
-   
+2. Install the sample plug-in using your previously installed Zowe CLI and the sample plug-in package that you downloaded. In the example below we used the 4.1.0 version of the sample plug-in:
+
     `zowe plugins install zowe-sample-plugin-for-zowe-cli-4.1.0.tgz`
 
-#### Customize the supplied sample config file
+#### Customize the supplied sample configuration file
 
-To quickly use a config file appropriate for the sample plugin, view the Readme file and customize the sample Zowe config file located in the folder [customize_your_config_file](https://github.com/zowe/zowe-cli-sample-plugin/blob/master/docs/tutorials/customize_your_config_file).
+To quickly use a configuration file appropriate for the sample plug-in, view the Readme file and customize the sample Zowe config file located in the folder [customize_your_config_file](https://github.com/zowe/zowe-cli-sample-plugin/blob/master/docs/tutorials/customize_your_config_file).
 
 #### Clone zowe-cli-sample-plugin and Build From Source
 
@@ -66,9 +67,9 @@ To learn about how to work with this sample plug-in, build new commands, or buil
 
 **Note:** For an advanced example on how to create a plug-in that serves as a Credential Manager, see [Zowe CLI secrets for Kubernetes](https://github.com/zowe/zowe-cli-secrets-for-kubernetes/)
 
-The purpose and use of this plugin's  `send check-status` command is documented in [Using the 'send check-status' command](https://github.com/zowe/zowe-cli-sample-plugin/docs/tutorials/send-check-status/SendZosmfCheckStatusCommand.md)
+The purpose and use of this plug-in's  `send check-status` command is documented in [Using the 'send check-status' command](https://github.com/zowe/zowe-cli-sample-plugin/docs/tutorials/send-check-status/SendZosmfCheckStatusCommand.md).
 
-The purpose and use of this plugin's  `send scrt` command is documented in [Using the 'send scrt' command](https://github.com/zowe/zowe-cli-sample-plugin/docs/tutorials/send-scrt/SendScrtCommand.md)
+The purpose and use of this plug-in's  `send scrt` command is documented in [Using the 'send scrt' command](https://github.com/zowe/zowe-cli-sample-plugin/docs/tutorials/send-scrt/SendScrtCommand.md).
 
 ### Contribution Guidelines
 

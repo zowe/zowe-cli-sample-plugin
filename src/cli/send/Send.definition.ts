@@ -28,7 +28,7 @@ import { ScrtDefinition } from "./scrt/Scrt.definition";
 const SendDefinition: ICommandDefinition = {
     name: "send",
     summary: "Send a REST request",
-    description: "The 'send' command will send a REST request. " +
+    description: "The 'send' command sends a REST request. " +
                  "The type of request is determined by which command is specified.",
     type: "group",
     children: [CheckStatusDefinition, ScrtDefinition]

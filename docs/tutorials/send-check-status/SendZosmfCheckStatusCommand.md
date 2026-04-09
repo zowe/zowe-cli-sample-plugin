@@ -2,13 +2,11 @@
 
 The `zowe zowe-cli-sample send check-status` command obtains information from a z/OSMF instance on a specified host. The command displays the versions of z/OSMF and the z/OS operating system.
 
-This command demonstrates how a command handler can use an existing Zowe z/OSMF SDK function named
-`CheckStatus.getZosmfInfo(session)` to perform a desired operation.
+This command demonstrates how a command handler can use an existing Zowe z/OSMF SDK function named `CheckStatus.getZosmfInfo(session)` to perform a desired operation.
 
 ## Configuration
 
-Like all Zowe commands, options can be supplied on the command line. For simplicity,
-use a `zowe.config.json` file similar to the one below.
+Like all Zowe commands, options can be supplied on the command line. For simplicity, use a `zowe.config.json` file similar to the one below.
 
  ```
  {
