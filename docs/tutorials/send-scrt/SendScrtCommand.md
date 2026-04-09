@@ -8,7 +8,7 @@ Note that an SCRT header is not sent in a direct connection to the z/OSMF servic
 
 ## Configuration
 
-Like all Zowe commands, options can be supplied on the command line. For simplicity, use a zowe.config.json file similar to the one below. Typically, you would only need to specify the SCRT property `featureName`. For completeness, this configuration also specifies the SCRT properties `productId` and `productVersion`.
+Like all Zowe commands, options can be supplied on the command line. For simplicity, use a `zowe.config.json` file similar to the one below. Typically, you would only need to specify the SCRT property `featureName`. For completeness, this configuration also specifies the SCRT properties `productId` and `productVersion`.
 
  ```
  {
