@@ -38,7 +38,7 @@ Most of this plug-in is merely a sample for you to program your own plug-in. For
 
 #### Download a published version of the zowe-cli-sample-plugin
 
-1. Download the sample plug-in from the Zowe JFrog registry.
+1. Download the sample plug-in from the Zowe JFrog registry:
    
     `npm pack @zowe/sample-plugin-for-zowe-cli@latest -registry https://zowe.jfrog.io/zowe/api/npm/npm-local-release/`
    
