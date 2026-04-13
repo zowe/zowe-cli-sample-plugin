@@ -2,48 +2,50 @@
     "$schema": "./zowe.schema.json",
     "defaults": {
         "base": "connProps",
-        "zosmf": "zosmfDirect",
+        "zosmf": "connProps.zosmf_direct",
         "scrtProfile": "connProps.scrtTest",
         "tShirtProfile": "connProps.tShirtTest"
     },
     "profiles": {
-        "connProps": {  // Shared connection props
+        "connProps": { // Shared connection props
             "type": "base",
             "properties": {
                 "protocol": "https",
                 "host": "Your.Mainframe.Host.Name",
-                "port": 1234,   // Your APIML port number
-                "basePath": "ibmzosmf/api/v1",
                 "user": "Your_User_Name",
-                "password": "Your_Password",    // After satisfactory testing you should use the Zowe Secure Credential Store
-                "rejectUnauthorized": false,
+                "password": "Your_Password", // After satisfactory testing you should use the Zowe Secure Credential Store
+                "rejectUnauthorized": false
             },
             "profiles": {
-                "zosmfDirect": {    // You can run the 'send check-status' command against z/OSMF using this profile
+                "zosmf_direct": {           // This z/OSMF profile is used to run the 'send check-status' command
                     "type": "zosmf",
                     "properties": {
-                        "port": 443 // Your z/OSMF port number
+                        "port": 1234        // Your z/OSMF port number
                     }
                 },
-                "scrtTest": {               // This profile and the 'send scrt' command can send SCRT data to APIML.
-                    "type": "scrtProfile",  // Eventually switch to your own REST service.
+                "scrtTest": {               // The 'send scrt' command uses this profile to send SCRT data to
+                                            // an arbitrary REST service as a test.
+                    "type": "scrtProfile",  // A real plugin would use its own profile and instead
+                                            // place its SCRT properties into its session.
                     "properties": {
-                    "properties": {
-                        "restResource": "zosmf/restfiles/ds",   // The resource portion of your REST service URL
+                        "restResource": "zosmf/restfiles/ds",   // The resource portion of the URL of the REST service to test
                         "restQuery": "dslevel=SYS1.PARMLIB*",   // Any REST query parameter needed by your TEST service
-                        "featureName": "YourScrtFeatureName",
-                        "productId": "YorPrdId",                // Optional if your REST service supplies its product ID
-                        "productVersion": "11.22.33"            // Optional if your REST service supplies its version
+                        "featureName": "YourScrtFeatureName",   // The SCRT feature name of your REST client app
+                        "productId": "YorPrdId",                // Optional if your REST service supplies its own product ID
+                        "productVersion": "11.22.33",           // Optional if your REST service supplies its own version
+                        "basePath": "ibmzosmf/api/v1",          // z/OSMF basepath for APIML if APIML is used to reach the REST service
+                        "port": 5678                            // The port for the REST service (or for APIML if basePath is specified)
                     }
                 },
-                "tShirtTest": { // An example of a specialized profile and a command (list profile-args) that uses it.
+                "tShirtTest": {             // An example of a specialized profile for a command (list profile-args)
                     "type": "tShirtProfile",
                     "properties": {
-                        "tshirtSize": "XL"
+                        "tshirtSize": "XL",
+                        "port": 9999        // This port is completely fake. Never need to change it.
                     }
                 }
             }
         }
     },
-    "autoStore": true
+    "autoStore": false
 }
