@@ -11,9 +11,9 @@
             "type": "base",
             "properties": {
                 "protocol": "https",
-                "host": "Your.Mainframe.Host.Name",
-                "user": "Your_User_Name",
-                "password": "Your_Password", // After satisfactory testing you should use the Zowe Secure Credential Store
+                "host": "My.Mainframe.Host.Name",
+                "user": "My_User_Name",
+                "password": "My_Password", // After satisfactory testing you should use the Zowe Secure Credential Store
                 "rejectUnauthorized": false
             },
             "profiles": {
@@ -30,8 +30,8 @@
                     "properties": {
                         "restResource": "zosmf/restfiles/ds",   // The resource portion of the URL of the REST service to test
                         "restQuery": "dslevel=SYS1.PARMLIB*",   // Any REST query parameter needed by your TEST service
-                        "featureName": "YourScrtFeatureName",   // The SCRT feature name of your REST client app
-                        "productId": "YorPrdId",                // Optional if your REST service supplies its own product ID
+                        "featureName": "MyScrtFeatureName",     // The SCRT feature name of your REST client app
+                        "productId": "MyProdId",                // Optional if your REST service supplies its own product ID
                         "productVersion": "11.22.33",           // Optional if your REST service supplies its own version
                         "basePath": "ibmzosmf/api/v1",          // z/OSMF basepath for APIML if APIML is used to reach the REST service
                         "port": 5678                            // The port for the REST service (or for APIML if basePath is specified)
