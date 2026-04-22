@@ -1,3 +1,6 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`error-handler Handler throw an error 1`] = `""zowe zowe-cli-sample fakeHandler" command failed!"`;
+exports[`error-handler Handler throw an error 1`] = `
+"This is an example of throwing an error from this command:
+"zowe zowe-cli-sample fakeHandler""
+`;

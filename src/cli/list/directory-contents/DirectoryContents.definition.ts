@@ -42,7 +42,7 @@ export const DirectoryContentsDefinition: ICommandDefinition = {
         }
     ],
     profile: {
-        optional: ["zosmf"],
+        optional: ["tShirtProfile"]
     },
     options: [...ZosmfSession.ZOSMF_CONNECTION_OPTIONS]
 };

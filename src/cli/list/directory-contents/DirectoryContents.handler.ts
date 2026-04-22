@@ -8,10 +8,8 @@
  * Copyright Contributors to the Zowe Project.
  */
 
-import { IHandlerParameters, Session, TextUtils } from "@zowe/imperative";
+import { ICommandHandler, IHandlerParameters, TextUtils } from "@zowe/imperative";
 import { Files } from "../../../api/Files";
-import { CheckStatus } from "@zowe/zosmf-for-zowe-sdk";
-import { ListBaseHandler } from "../ListBaseHandler";
 
 /**
  * Command handler for listing directory contents
@@ -19,7 +17,7 @@ import { ListBaseHandler } from "../ListBaseHandler";
  * @class DirectoryContentsHandler
  * @implements {ICommandHandler}
  */
-export default class DirectoryContentsHandler extends ListBaseHandler {
+export default class DirectoryContentsHandler implements ICommandHandler {
     /**
      * Max table width
      * @static
@@ -33,24 +31,7 @@ export default class DirectoryContentsHandler extends ListBaseHandler {
      * @returns {Promise<void>}
      * @memberof DirectoryContentsHandler
      */
-    public async processWithSession(params: IHandlerParameters, session: Session): Promise<void> {
-
-        /* We call a Zowe CLI API, just to show that it can be done.
-         * We chose zosmf check status, since it is the simplest.
-         */
-        try {
-            const zosResponse = await CheckStatus.getZosmfInfo(session);
-            params.response.console.log("We just got a valid z/OSMF status response from system = " +
-                zosResponse.zosmf_hostname + "\n"
-            );
-
-        } catch (except) {
-            params.response.console.log("We just got an exception calling Zowe CLI's CheckStatus.getZosmfInfo API.\n" +
-                "Reason = " + except.message +
-                "\nWe will continue on anyway.\n"
-            );
-        }
-
+    public async process(params: IHandlerParameters): Promise<void> {
         // Extract the directory specified
         let dir: string = params.arguments.directory;
         if (dir == null) {
@@ -64,6 +45,7 @@ export default class DirectoryContentsHandler extends ListBaseHandler {
         const contents = Files.listDirectoryContents(dir);
         params.response.data.setObj(contents);
         params.response.console.log(Buffer.from(TextUtils.getTable(contents,
-            "blue", DirectoryContentsHandler.MAX_WIDTH, true, false, false)));
+            "blue", DirectoryContentsHandler.MAX_WIDTH, true, false, false))
+        );
     }
 }

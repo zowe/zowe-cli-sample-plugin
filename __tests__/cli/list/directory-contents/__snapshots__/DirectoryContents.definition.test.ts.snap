@@ -126,7 +126,7 @@ For this command, we list contents of the specified directory.",
     ],
     "profile": {
       "optional": [
-        "zosmf",
+        "tShirtProfile",
       ],
     },
     "summary": "Lists directory contents",

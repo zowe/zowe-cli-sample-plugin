@@ -1,0 +1,261 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Send definition should match the snapshot 1`] = `
+{
+  "children": [
+    {
+      "aliases": [
+        "cs",
+      ],
+      "description": "Sends a REST request to check the status of the targeted z/OSMF system",
+      "handler": "../../../src/cli/send/check-status/CheckStatus.handler",
+      "name": "check-status",
+      "options": [
+        {
+          "aliases": [
+            "H",
+          ],
+          "description": "The z/OSMF server host name.",
+          "group": "Zosmf Connection Options",
+          "name": "host",
+          "required": false,
+          "type": "string",
+        },
+        {
+          "aliases": [
+            "P",
+          ],
+          "defaultValue": 443,
+          "description": "The z/OSMF server port.",
+          "group": "Zosmf Connection Options",
+          "name": "port",
+          "type": "number",
+        },
+        {
+          "aliases": [
+            "u",
+          ],
+          "description": "Mainframe (z/OSMF) user name, which can be the same as your TSO login.",
+          "group": "Zosmf Connection Options",
+          "name": "user",
+          "required": false,
+          "type": "string",
+        },
+        {
+          "aliases": [
+            "pass",
+            "pw",
+          ],
+          "description": "Mainframe (z/OSMF) password, which can be the same as your TSO password.",
+          "group": "Zosmf Connection Options",
+          "name": "password",
+          "required": false,
+          "type": "string",
+        },
+        {
+          "aliases": [
+            "ru",
+          ],
+          "defaultValue": true,
+          "description": "Reject self-signed certificates.",
+          "group": "Zosmf Connection Options",
+          "name": "reject-unauthorized",
+          "type": "boolean",
+        },
+        {
+          "aliases": [
+            "bp",
+          ],
+          "description": "The base path for your API mediation layer instance. Specify this option to prepend the base path to all z/OSMF resources when making REST requests. Do not specify this option if you are not using an API mediation layer.",
+          "group": "Zosmf Connection Options",
+          "name": "base-path",
+          "type": "string",
+        },
+        {
+          "allowableValues": {
+            "caseSensitive": false,
+            "values": [
+              "http",
+              "https",
+            ],
+          },
+          "defaultValue": "https",
+          "description": "The protocol used (HTTP or HTTPS)",
+          "group": "Zosmf Connection Options",
+          "name": "protocol",
+          "type": "string",
+        },
+        {
+          "description": "The file path to a certificate file to use for authentication",
+          "group": "Zosmf Connection Options",
+          "name": "cert-file",
+          "type": "existingLocalFile",
+        },
+        {
+          "description": "The file path to a certificate key file to use for authentication",
+          "group": "Zosmf Connection Options",
+          "name": "cert-key-file",
+          "type": "existingLocalFile",
+        },
+        {
+          "aliases": [
+            "cto",
+          ],
+          "description": "The amount in time, in seconds, a REST operation should wait to complete before timing out",
+          "group": "Zosmf Connection Options",
+          "name": "completion-timeout",
+          "type": "number",
+        },
+        {
+          "aliases": [
+            "ecto",
+          ],
+          "description": "The amount of time, in seconds, a REST operation should wait while connecting to the server before timing out",
+          "group": "Zosmf Connection Options",
+          "name": "establish-connection-timeout",
+          "type": "number",
+        },
+      ],
+      "profile": {
+        "optional": [
+          "zosmf",
+        ],
+      },
+      "summary": "Perform a z/OSMF status check",
+      "type": "command",
+    },
+    {
+      "aliases": [],
+      "description": "Sends a GET REST request with an SCRT header to the targeted REST service. The purpose of this command is to test the transmission of SCRT data to a REST service. Note that an SCRT header is not sent when using a direct connection to z/OSMF.",
+      "handler": "../../../src/cli/send/scrt/Scrt.handler",
+      "name": "scrt",
+      "options": [
+        {
+          "aliases": [
+            "pr",
+          ],
+          "defaultValue": "https",
+          "description": "Communication protocol",
+          "group": "Connection Options",
+          "name": "protocol",
+          "type": "string",
+        },
+        {
+          "aliases": [
+            "H",
+          ],
+          "description": "The sample service host name",
+          "group": "Connection Options",
+          "name": "host",
+          "type": "string",
+        },
+        {
+          "aliases": [
+            "P",
+          ],
+          "description": "The sample service port",
+          "group": "Connection Options",
+          "name": "port",
+          "type": "number",
+        },
+        {
+          "aliases": [
+            "bp",
+          ],
+          "description": "The base path for your API mediation layer instance. Specify this option to prepend the base path to all z/OSMF resources when making REST requests. Do not specify this option if you are not using the API mediation layer.",
+          "group": "Connection Options",
+          "name": "base-path",
+          "type": "string",
+        },
+        {
+          "aliases": [
+            "u",
+          ],
+          "description": "The sample service user name",
+          "group": "Connection Options",
+          "name": "user",
+          "type": "string",
+        },
+        {
+          "aliases": [
+            "p",
+          ],
+          "description": "The sample service password",
+          "group": "Connection Options",
+          "name": "password",
+          "type": "string",
+        },
+        {
+          "aliases": [
+            "ru",
+          ],
+          "defaultValue": true,
+          "description": "Reject self-signed certificates",
+          "group": "Connection Options",
+          "name": "reject-unauthorized",
+          "type": "boolean",
+        },
+        {
+          "aliases": [
+            "rr",
+          ],
+          "description": "The REST resource path which will be added to https://host:port/ in order to send a GET request containing an SCRT header to your desired REST service",
+          "group": "SCRT Options",
+          "name": "rest-resource",
+          "required": true,
+          "type": "string",
+        },
+        {
+          "aliases": [
+            "rq",
+          ],
+          "description": "A query string that can be added to the the https://host:port/rest-resource in order to successfully perform a GET request to your desired REST service",
+          "group": "SCRT Options",
+          "name": "rest-query",
+          "required": false,
+          "type": "string",
+        },
+        {
+          "aliases": [
+            "fn",
+          ],
+          "description": "Name of the feature for the Zowe client app",
+          "group": "SCRT Options",
+          "name": "feature-name",
+          "required": true,
+          "type": "string",
+        },
+        {
+          "aliases": [
+            "pi",
+          ],
+          "description": "Product ID of the REST service with which the client app is interacting. Only needed if the REST service does not define its own productId property.",
+          "group": "SCRT Options",
+          "name": "product-id",
+          "type": "string",
+        },
+        {
+          "aliases": [
+            "pv",
+          ],
+          "description": "Product version of the REST service with which the client app is interacting. Only needed if the REST service does not define its own productVersion property.",
+          "group": "SCRT Options",
+          "name": "product-version",
+          "type": "string",
+        },
+      ],
+      "profile": {
+        "optional": [
+          "scrtProfile",
+        ],
+      },
+      "summary": "Test the transmission of SCRT data from client to server",
+      "type": "command",
+    },
+  ],
+  "description": "The 'send' command sends a REST request. The type of request is determined by which command is specified.",
+  "name": "send",
+  "summary": "Send a REST request",
+  "type": "group",
+}
+`;

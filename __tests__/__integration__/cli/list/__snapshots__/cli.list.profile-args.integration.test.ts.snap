@@ -10,7 +10,7 @@ exports[`zowe-cli-sample list profile-args command should list profile args from
   tshirtSize:         M
 environment: 
   teamConfigExists:  true
-  sampleProfileName: my_sample
+  tShirtProfileName: my_tShirt
   baseProfileName:   my_base
 "
 `;

@@ -8,7 +8,6 @@
  * Copyright Contributors to the Zowe Project.
  */
 
-import { CheckStatus } from "@zowe/zosmf-for-zowe-sdk";
 import { Files } from "../../../../src/api/Files";
 import { mockHandlerParameters } from "@zowe/cli-test-utils";
 import { IHandlerParameters } from "@zowe/imperative";
@@ -43,31 +42,6 @@ describe("directory-contents Handler", () => {
                 moreFake: "directory"
             }];
         });
-        CheckStatus.getZosmfInfo = jest.fn(async () => {
-            return {zosmf_hostname: "dummy"};
-        });
-        const handler = new DirectoryContentsHandler.default();
-        const params = Object.assign({}, ...[DEFAULT_PARAMETERS]);
-        params.arguments.directory = fakeDir;
-
-        // The handler should succeed
-        await handler.process(params);
-
-        expect(Files.listDirectoryContents).toHaveBeenCalledWith(fakeDir);
-    });
-
-    it("should read a mocked directory, even if checkStatus fails", async () => {
-        const fakeDir: string = "fake/directory";
-        // Mock the files api call
-        Files.listDirectoryContents = jest.fn((dir) => {
-            return [{
-                fake: "file",
-                moreFake: "directory"
-            }];
-        });
-        CheckStatus.getZosmfInfo = jest.fn(async () => {
-            throw "dummy error";
-        });
         const handler = new DirectoryContentsHandler.default();
         const params = Object.assign({}, ...[DEFAULT_PARAMETERS]);
         params.arguments.directory = fakeDir;
@@ -85,9 +59,6 @@ describe("directory-contents Handler", () => {
                 fake: "file",
                 moreFake: "directory"
             }];
-        });
-        CheckStatus.getZosmfInfo = jest.fn(async () => {
-            throw "dummy error";
         });
         const handler = new DirectoryContentsHandler.default();
         const params = Object.assign({}, ...[DEFAULT_PARAMETERS]);

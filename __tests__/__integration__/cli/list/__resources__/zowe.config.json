@@ -1,7 +1,7 @@
 {
     "profiles": {
-        "my_sample": {
-            "type": "sample",
+        "my_tShirt": {
+            "type": "tShirtProfile",
             "properties": {
                 "port": 443
             },
@@ -17,7 +17,7 @@
         }
     },
     "defaults": {
-        "sample": "my_sample",
+        "tShirtProfile": "my_tShirt",
         "base": "my_base"
     },
     "autoStore": true

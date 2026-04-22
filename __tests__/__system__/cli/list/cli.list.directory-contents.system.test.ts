@@ -35,7 +35,6 @@ describe("zowe-cli-sample list directory-contents", () => {
 
         expect(response.stderr.toString()).toBe("");
         expect(response.status).toBe(0);
-        expect(response.stdout.toString()).toContain("We just got a valid z/OSMF status response");
         expect(response.stdout.toString()).toContain("ExampleFile.txt");
         expect(response.stdout.toString()).toContain("ExampleFolder");
     });

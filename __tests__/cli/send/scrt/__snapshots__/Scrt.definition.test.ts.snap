@@ -1,0 +1,134 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Scrt definition should match the snapshot 1`] = `
+{
+  "ScrtDefinition": {
+    "aliases": [],
+    "description": "Sends a GET REST request with an SCRT header to the targeted REST service. The purpose of this command is to test the transmission of SCRT data to a REST service. Note that an SCRT header is not sent when using a direct connection to z/OSMF.",
+    "handler": "../../../../src/cli/send/scrt/Scrt.handler",
+    "name": "scrt",
+    "options": [
+      {
+        "aliases": [
+          "pr",
+        ],
+        "defaultValue": "https",
+        "description": "Communication protocol",
+        "group": "Connection Options",
+        "name": "protocol",
+        "type": "string",
+      },
+      {
+        "aliases": [
+          "H",
+        ],
+        "description": "The sample service host name",
+        "group": "Connection Options",
+        "name": "host",
+        "type": "string",
+      },
+      {
+        "aliases": [
+          "P",
+        ],
+        "description": "The sample service port",
+        "group": "Connection Options",
+        "name": "port",
+        "type": "number",
+      },
+      {
+        "aliases": [
+          "bp",
+        ],
+        "description": "The base path for your API mediation layer instance. Specify this option to prepend the base path to all z/OSMF resources when making REST requests. Do not specify this option if you are not using the API mediation layer.",
+        "group": "Connection Options",
+        "name": "base-path",
+        "type": "string",
+      },
+      {
+        "aliases": [
+          "u",
+        ],
+        "description": "The sample service user name",
+        "group": "Connection Options",
+        "name": "user",
+        "type": "string",
+      },
+      {
+        "aliases": [
+          "p",
+        ],
+        "description": "The sample service password",
+        "group": "Connection Options",
+        "name": "password",
+        "type": "string",
+      },
+      {
+        "aliases": [
+          "ru",
+        ],
+        "defaultValue": true,
+        "description": "Reject self-signed certificates",
+        "group": "Connection Options",
+        "name": "reject-unauthorized",
+        "type": "boolean",
+      },
+      {
+        "aliases": [
+          "rr",
+        ],
+        "description": "The REST resource path which will be added to https://host:port/ in order to send a GET request containing an SCRT header to your desired REST service",
+        "group": "SCRT Options",
+        "name": "rest-resource",
+        "required": true,
+        "type": "string",
+      },
+      {
+        "aliases": [
+          "rq",
+        ],
+        "description": "A query string that can be added to the the https://host:port/rest-resource in order to successfully perform a GET request to your desired REST service",
+        "group": "SCRT Options",
+        "name": "rest-query",
+        "required": false,
+        "type": "string",
+      },
+      {
+        "aliases": [
+          "fn",
+        ],
+        "description": "Name of the feature for the Zowe client app",
+        "group": "SCRT Options",
+        "name": "feature-name",
+        "required": true,
+        "type": "string",
+      },
+      {
+        "aliases": [
+          "pi",
+        ],
+        "description": "Product ID of the REST service with which the client app is interacting. Only needed if the REST service does not define its own productId property.",
+        "group": "SCRT Options",
+        "name": "product-id",
+        "type": "string",
+      },
+      {
+        "aliases": [
+          "pv",
+        ],
+        "description": "Product version of the REST service with which the client app is interacting. Only needed if the REST service does not define its own productVersion property.",
+        "group": "SCRT Options",
+        "name": "product-version",
+        "type": "string",
+      },
+    ],
+    "profile": {
+      "optional": [
+        "scrtProfile",
+      ],
+    },
+    "summary": "Test the transmission of SCRT data from client to server",
+    "type": "command",
+  },
+}
+`;

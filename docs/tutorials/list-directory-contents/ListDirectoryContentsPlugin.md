@@ -58,8 +58,6 @@ To use the plug-in functionality, issue: `zowe zowe-cli-sample list directory-co
 
 ```
 zowe zowe-cli-sample list directory-contents
-We just got a valid z/OSMF status response from system = YourHost.YourCompany.com
-
 mode  size   birthed                                                   lastModified                                              name
 33206 2288   Tue Sep 20 2022 12:44:18 GMT-0400 (Eastern Daylight Time) Tue Sep 20 2022 12:44:18 GMT-0400 (Eastern Daylight Time) .eslintrc.js
 16822        Tue Sep 20 2022 12:44:17 GMT-0400 (Eastern Daylight Time) Tue May 09 2023 15:05:34 GMT-0400 (Eastern Daylight Time) .git
@@ -86,8 +84,8 @@ mode  size   birthed                                                   lastModif
 33206 565    Tue Sep 20 2022 12:44:18 GMT-0400 (Eastern Daylight Time) Tue Sep 20 2022 12:44:18 GMT-0400 (Eastern Daylight Time) tsconfig.json
 16822        Tue Sep 20 2022 12:44:18 GMT-0400 (Eastern Daylight Time) Tue Sep 20 2022 12:44:18 GMT-0400 (Eastern Daylight Time) __mocks__
 16822        Tue Sep 20 2022 12:44:18 GMT-0400 (Eastern Daylight Time) Wed May 03 2023 13:47:37 GMT-0400 (Eastern Daylight Time) __tests__
-
 ```
+
 ## Testing the installed plug-in
 
 To run automated tests against the plug-in, `cd` into your `zowe-tutorial/zowe-cli-sample-plugin` folder.

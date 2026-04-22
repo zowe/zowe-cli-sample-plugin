@@ -35,7 +35,7 @@ export const ProfileArgsDefinition: ICommandDefinition = {
     type: "command",
     handler: __dirname + "/ProfileArgs.handler",
     profile: {
-        optional: ["sample"],
+        optional: ["tShirtProfile"]
     },
-    options: [...ProfileConstants.SAMPLE_CONNECTION_OPTIONS]
+    options: [...ProfileConstants.SAMPLE_TSHIRT_OPTIONS]
 };

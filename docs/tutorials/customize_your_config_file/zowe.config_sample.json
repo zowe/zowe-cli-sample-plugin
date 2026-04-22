@@ -1,0 +1,51 @@
+{
+    "$schema": "./zowe.schema.json",
+    "defaults": {
+        "base": "connProps",
+        "zosmf": "connProps.zosmf_direct",
+        "scrtProfile": "connProps.scrtTest",
+        "tShirtProfile": "connProps.tShirtTest"
+    },
+    "profiles": {
+        "connProps": { // Shared connection props
+            "type": "base",
+            "properties": {
+                "protocol": "https",
+                "host": "My.Mainframe.Host.Name",
+                "user": "My_User_Name",
+                "password": "My_Password", // After satisfactory testing you should use the Zowe Secure Credential Store
+                "rejectUnauthorized": false
+            },
+            "profiles": {
+                "zosmf_direct": {           // This z/OSMF profile is used to run the 'send check-status' command
+                    "type": "zosmf",
+                    "properties": {
+                        "port": 1234        // Your z/OSMF port number
+                    }
+                },
+                "scrtTest": {               // The 'send scrt' command uses this profile to send SCRT data to
+                                            // an arbitrary REST service as a test.
+                    "type": "scrtProfile",  // A real plugin would use its own profile and instead
+                                            // place its SCRT properties into its session.
+                    "properties": {
+                        "restResource": "zosmf/restfiles/ds",   // The resource portion of the URL of the REST service to test
+                        "restQuery": "dslevel=SYS1.PARMLIB*",   // Any REST query parameter needed by your TEST service
+                        "featureName": "MyScrtFeatureName",     // The SCRT feature name of your REST client app
+                        "productId": "MyProdId",                // Optional if your REST service supplies its own product ID
+                        "productVersion": "11.22.33",           // Optional if your REST service supplies its own version
+                        "basePath": "ibmzosmf/api/v1",          // z/OSMF basepath for APIML if APIML is used to reach the REST service
+                        "port": 5678                            // The port for the REST service (or for APIML if basePath is specified)
+                    }
+                },
+                "tShirtTest": {             // An example of a specialized profile for a command (list profile-args)
+                    "type": "tShirtProfile",
+                    "properties": {
+                        "tshirtSize": "XL",
+                        "port": 9999        // This port is completely fake. Never need to change it.
+                    }
+                }
+            }
+        }
+    },
+    "autoStore": false
+}
