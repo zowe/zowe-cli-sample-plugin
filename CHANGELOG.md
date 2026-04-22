@@ -2,7 +2,7 @@
 
 All notable changes to the Sample Plug-in for Zowe CLI will be documented in this file.
 
-## Recent Changes
+## `4.1.0`
 
 - Enhancement: Created the `send scrt` command as a tool that tests sending SCRT properties to an arbitrary REST service. [#147](https://github.com/zowe/zowe-cli-sample-plugin/pull/147)
 - Enhancement: Isolated the `send check-status` operation into its own command. [#147](https://github.com/zowe/zowe-cli-sample-plugin/pull/147)
