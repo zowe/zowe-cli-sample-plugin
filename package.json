@@ -88,7 +88,7 @@
     "ts-node": "^10.9.2",
     "typedoc": "^0.28.17",
     "typescript": "^5.9.3",
-    "uuid": "^13.0.0"
+    "uuid": "^14.0.0"
   },
   "peerDependencies": {
     "@zowe/imperative": "^8.31.5"
