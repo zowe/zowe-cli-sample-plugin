@@ -13,4 +13,4 @@ updates:
     schedule:
       interval: "monthly"
     open-pull-requests-limit: 10
-    target-branch: "zowe-v1-lts"
+    target-branch: "zowe-v2-lts"
