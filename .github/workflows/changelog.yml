@@ -13,14 +13,14 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2
       with:
         fetch-depth: 0
 
     - name: Check Changelog Updated
       id: checkchangelogupdated
       if: ${{ contains( github.event.pull_request.labels.*.name, 'no-changelog') != true }}
-      uses: awharn/check_changelog_action@v0.0.2
+      uses: awharn/check_changelog_action@c39f37f21362226b43f4fe346ce1305b2c72a9e4 # v0.0.2
       with:
         header: '## Recent Changes'
         file: 'CHANGELOG.md'
