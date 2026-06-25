@@ -34,20 +34,20 @@
     "lint:src": "eslint \"src/**/*.ts\" --ignore-pattern \"**/__tests__/**/*.ts\"",
     "lint:tests": "eslint \"**/__tests__/**/*.ts\"",
     "test": "npm run test:unit && npm run test:integration && npm run test:system",
-    "test:system": "env-cmd __tests__/__resources__/env/system.env jest .*/__system__/.* --coverage false",
-    "test:integration": "env-cmd __tests__/__resources__/env/integration.env jest .*/__integration__/.* --coverage false",
+    "test:system": "env-cmd __tests__/__resources__/env/system.env jest .*/__system__/.* --coverage false --runInBand",
+    "test:integration": "env-cmd __tests__/__resources__/env/integration.env jest .*/__integration__/.* --coverage false --runInBand",
     "test:unit": "env-cmd __tests__/__resources__/env/unit.env jest --coverage --testPathIgnorePatterns \".*/__system__|__integration__/.*\"",
     "installPlugin": "npm install && npm run clean && npm run build && zowe plugins install .",
     "server:start": "cd server && json-server db.json --routes routes.json --ro",
     "typedoc": "typedoc --out ./docs/typedoc/ ./src/ --disableOutputCheck",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "imperative": {
     "configurationModule": "lib/imperative.js"
   },
   "dependencies": {
-    "@zowe/core-for-zowe-sdk": "7.0.0",
-    "@zowe/zosmf-for-zowe-sdk": "7.0.0"
+    "@zowe/core-for-zowe-sdk": "7.29.25",
+    "@zowe/zosmf-for-zowe-sdk": "7.29.25"
   },
   "devDependencies": {
     "@types/fs-extra": "^8.0.0",
@@ -55,16 +55,16 @@
     "@types/node": "^8.10.66",
     "@typescript-eslint/eslint-plugin": "^4.29.0",
     "@typescript-eslint/parser": "^4.29.0",
-    "@zowe/cli": "7.0.0",
-    "@zowe/cli-test-utils": "7.0.0",
-    "@zowe/imperative": "5.0.0",
+    "@zowe/cli": "7.29.25",
+    "@zowe/cli-test-utils": "7.29.25",
+    "@zowe/imperative": "5.27.16",
     "env-cmd": "^8.0.2",
     "eslint": "^7.32.0",
     "eslint-plugin-jest": "^24.4.0",
     "eslint-plugin-license-header": "^0.4.0",
     "eslint-plugin-unused-imports": "^1.1.2",
     "fs-extra": "^8.1.0",
-    "husky": "^7.0.0",
+    "husky": "^9.1.7",
     "jest": "^27.0.6",
     "jest-cli": "^27.0.6",
     "jest-environment-node": "^27.0.6",
